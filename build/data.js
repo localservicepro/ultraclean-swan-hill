@@ -276,4 +276,53 @@ const HOME_FAQ = [
   ['Do you offer regular commercial cleaning contracts in Swan Hill?', 'We do. Offices, shops, clinics and community buildings in Swan Hill, Kerang and Barham are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in.'],
 ];
 
-module.exports = { SITE, IMG, SERVICES, HOME_FAQ };
+
+// Service-area towns with plain, quotable facts for the /areas/ page (GEO/AEO).
+const AREAS = [
+  { name: 'Lake Boga', state: 'VIC', km: 0, note: 'Our home base on Lakeside Drive. Same-day availability is most common here and in Swan Hill.' },
+  { name: 'Swan Hill', state: 'VIC', km: 17, note: 'The regional centre and our busiest area — homes, rentals, shops on Campbell Street and offices are all on the daily run.' },
+  { name: 'Beverford', state: 'VIC', km: 25, note: 'Just north of Swan Hill on the Murray Valley Highway; farmhouses and lifestyle blocks with carpet and tile work.' },
+  { name: 'Ultima', state: 'VIC', km: 30, note: 'Mallee town west of Lake Boga; carpets, windows and bond cleans booked with nearby Lalbert and Sea Lake runs.' },
+  { name: 'Nyah', state: 'VIC', km: 40, note: 'River town north of Swan Hill; a regular stop for carpet cleaning, bond cleans and flood drying after high river events.' },
+  { name: 'Lalbert', state: 'VIC', km: 40, note: 'Small farming community; usually booked together with Quambatook and Ultima to keep travel efficient.' },
+  { name: 'Wood Wood', state: 'VIC', km: 45, note: 'On the Murray between Nyah and Piangil; holiday homes and rentals needing end-of-lease and carpet cleans.' },
+  { name: 'Piangil', state: 'VIC', km: 50, note: 'Northern edge of the Swan Hill district; carpets, upholstery and tile cleaning, often paired with Tooleybuc across the river.' },
+  { name: 'Quambatook', state: 'VIC', km: 55, note: 'Gannawarra Shire farming town; carpets, windows and commercial cleaning for local businesses.' },
+  { name: 'Kerang', state: 'VIC', km: 60, note: 'Second-largest town we serve — carpet cleaning Kerang is a standing weekly run alongside bond cleans and commercial contracts.' },
+  { name: 'Sea Lake', state: 'VIC', km: 70, note: 'Mallee town near Lake Tyrrell; carpet, tile and window cleaning for homes and accommodation providers.' },
+  { name: 'Manangatang', state: 'VIC', km: 75, note: 'North-west Mallee; carpets and bond cleans, typically scheduled on a fortnightly loop.' },
+  { name: 'Cohuna', state: 'VIC', km: 85, note: 'Gannawarra Shire town on Gunbower Creek; homes, rentals and clinics, paired with Kerang and Barham runs.' },
+  { name: 'Murray Downs', state: 'NSW', km: 20, note: 'Directly across the river from Swan Hill; golf resort accommodation, new estates and rentals needing carpets and bond cleans.' },
+  { name: 'Koraleigh', state: 'NSW', km: 35, note: 'NSW side north of Murray Downs; farmhouses and rentals, usually booked with Nyah or Tooleybuc.' },
+  { name: 'Tooleybuc', state: 'NSW', km: 55, note: 'River town opposite Piangil; holiday homes, the hotel and caravan park accommodation, plus flood drying when the Murray rises.' },
+  { name: 'Kyalite', state: 'NSW', km: 70, note: 'On the Wakool River; remote properties served on scheduled runs with Tooleybuc and Balranald.' },
+  { name: 'Moulamein', state: 'NSW', km: 80, note: 'Edward River township; carpets, windows and commercial cleaning for local businesses and council buildings.' },
+  { name: 'Barham', state: 'NSW', km: 110, note: 'Twin town with Koondrook; carpet cleaning Barham and commercial cleaning are booked with the Cohuna and Kerang run.' },
+  { name: 'Balranald', state: 'NSW', km: 110, note: 'Far north-west on the Sturt Highway; carpets, bond cleans and windows on a scheduled run — no local operator ranks here.' },
+];
+
+const ABOUT_FAQ = [
+  ['Is Ultraclean Swan Hill a franchise?', 'No. Ultraclean Swan Hill is an independent, owner-operated cleaning business based in Lake Boga. The person who quotes your job is the person who does it.'],
+  ['Are you insured?', 'Yes. Ultraclean carries public liability insurance and our operators are police checked. Certificates are available on request for property managers and commercial clients.'],
+  ['What equipment do you use?', 'Truck-mounted hot-water extraction for carpets and upholstery, high-pressure turbo tools for tile and grout, water-fed poles for windows, and commercial air movers and dehumidifiers for water damage.'],
+  ['Are your products safe for kids, pets and septic systems?', 'Yes. We use low-residue, biodegradable cleaning products chosen to be safe around children and pets and suitable for the septic systems common on rural properties around Swan Hill.'],
+  ['Do you clean on weekends or after hours?', 'Saturdays are a normal working day, and commercial cleaning is done after hours by arrangement. Emergency flood drying is available outside standard hours.'],
+];
+
+const CONTACT_FAQ = [
+  ['How quickly will I get a quote?', 'Most quotes go back the same business day, often within a couple of hours. Include the rooms, rough sizes and any stains or problem areas in the job notes to get an accurate fixed price straight away.'],
+  ['Do you need to visit before quoting?', 'Usually not for residential jobs — a description or a few photos is enough. For commercial contracts and builders cleans we do a quick site visit so the quote is accurate.'],
+  ['Can I book a time that suits me?', 'Yes. Tell us your preferred days in the job notes. We confirm a time slot and send a text when we are on the way.'],
+  ['Where are you located?', 'Ultraclean Swan Hill operates from 529 Lakeside Drive, Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to all 20 towns in the service area.'],
+  ['What if I need help urgently?', 'Call 0417 327 173. For flooded carpet in Swan Hill, Lake Boga or Kerang we aim to be on site the same day.'],
+];
+
+const AREAS_FAQ = [
+  ['Which towns does Ultraclean Swan Hill service?', 'Swan Hill, Lake Boga, Kerang, Nyah, Koraleigh, Tooleybuc, Piangil, Wood Wood, Beverford, Murray Downs, Moulamein, Balranald, Sea Lake, Lalbert, Ultima, Quambatook, Barham, Cohuna, Manangatang and Kyalite — 13 towns in Victoria and 7 in New South Wales.'],
+  ['Is there a travel charge for towns outside Swan Hill?', 'No. Every town listed on this page is inside our standard service area and there is no travel surcharge. Jobs in the further towns are grouped into scheduled runs, so booking a day or two ahead helps.'],
+  ['Do you cross the border into New South Wales?', 'Yes. Murray Downs, Koraleigh, Tooleybuc, Kyalite, Moulamein, Barham and Balranald are all serviced regularly.'],
+  ['My town is not on the list — can you still come?', 'Probably. If you are within about 120 km of Lake Boga, send the address through the quote form and we will confirm.'],
+  ['How far is Lake Boga from Swan Hill?', 'About 17 km, roughly a 15-minute drive south along the Murray Valley Highway.'],
+];
+
+module.exports = { SITE, IMG, SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ };

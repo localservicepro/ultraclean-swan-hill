@@ -102,7 +102,12 @@
       setTimeout(() => { modal.hidden = true; }, 400);
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     };
-    $$('[data-open-quote]').forEach((el) => el.addEventListener('click', open));
+    const inlineForm = $('#quote-form-contact');
+    $$('[data-open-quote]').forEach((el) => el.addEventListener('click', inlineForm ? (e) => {
+      // contact page: the form is already in the hero, so scroll to it instead of opening the modal
+      e.preventDefault(); inlineForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => { const f = inlineForm.querySelector('input'); if (f) f.focus({ preventScroll: true }); }, 500);
+    } : open));
     $$('[data-close-quote]', modal).forEach((el) => el.addEventListener('click', close));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
     if (location.hash === '#book') open();

@@ -2,7 +2,7 @@
 // Static site generator for Ultraclean Swan Hill. Run: node build/build.js
 const fs = require('fs');
 const path = require('path');
-const { SITE, IMG, SERVICES, HOME_FAQ } = require('./data');
+const { SITE, IMG, SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ } = require('./data');
 
 const ROOT = path.join(__dirname, '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -76,9 +76,9 @@ function nav(current = '') {
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
         <li><button type="button" aria-haspopup="true">Services ${ICON.chev}</button><div class="mega">${mega}</div></li>
-        <li><a href="/#about">About</a></li>
-        <li><a href="/#areas">Areas</a></li>
-        <li><a href="/#quote">Contact</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/areas/">Areas</a></li>
+        <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
     <div class="nav-cta">
@@ -92,9 +92,9 @@ function nav(current = '') {
   <a class="big" href="/">Home</a>
   <a class="big" href="/#services">Services</a>
   <div class="sub">${mob}</div>
-  <a class="big" href="/#about">About</a>
-  <a class="big" href="/#areas">Service areas</a>
-  <a class="big" href="/#quote">Contact</a>
+  <a class="big" href="/about/">About</a>
+  <a class="big" href="/areas/">Service areas</a>
+  <a class="big" href="/contact/">Contact</a>
   <div class="m-foot">
     <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
     <a class="btn ghost" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a>
@@ -137,7 +137,7 @@ function footer(defaultService = '') {
     <div class="foot-grid">
       <div>${LOGO()}<p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
       <div><h4>Services</h4><ul>${svc}</ul></div>
-      <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/#about">About</a></li><li><a href="/#areas">Service areas</a></li><li><a href="/#faq">FAQ</a></li><li><a href="/#quote">Get a quote</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
         <li><a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></li>
         <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
@@ -160,7 +160,7 @@ ${quoteModal(defaultService)}
 
 function quoteForm(defaultService = '', pre = 'f') {
   const opts = SERVICES.map((s) => `<option value="${esc(s.nav)}"${s.nav === defaultService ? ' selected' : ''}>${esc(s.nav)}</option>`).join('');
-  return `<form class="form quote-form" id="${pre === 'f' ? 'quote-form' : 'quote-form-modal'}" method="post" action="/thank-you/" data-redirect="/thank-you/" novalidate>
+  return `<form class="form quote-form" id="${pre === 'f' ? 'quote-form' : pre === 'c' ? 'quote-form-contact' : 'quote-form-modal'}" method="post" action="/thank-you/" data-redirect="/thank-you/" novalidate>
   <div class="grid">
     <div class="field"><label for="${pre}-name">Name</label><input id="${pre}-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required></div>
     <div class="field"><label for="${pre}-phone">Phone</label><input id="${pre}-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
@@ -294,6 +294,7 @@ function home() {
         <div><b>9 services</b><span>Carpets through to flood drying</span></div>
         <div><b>Fully insured</b><span>Public liability and police checked</span></div>
       </div>
+      <a class="btn on-paper" href="/about/" style="margin-top:28px">More about Ultraclean ${ICON.arr}</a>
     </div>
   </div>
 </section>
@@ -338,6 +339,7 @@ function home() {
       </div>
       <div class="area-group reveal"><span class="label muted">Victoria</span><div class="chips">${chips(SITE.areasVic)}</div></div>
       <div class="area-group reveal" data-d="1"><span class="label muted">New South Wales</span><div class="chips">${chips(SITE.areasNsw)}</div></div>
+      <a class="link-u reveal" data-d="2" href="/areas/" style="margin-top:28px">See every town we cover ${ICON.arrNE.replace('<svg', '<svg style="width:14px;height:14px;vertical-align:-2px;margin-left:4px"')}</a>
     </div>
     <div class="contact-card reveal" data-d="2">
       <span class="label">Get in touch</span>
@@ -486,6 +488,219 @@ function thankYou() {
 ` + footer();
 }
 
+
+/* ---------- about ---------- */
+function crumbs(items) {
+  return `<div class="crumbs fadeup d1"><a href="/">Home</a>${items.map((i) => `<span>/</span>${i[1] ? `<a href="${i[1]}">${esc(i[0])}</a>` : `<span>${esc(i[0])}</span>`}`).join('')}</div>`;
+}
+const breadcrumbSchema = (items) => ({ '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain + '/' }, ...items.map((i, n) => ({ '@type': 'ListItem', position: n + 2, name: i[0], item: SITE.domain + i[2] }))] });
+
+function aboutPage() {
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'AboutPage', '@id': SITE.domain + '/about/#page', url: SITE.domain + '/about/', name: 'About Ultraclean Swan Hill', about: { '@id': SITE.domain + '/#business' } },
+    localBusiness(), breadcrumbSchema([['About', '/about/', '/about/']]), faqSchema(ABOUT_FAQ),
+  ] };
+  return head({ title: 'About Ultraclean Swan Hill | Local, Insured Cleaners', meta: 'Ultraclean Swan Hill is an owner-operated cleaning business based in Lake Boga, servicing Swan Hill, Kerang and 20 Murray River towns. Insured, local, truck-mounted equipment.', canonical: '/about/', ogImage: IMG.van, schema }) + nav('about') + `
+<main>
+<section class="page-hero">
+  <div class="hero-media"><img src="${IMG.van}" alt="Ultraclean Swan Hill cleaning van on the Lake Boga foreshore at sunset" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <div>
+      ${crumbs([['About']])}
+      <h1 class="fadeup d2">About Ultraclean Swan Hill — Local Cleaners Based in Lake Boga</h1>
+      <p class="lede fadeup d3">An independent, owner-operated cleaning business covering Swan Hill, Kerang and the Murray River towns on both sides of the border.</p>
+      <div class="hero-ctas fadeup d4" style="margin-top:30px"><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a></div>
+    </div>
+    <div class="hero-side fadeup d5">
+      <div class="stat-card"><span class="label">In one line</span><b>Nine services, twenty towns</b><p>Carpets, upholstery, tile and grout, windows, bond cleans, builders cleans, commercial contracts and flood drying.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap svc-body">
+    <article class="prose reveal">
+      <h2>Who we are</h2>
+      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business operating from 529 Lakeside Drive, Lake Boga, about 17 km south of Swan Hill. We are not a franchise and not a booking platform: when you call ${SITE.phoneDisplay} you speak to the person who will quote the job and turn up to do it.</p>
+      <p>The business started with carpet steam cleaning for homes and rentals around Swan Hill and Lake Boga. Customers kept asking whether we could do the lounge, the tiles, the windows and the whole house before an inspection — so the service list grew to nine services, and the run grew to twenty towns from Sea Lake to Balranald.</p>
+      <h2>What we do</h2>
+      <ul>${SERVICES.map((x) => `<li>${ICON.tick}<span><a href="/services/${x.slug}/" class="link-u">${esc(x.nav)}</a> — ${esc(x.blurb)}</span></li>`).join('')}</ul>
+      <h2>Equipment that does the job properly</h2>
+      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers and dehumidifiers for water damage. Everything travels on the truck, so one visit covers the whole job.</p>
+      <h2>Safe products, rural-ready</h2>
+      <p>Many properties around Swan Hill, Kerang and the NSW river towns are on septic systems and tank water. We use low-residue, biodegradable products that are safe for kids, pets and septic tanks, and we rinse thoroughly so nothing sticky is left behind to attract dirt.</p>
+      <h2>Insured, checked, accountable</h2>
+      <p>Ultraclean carries public liability insurance and our operators are police checked. Property managers, builders and commercial clients can request certificates. If a job is not right, you call the same number and we come back and fix it.</p>
+      <h2>Where we work</h2>
+      <p>Victoria: ${SITE.areasVic.join(', ')}. New South Wales: ${SITE.areasNsw.join(', ')}. See the <a href="/areas/" class="link-u">service areas page</a> for details on each town. There is no travel surcharge inside the service area.</p>
+    </article>
+    <aside class="aside">
+      <div class="card reveal" data-d="1"><span class="label">Get in touch</span><h3 style="margin-top:10px">Talk to the person doing the work</h3><p>Fixed quote the same business day. No call centre.</p><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div>
+      <div class="card reveal" data-d="2"><span class="label muted">Quick facts</span>
+        <ul class="related" style="margin-top:10px">
+          <li><span style="color:var(--text-2)">Based</span> <span>Lake Boga VIC 3584</span></li>
+          <li><span style="color:var(--text-2)">Hours</span> <span>${SITE.hours}</span></li>
+          <li><span style="color:var(--text-2)">Coverage</span> <span>20 towns, VIC &amp; NSW</span></li>
+          <li><span style="color:var(--text-2)">Insurance</span> <span>Public liability</span></li>
+        </ul></div>
+      <div class="card reveal" data-d="3"><span class="label muted">Explore</span><ul class="related" style="margin-top:10px"><li><a href="/areas/">Service areas ${ICON.arrNE}</a></li><li><a href="/contact/">Contact &amp; quote ${ICON.arrNE}</a></li><li><a href="/#services">All services ${ICON.arrNE}</a></li></ul></div>
+    </aside>
+  </div>
+</section>
+
+<section class="paper section">
+  <div class="wrap">
+    <div class="section-head"><div class="reveal"><span class="label">How we work</span><h2>Four steps, no surprises.</h2></div></div>
+    <div class="steps">
+      <div class="step reveal" style="border-top-color:var(--paper-line)"><span class="n">1</span><h3>Tell us the job</h3><p>Form or phone. Rooms, sizes, stains, dates.</p></div>
+      <div class="step reveal" data-d="1" style="border-top-color:var(--paper-line)"><span class="n">2</span><h3>Fixed price back</h3><p>Written price for the whole job, same business day.</p></div>
+      <div class="step reveal" data-d="2" style="border-top-color:var(--paper-line)"><span class="n">3</span><h3>We turn up on time</h3><p>Confirmed slot, text when on the way.</p></div>
+      <div class="step reveal" data-d="3" style="border-top-color:var(--paper-line)"><span class="n">4</span><h3>Walk-through before we go</h3><p>Every room checked with you before we leave.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="label">Questions</span><h2 style="margin-top:14px">About <span class="em">Ultraclean</span></h2></div>
+    <div class="reveal" data-d="1">${faqBlock(ABOUT_FAQ)}</div>
+  </div>
+</section>
+${ctaStrip()}
+</main>
+` + footer();
+}
+
+/* ---------- contact ---------- */
+function contactPage() {
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'ContactPage', '@id': SITE.domain + '/contact/#page', url: SITE.domain + '/contact/', name: 'Contact Ultraclean Swan Hill', about: { '@id': SITE.domain + '/#business' } },
+    Object.assign(localBusiness(), { contactPoint: { '@type': 'ContactPoint', telephone: SITE.phoneTel, email: SITE.email, contactType: 'customer service', areaServed: 'AU', availableLanguage: 'en' } }),
+    breadcrumbSchema([['Contact', '/contact/', '/contact/']]), faqSchema(CONTACT_FAQ),
+  ] };
+  return head({ title: 'Contact Ultraclean Swan Hill | Free Cleaning Quote', meta: 'Contact Ultraclean Swan Hill for a free fixed-price cleaning quote. Call 0417 327 173 or send the form — same business day reply. Based in Lake Boga, servicing Swan Hill, Kerang and the Murray.', canonical: '/contact/', ogImage: IMG.hero, schema }) + nav('contact') + `
+<main>
+<section class="contact-hero">
+  <div class="hero-media"><img src="${IMG.steps}" alt="Ultraclean technician carrying carpet cleaning equipment to a Swan Hill home" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap contact-hero-in">
+    <div class="contact-intro">
+      ${crumbs([['Contact']])}
+      <h1 class="fadeup d2">Contact Ultraclean Swan Hill for a Free Cleaning Quote</h1>
+      <p class="lede fadeup d3">Send the form and get a fixed price back the same business day. Or call — you will speak to the person who does the work.</p>
+      <div class="contact-rows fadeup d4">
+        <a class="crow" href="tel:${SITE.phoneTel}">${ICON.phone}<span><b>Phone</b>${SITE.phoneDisplay}</span></a>
+        <a class="crow" href="mailto:${SITE.email}">${ICON.mail}<span><b>Email</b>${SITE.email}</span></a>
+        <div class="crow">${ICON.pin}<span><b>Base</b>${SITE.address.street}, ${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div>
+        <div class="crow">${ICON.clock}<span><b>Hours</b>${SITE.hours}</span></div>
+      </div>
+    </div>
+    <div class="contact-form fadeup d3">${quoteForm('', 'c')}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap svc-body">
+    <article class="prose reveal">
+      <h2>Getting a quote from Ultraclean Swan Hill</h2>
+      <p>Ultraclean Swan Hill provides free, fixed-price quotes for carpet cleaning, upholstery and rug cleaning, tile and grout cleaning, window cleaning, end of lease cleaning, commercial and builders cleaning, and flood and water damage drying across Swan Hill, Lake Boga, Kerang and the Murray River towns. Quotes are answered the same business day, Monday to Saturday.</p>
+      <h2>What to include</h2>
+      <ul>
+        <li>${ICON.tick}<span>The property address or town, so we can schedule you on the right run</span></li>
+        <li>${ICON.tick}<span>Number of rooms or the areas to be cleaned, with rough sizes</span></li>
+        <li>${ICON.tick}<span>Any stains, pet issues, water damage or problem areas</span></li>
+        <li>${ICON.tick}<span>Deadlines — an inspection date, settlement or handover</span></li>
+        <li>${ICON.tick}<span>Preferred days or times, including after hours for commercial premises</span></li>
+      </ul>
+      <h2>Property managers, builders and businesses</h2>
+      <p>For vacate cleans between tenancies, builders cleans at handover and regular commercial contracts, email ${SITE.email} or call ${SITE.phoneDisplay} and ask for a site visit. We supply insurance certificates, bond clean receipts and drying reports for insurers.</p>
+      <h2>Where we are</h2>
+      <p>Ultraclean operates from 529 Lakeside Drive, Lake Boga VIC 3584 — about 17 km south of Swan Hill on the Murray Valley Highway. We do not run a shopfront; all work is done at your property. See the full list of towns on the <a href="/areas/" class="link-u">service areas page</a>.</p>
+    </article>
+    <aside class="aside">
+      <div class="card reveal" data-d="1"><span class="label">Urgent?</span><h3 style="margin-top:10px">Flooded carpet or an inspection tomorrow</h3><p>Call now. For water damage in Swan Hill, Lake Boga and Kerang we aim to be on site the same day.</p><a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a></div>
+      <div class="card reveal" data-d="2"><span class="label muted">Find us</span><p style="margin-top:8px">${SITE.address.street}<br>${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</p><a class="link-u" style="margin-top:12px;display:inline-block" href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.street + ', ' + SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">Open in Google Maps</a></div>
+    </aside>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="label">Questions</span><h2 style="margin-top:14px">Booking &amp; <span class="em">quotes</span></h2></div>
+    <div class="reveal" data-d="1">${faqBlock(CONTACT_FAQ)}</div>
+  </div>
+</section>
+</main>
+` + footer();
+}
+
+/* ---------- areas ---------- */
+function areasPage() {
+  const vic = AREAS.filter((a) => a.state === 'VIC'), nsw = AREAS.filter((a) => a.state === 'NSW');
+  const card = (a) => `<div class="area-card reveal"><div class="ac-head"><h3>${a.name}</h3><span class="ac-km">${a.km === 0 ? 'Home base' : 'approx. ' + a.km + ' km'}</span></div><p>${esc(a.note)}</p><a class="link-u" href="/contact/" data-open-quote>Quote for ${a.name}</a></div>`;
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', '@id': SITE.domain + '/areas/#page', url: SITE.domain + '/areas/', name: 'Service Areas — Ultraclean Swan Hill', about: { '@id': SITE.domain + '/#business' } },
+    localBusiness(),
+    { '@type': 'ItemList', name: 'Towns serviced by Ultraclean Swan Hill', itemListElement: AREAS.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: `${a.name}, ${a.state}` })) },
+    breadcrumbSchema([['Service areas', '/areas/', '/areas/']]), faqSchema(AREAS_FAQ),
+  ] };
+  return head({ title: 'Service Areas | Cleaners Swan Hill, Kerang & Murray Towns | Ultraclean', meta: 'Ultraclean Swan Hill services 20 towns from Lake Boga: Swan Hill, Kerang, Cohuna, Barham, Balranald, Nyah, Tooleybuc, Sea Lake and more. No travel surcharge. See every town we cover.', canonical: '/areas/', ogImage: IMG.carpet, schema }) + nav('areas') + `
+<main>
+<section class="page-hero">
+  <div class="hero-media"><img src="${IMG.window}" alt="Cleaners Swan Hill - Ultraclean window cleaning a shopfront on a Murray region main street" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <div>
+      ${crumbs([['Service areas']])}
+      <h1 class="fadeup d2">Cleaners for Swan Hill, Kerang &amp; 20 Murray River Towns</h1>
+      <p class="lede fadeup d3">Ultraclean travels from Lake Boga to every town on this page — 13 in Victoria, 7 in New South Wales — with no travel surcharge.</p>
+      <div class="hero-ctas fadeup d4" style="margin-top:30px"><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a></div>
+    </div>
+    <div class="hero-side fadeup d5">
+      <div class="stat-card"><span class="label">Coverage</span><b>Up to ~110 km from Lake Boga</b><p>Further towns are grouped into scheduled runs; booking a day or two ahead helps.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><span class="label">Victoria</span><h2>Swan Hill Rural City, Gannawarra &amp; Buloke.</h2></div>
+      <p class="reveal" data-d="1">Ultraclean Swan Hill is based at Lake Boga and services these Victorian towns for carpet, upholstery, tile, window, bond, commercial and flood cleaning. Distances are approximate road distances from Lake Boga.</p>
+    </div>
+    <div class="area-grid">${vic.map(card).join('')}</div>
+  </div>
+</section>
+
+<section class="paper section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="reveal"><span class="label">New South Wales</span><h2>Across the Murray — Murray River, Balranald &amp; Wakool districts.</h2></div>
+      <p class="reveal" data-d="1">The NSW side of the river is serviced on the same terms as Victoria. Property managers and holiday-home owners in Murray Downs and Tooleybuc are regular clients.</p>
+    </div>
+    <div class="area-grid">${nsw.map(card).join('')}</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><div class="reveal"><span class="label">Services in every town</span><h2>What we bring to <span class="em">each one.</span></h2></div></div>
+    <div class="svc-list">${SERVICES.map((x, i) => `<a class="svc reveal" href="/services/${x.slug}/"><span class="n">0${i + 1}</span><h3>${esc(x.nav)}</h3><p>${esc(x.blurb)}</p><span class="go">${ICON.arrNE}</span></a>`).join('')}</div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0" id="faq">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="label">Questions</span><h2 style="margin-top:14px">Service area <span class="em">FAQ</span></h2></div>
+    <div class="reveal" data-d="1">${faqBlock(AREAS_FAQ)}</div>
+  </div>
+</section>
+${ctaStrip()}
+</main>
+` + footer();
+}
+
 /* ---------- write ---------- */
 function write(rel, content) {
   const p = path.join(ROOT, rel);
@@ -497,6 +712,9 @@ function write(rel, content) {
 write('index.html', home());
 SERVICES.forEach((s) => write(`services/${s.slug}/index.html`, servicePage(s)));
 write('thank-you/index.html', thankYou());
+write('about/index.html', aboutPage());
+write('contact/index.html', contactPage());
+write('areas/index.html', areasPage());
 write('assets/img/logo.svg', MARK(64).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace(' aria-hidden="true"', ''));
 write('assets/img/favicon.svg', MARK(64).replace(' aria-hidden="true"', ''));
 write('assets/img/logo-lockup.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="420" height="80" viewBox="0 0 420 80">
@@ -510,6 +728,6 @@ write('assets/img/logo-lockup-dark.svg', `<svg xmlns="http://www.w3.org/2000/svg
   <text x="92" y="66" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="#0e9aa8">SWAN HILL</text>
 </svg>`);
 
-const urls = ['/', ...SERVICES.map((s) => `/services/${s.slug}/`)];
+const urls = ['/', ...SERVICES.map((s) => `/services/${s.slug}/`), '/about/', '/areas/', '/contact/'];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE.domain}${u}</loc><changefreq>monthly</changefreq><priority>${u === '/' ? '1.0' : '0.8'}</priority></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /thank-you/\n\nSitemap: ${SITE.domain}/sitemap.xml\n`);

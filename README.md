@@ -5,7 +5,7 @@ Static, dependency-free marketing site (home + 7 service pages + thank-you) buil
 ## Structure
 - `build/data.js` — every business fact, page copy, FAQ and image URL. **Edit this, not the HTML.**
 - `build/build.js` — generates the HTML. Run `node build/build.js` after any change.
-- `index.html`, `services/<slug>/index.html`, `thank-you/index.html` — generated output (committed so any static host can serve it as-is).
+- `index.html`, `services/<slug>/index.html`, `about/`, `areas/`, `contact/`, `thank-you/` — generated output (committed so any static host can serve it as-is).
 - `assets/css/site.css`, `assets/js/site.js` — design system and interactions.
 - `assets/img/` — logo mark (`logo.svg`), lockups (`logo-lockup*.svg`), favicon, apple-touch-icon.
 - `sitemap.xml`, `robots.txt` — generated; `/thank-you/` is noindex.
