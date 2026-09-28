@@ -141,7 +141,7 @@ function footer(defaultService = '') {
       <div><h4>Contact</h4><ul>
         <li><a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></li>
         <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
-        <li><a href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.street + ', ' + SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">${SITE.address.street}, ${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</a></li>
+        <li><a href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</a></li>
         <li><span style="color:var(--text-2);font-size:.95rem">${SITE.hours}</span></li>
       </ul></div>
     </div>
@@ -289,7 +289,7 @@ function home() {
       <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill. We are not a franchise and we are not a booking platform — when you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
       <p>We invest in the equipment that makes the difference: truck-mounted hot-water extraction, high-pressure tile turbo tools, commercial air movers and dehumidifiers for water damage, and water-fed poles for windows. The products we use are safe for kids, pets and septic systems, which matters out here.</p>
       <div class="facts">
-        <div><b>Lake Boga</b><span>Home base, 529 Lakeside Drive</span></div>
+        <div><b>Lake Boga</b><span>Home base, VIC 3584</span></div>
         <div><b>20 towns</b><span>VIC and NSW sides of the Murray</span></div>
         <div><b>9 services</b><span>Carpets through to flood drying</span></div>
         <div><b>Fully insured</b><span>Public liability and police checked</span></div>
@@ -346,7 +346,7 @@ function home() {
       <h3 style="margin-top:12px">Ultraclean Swan Hill</h3>
       <div class="row">${ICON.phone}<div><b>Phone</b><a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div></div>
       <div class="row">${ICON.mail}<div><b>Email</b><a href="mailto:${SITE.email}">${SITE.email}</a></div></div>
-      <div class="row">${ICON.pin}<div><b>Base</b><span>${SITE.address.street}, ${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div></div>
+      <div class="row">${ICON.pin}<div><b>Base</b><span>${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div></div>
       <div class="row">${ICON.clock}<div><b>Hours</b><span>${SITE.hours}<br>Emergency flood drying by arrangement</span></div></div>
     </div>
   </div>
@@ -522,7 +522,7 @@ function aboutPage() {
   <div class="wrap svc-body">
     <article class="prose reveal">
       <h2>Who we are</h2>
-      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business operating from 529 Lakeside Drive, Lake Boga, about 17 km south of Swan Hill. We are not a franchise and not a booking platform: when you call ${SITE.phoneDisplay} you speak to the person who will quote the job and turn up to do it.</p>
+      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business operating from Lake Boga VIC 3584, about 17 km south of Swan Hill. We are not a franchise and not a booking platform: when you call ${SITE.phoneDisplay} you speak to the person who will quote the job and turn up to do it.</p>
       <p>The business started with carpet steam cleaning for homes and rentals around Swan Hill and Lake Boga. Customers kept asking whether we could do the lounge, the tiles, the windows and the whole house before an inspection — so the service list grew to nine services, and the run grew to twenty towns from Sea Lake to Balranald.</p>
       <h2>What we do</h2>
       <ul>${SERVICES.map((x) => `<li>${ICON.tick}<span><a href="/services/${x.slug}/" class="link-u">${esc(x.nav)}</a> — ${esc(x.blurb)}</span></li>`).join('')}</ul>
@@ -592,7 +592,7 @@ function contactPage() {
       <div class="contact-rows fadeup d4">
         <a class="crow" href="tel:${SITE.phoneTel}">${ICON.phone}<span><b>Phone</b>${SITE.phoneDisplay}</span></a>
         <a class="crow" href="mailto:${SITE.email}">${ICON.mail}<span><b>Email</b>${SITE.email}</span></a>
-        <div class="crow">${ICON.pin}<span><b>Base</b>${SITE.address.street}, ${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div>
+        <div class="crow">${ICON.pin}<span><b>Base</b>${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div>
         <div class="crow">${ICON.clock}<span><b>Hours</b>${SITE.hours}</span></div>
       </div>
     </div>
@@ -616,11 +616,11 @@ function contactPage() {
       <h2>Property managers, builders and businesses</h2>
       <p>For vacate cleans between tenancies, builders cleans at handover and regular commercial contracts, email ${SITE.email} or call ${SITE.phoneDisplay} and ask for a site visit. We supply insurance certificates, bond clean receipts and drying reports for insurers.</p>
       <h2>Where we are</h2>
-      <p>Ultraclean operates from 529 Lakeside Drive, Lake Boga VIC 3584 — about 17 km south of Swan Hill on the Murray Valley Highway. We do not run a shopfront; all work is done at your property. See the full list of towns on the <a href="/areas/" class="link-u">service areas page</a>.</p>
+      <p>Ultraclean operates from Lake Boga VIC 3584 — about 17 km south of Swan Hill on the Murray Valley Highway. We do not run a shopfront; all work is done at your property. See the full list of towns on the <a href="/areas/" class="link-u">service areas page</a>.</p>
     </article>
     <aside class="aside">
       <div class="card reveal" data-d="1"><span class="label">Urgent?</span><h3 style="margin-top:10px">Flooded carpet or an inspection tomorrow</h3><p>Call now. For water damage in Swan Hill, Lake Boga and Kerang we aim to be on site the same day.</p><a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a></div>
-      <div class="card reveal" data-d="2"><span class="label muted">Find us</span><p style="margin-top:8px">${SITE.address.street}<br>${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</p><a class="link-u" style="margin-top:12px;display:inline-block" href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.street + ', ' + SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">Open in Google Maps</a></div>
+      <div class="card reveal" data-d="2"><span class="label muted">Find us</span><p style="margin-top:8px">${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</p><a class="link-u" style="margin-top:12px;display:inline-block" href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">Open in Google Maps</a></div>
     </aside>
   </div>
 </section>

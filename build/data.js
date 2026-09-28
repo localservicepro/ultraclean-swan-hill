@@ -279,7 +279,7 @@ const HOME_FAQ = [
 
 // Service-area towns with plain, quotable facts for the /areas/ page (GEO/AEO).
 const AREAS = [
-  { name: 'Lake Boga', state: 'VIC', km: 0, note: 'Our home base on Lakeside Drive. Same-day availability is most common here and in Swan Hill.' },
+  { name: 'Lake Boga', state: 'VIC', km: 0, note: 'Our home base. Same-day availability is most common here and in Swan Hill.' },
   { name: 'Swan Hill', state: 'VIC', km: 17, note: 'The regional centre and our busiest area — homes, rentals, shops on Campbell Street and offices are all on the daily run.' },
   { name: 'Beverford', state: 'VIC', km: 25, note: 'Just north of Swan Hill on the Murray Valley Highway; farmhouses and lifestyle blocks with carpet and tile work.' },
   { name: 'Ultima', state: 'VIC', km: 30, note: 'Mallee town west of Lake Boga; carpets, windows and bond cleans booked with nearby Lalbert and Sea Lake runs.' },
@@ -313,7 +313,7 @@ const CONTACT_FAQ = [
   ['How quickly will I get a quote?', 'Most quotes go back the same business day, often within a couple of hours. Include the rooms, rough sizes and any stains or problem areas in the job notes to get an accurate fixed price straight away.'],
   ['Do you need to visit before quoting?', 'Usually not for residential jobs — a description or a few photos is enough. For commercial contracts and builders cleans we do a quick site visit so the quote is accurate.'],
   ['Can I book a time that suits me?', 'Yes. Tell us your preferred days in the job notes. We confirm a time slot and send a text when we are on the way.'],
-  ['Where are you located?', 'Ultraclean Swan Hill operates from 529 Lakeside Drive, Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to all 20 towns in the service area.'],
+  ['Where are you located?', 'Ultraclean Swan Hill operates from Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to all 20 towns in the service area.'],
   ['What if I need help urgently?', 'Call 0417 327 173. For flooded carpet in Swan Hill, Lake Boga or Kerang we aim to be on site the same day.'],
 ];
 
