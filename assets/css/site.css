@@ -405,6 +405,29 @@ body.modal-open { overflow: hidden; }
 @media (max-width: 900px) { .contact-hero-in { grid-template-columns: 1fr; } .contact-hero { align-items: flex-start; padding-top: calc(var(--nav-h) + 24px); } .contact-intro h1 { max-width: none; } }
 @media (max-width: 600px) { .area-grid { grid-template-columns: 1fr; } .contact-form .form .grid { grid-template-columns: 1fr 1fr; gap: 10px; } .contact-form .field.f-email, .contact-form .field.f-address, .contact-form .field:has(textarea) { grid-column: 1 / -1; } .contact-rows { margin-top: 18px; } }
 
+/* blog */
+.byline { font-family: var(--mono); font-size: .78rem; letter-spacing: .06em; color: var(--text-2); }
+.post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.post-card { display: flex; flex-direction: column; border: 1px solid var(--line-2); border-radius: 18px; overflow: hidden; background: rgba(255,255,255,0.02); transition: border-color .3s, transform .4s var(--ease); }
+.post-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+.pc-img { aspect-ratio: 16/10; overflow: hidden; }
+.pc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+.post-card:hover .pc-img img { transform: scale(1.05); }
+.pc-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.pc-body h3 { font-size: 1.35rem; }
+.pc-body p { font-size: .95rem; flex: 1; }
+.prose.post p { font-size: 1.05rem; line-height: 1.7; }
+.prose.post h3 { margin: 26px 0 8px; font-size: 1.3rem; }
+.prose.post ol { margin: 14px 0 0 22px; display: grid; gap: 10px; color: var(--text-2); }
+.prose.post ol li { display: list-item; grid-template-columns: none; padding-left: 6px; }
+.prose.post ol li::marker { color: var(--accent); font-family: var(--mono); }
+.prose.post a:not(.btn) { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose.post .faq { margin-top: 10px; }
+.prose.post .faq summary { font-size: 1.15rem; }
+.prose.post .faq .a { font-size: 1rem; }
+@media (max-width: 1000px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .post-grid { grid-template-columns: 1fr; } }
+
 /* thank you */
 .thanks { min-height: 100svh; display: grid; place-items: center; padding: calc(var(--nav-h) + 40px) var(--gutter) 80px; text-align: center; position: relative; overflow: hidden; }
 .thanks .tick { width: 84px; height: 84px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; margin: 0 auto 28px; animation: pop .8s var(--ease) both; }

@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { SITE, IMG, SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ } = require('./data');
+const { POSTS } = require('./blog');
 
 const ROOT = path.join(__dirname, '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -78,6 +79,7 @@ function nav(current = '') {
         <li><button type="button" aria-haspopup="true">Services ${ICON.chev}</button><div class="mega">${mega}</div></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/areas/">Areas</a></li>
+        <li><a href="/blog/">Blog</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
     </nav>
@@ -94,6 +96,7 @@ function nav(current = '') {
   <div class="sub">${mob}</div>
   <a class="big" href="/about/">About</a>
   <a class="big" href="/areas/">Service areas</a>
+  <a class="big" href="/blog/">Blog</a>
   <a class="big" href="/contact/">Contact</a>
   <div class="m-foot">
     <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
@@ -137,7 +140,7 @@ function footer(defaultService = '') {
     <div class="foot-grid">
       <div>${LOGO()}<p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
       <div><h4>Services</h4><ul>${svc}</ul></div>
-      <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
+      <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
         <li><a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></li>
         <li><a href="mailto:${SITE.email}">${SITE.email}</a></li>
@@ -701,6 +704,97 @@ ${ctaStrip()}
 ` + footer();
 }
 
+
+/* ---------- blog ---------- */
+const fmtDate = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+const postBySlug = Object.fromEntries(POSTS.map((p) => [p.slug, p]));
+const wordCount = (p) => p.body.map(([t, v]) => Array.isArray(v) ? v.join(' ') : v).join(' ').replace(/<[^>]+>/g, '').split(/\s+/).filter(Boolean).length;
+
+function postCard(p, d = 0) {
+  return `<a class="post-card reveal" data-d="${d}" href="/blog/${p.slug}/">
+    <div class="pc-img"><img src="${IMG[p.img]}" alt="${esc(p.alt)}" loading="lazy"></div>
+    <div class="pc-body"><span class="label">${esc(p.category)} · ${p.readMins} min read</span><h3>${esc(p.title)}</h3><p>${esc(p.excerpt)}</p><span class="link-u">Read the guide</span></div>
+  </a>`;
+}
+
+function blogIndex() {
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'Blog', '@id': SITE.domain + '/blog/#blog', url: SITE.domain + '/blog/', name: 'Ultraclean Swan Hill guides', publisher: { '@id': SITE.domain + '/#business' },
+      blogPost: POSTS.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.domain}/blog/${p.slug}/`, datePublished: p.date, image: IMG[p.img] })) },
+    localBusiness(), breadcrumbSchema([['Blog', '/blog/', '/blog/']]),
+  ] };
+  return head({ title: 'Cleaning Guides for Swan Hill Homes & Renters | Ultraclean Blog', meta: 'Plain-English guides from Ultraclean Swan Hill: carpet cleaning costs, the end of lease checklist local agents use, and what to do when carpet floods along the Murray.', canonical: '/blog/', ogImage: IMG.carpet, schema }) + nav('blog') + `
+<main>
+<section class="page-hero" style="min-height:60svh">
+  <div class="hero-media"><img src="${IMG.macro}" alt="Ultraclean Swan Hill cleaning guides" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <div>
+      ${crumbs([['Blog']])}
+      <h1 class="fadeup d2">Cleaning guides for Swan Hill homes, renters &amp; landlords</h1>
+      <p class="lede fadeup d3">Prices, checklists and what to do when something goes wrong — written for the Murray region, by the people who do the work.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap"><div class="post-grid">${POSTS.map((p, i) => postCard(p, i)).join('')}</div></div>
+</section>
+${ctaStrip()}
+</main>
+` + footer();
+}
+
+function blogPost(p) {
+  const body = p.body.map(([t, v]) => {
+    if (t === 'h2') return `<h2>${esc(v)}</h2>`;
+    if (t === 'h3') return `<h3>${esc(v)}</h3>`;
+    if (t === 'p') return `<p>${v}</p>`;
+    if (t === 'ul') return `<ul>${v.map((li) => `<li>${ICON.tick}<span>${li}</span></li>`).join('')}</ul>`;
+    if (t === 'ol') return `<ol>${v.map((li) => `<li>${li}</li>`).join('')}</ol>`;
+    return '';
+  }).join('\n');
+  const related = p.related.map((r) => postBySlug[r]).filter(Boolean);
+  const schema = { '@context': 'https://schema.org', '@graph': [
+    { '@type': 'BlogPosting', '@id': `${SITE.domain}/blog/${p.slug}/#post`, headline: p.title, description: p.meta, image: IMG[p.img], datePublished: p.date, dateModified: p.date,
+      author: { '@type': 'Organization', name: SITE.name, url: SITE.domain }, publisher: { '@id': SITE.domain + '/#business' },
+      mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, keywords: p.keyword, wordCount: wordCount(p), inLanguage: 'en-AU',
+      about: { '@type': 'Place', name: 'Swan Hill, Victoria, Australia' } },
+    localBusiness(), breadcrumbSchema([['Blog', '/blog/', '/blog/'], [p.title, `/blog/${p.slug}/`, `/blog/${p.slug}/`]]), faqSchema(p.faq),
+  ] };
+  return head({ title: p.metaTitle, meta: p.meta, canonical: `/blog/${p.slug}/`, ogImage: IMG[p.img], schema, extra: '<meta property="og:type" content="article">' }) + nav('blog') + `
+<main>
+<section class="page-hero" style="min-height:70svh">
+  <div class="hero-media"><img src="${IMG[p.img]}" alt="${esc(p.alt)}" fetchpriority="high"></div>
+  <div class="hero-scrim"></div>
+  <div class="wrap hero-in">
+    <div>
+      ${crumbs([['Blog', '/blog/'], [p.category]])}
+      <h1 class="fadeup d2" style="max-width:18ch;font-size:clamp(2.1rem,4.6vw,4rem)">${esc(p.title)}</h1>
+      <p class="byline fadeup d3">By ${SITE.name} · ${fmtDate(p.date)} · ${p.readMins} min read</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap svc-body">
+    <article class="prose post reveal">${body}
+      <h2>Frequently asked questions</h2>
+      ${faqBlock(p.faq)}
+      <h2>Need it done? Ultraclean Swan Hill</h2>
+      <p>Ultraclean Swan Hill is an owner-operated cleaning business based in Lake Boga, servicing Swan Hill, Kerang, Nyah, Murray Downs, Cohuna, Barham, Balranald, Sea Lake and the Murray River towns on both sides of the border. Fixed quotes, truck-mounted equipment, fully insured. Call <a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a> or <a href="/contact/">request a free quote</a> and hear back the same business day.</p>
+    </article>
+    <aside class="aside">
+      <div class="card reveal" data-d="1"><span class="label">Free quote</span><h3 style="margin-top:10px">Fixed price, same business day</h3><p>Tell us the property and what needs doing.</p><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div>
+      <div class="card reveal" data-d="2"><span class="label muted">Related services</span><ul class="related" style="margin-top:10px">${SERVICES.filter((x) => p.body.some(([, v]) => String(v).includes(`/services/${x.slug}/`))).map((x) => `<li><a href="/services/${x.slug}/">${esc(x.nav)} ${ICON.arrNE}</a></li>`).join('')}</ul></div>
+      <div class="card reveal" data-d="3"><span class="label muted">More guides</span><ul class="related" style="margin-top:10px">${related.map((r) => `<li><a href="/blog/${r.slug}/">${esc(r.title)} ${ICON.arrNE}</a></li>`).join('')}</ul></div>
+    </aside>
+  </div>
+</section>
+${ctaStrip()}
+</main>
+` + footer();
+}
+
 /* ---------- write ---------- */
 function write(rel, content) {
   const p = path.join(ROOT, rel);
@@ -715,6 +809,8 @@ write('thank-you/index.html', thankYou());
 write('about/index.html', aboutPage());
 write('contact/index.html', contactPage());
 write('areas/index.html', areasPage());
+write('blog/index.html', blogIndex());
+POSTS.forEach((p) => write(`blog/${p.slug}/index.html`, blogPost(p)));
 write('assets/img/logo.svg', MARK(64).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace(' aria-hidden="true"', ''));
 write('assets/img/favicon.svg', MARK(64).replace(' aria-hidden="true"', ''));
 write('assets/img/logo-lockup.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="420" height="80" viewBox="0 0 420 80">
@@ -728,6 +824,6 @@ write('assets/img/logo-lockup-dark.svg', `<svg xmlns="http://www.w3.org/2000/svg
   <text x="92" y="66" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="#0e9aa8">SWAN HILL</text>
 </svg>`);
 
-const urls = ['/', ...SERVICES.map((s) => `/services/${s.slug}/`), '/about/', '/areas/', '/contact/'];
+const urls = ['/', ...SERVICES.map((s) => `/services/${s.slug}/`), '/about/', '/areas/', '/contact/', '/blog/', ...POSTS.map((p) => `/blog/${p.slug}/`)];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE.domain}${u}</loc><changefreq>monthly</changefreq><priority>${u === '/' ? '1.0' : '0.8'}</priority></url>`).join('\n')}\n</urlset>\n`);
 write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /thank-you/\n\nSitemap: ${SITE.domain}/sitemap.xml\n`);
