@@ -83,7 +83,7 @@ function nav(current = '') {
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:${SITE.phoneTel}">${ICON.phone}${SITE.phoneDisplay}</a>
-      <a class="btn" href="/#quote">Get a free quote ${ICON.arr}</a>
+      <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -96,7 +96,7 @@ function nav(current = '') {
   <a class="big" href="/#areas">Service areas</a>
   <a class="big" href="/#quote">Contact</a>
   <div class="m-foot">
-    <a class="btn" href="/#quote">Get a free quote ${ICON.arr}</a>
+    <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
     <a class="btn ghost" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a>
   </div>
 </div>
@@ -108,14 +108,29 @@ function ctaStrip() {
   <div class="wrap in">
     <div class="reveal"><span class="label">Ready when you are</span><h2 style="margin-top:14px">Tell us what needs cleaning.<br><span class="em">We'll quote it today.</span></h2></div>
     <div class="reveal" data-d="1" style="display:grid;gap:14px;justify-items:start">
-      <a class="btn" href="/#quote">Get a free quote ${ICON.arr}</a>
+      <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
       <a class="link-u" href="tel:${SITE.phoneTel}">Or call ${SITE.phoneDisplay}</a>
     </div>
   </div>
 </section>`;
 }
 
-function footer() {
+function quoteModal(defaultService = '') {
+  return `<div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="qm-title" hidden>
+  <div class="modal-bg" data-close-quote></div>
+  <div class="modal-panel">
+    <button class="modal-close" type="button" aria-label="Close" data-close-quote><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="modal-head">
+      <span class="label">Free quote</span>
+      <h3 id="qm-title">Tell us the job — fixed price back today.</h3>
+      <p>Or call <a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></p>
+    </div>
+    ${quoteForm(defaultService, 'm')}
+  </div>
+</div>`;
+}
+
+function footer(defaultService = '') {
   const svc = SERVICES.map((s) => `<li><a href="/services/${s.slug}/">${esc(s.nav)}</a></li>`).join('');
   return `<footer>
   <div class="wrap">
@@ -136,21 +151,22 @@ function footer() {
     </div>
   </div>
 </footer>
+${quoteModal(defaultService)}
 <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
 `;
 }
 
-function quoteForm(defaultService = '') {
+function quoteForm(defaultService = '', pre = 'f') {
   const opts = SERVICES.map((s) => `<option value="${esc(s.nav)}"${s.nav === defaultService ? ' selected' : ''}>${esc(s.nav)}</option>`).join('');
-  return `<form class="form quote-form" id="quote-form" method="post" action="/thank-you/" data-redirect="/thank-you/" novalidate>
+  return `<form class="form quote-form" id="${pre === 'f' ? 'quote-form' : 'quote-form-modal'}" method="post" action="/thank-you/" data-redirect="/thank-you/" novalidate>
   <div class="grid">
-    <div class="field"><label for="f-name">Name</label><input id="f-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required></div>
-    <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
-    <div class="field full"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-    <div class="field full"><label for="f-address">Property address</label><input id="f-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="f-size">Property size</label><select id="f-size" name="property_size" required>
+    <div class="field"><label for="${pre}-name">Name</label><input id="${pre}-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required></div>
+    <div class="field"><label for="${pre}-phone">Phone</label><input id="${pre}-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
+    <div class="field full"><label for="${pre}-email">Email</label><input id="${pre}-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="field full"><label for="${pre}-address">Property address</label><input id="${pre}-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
+    <div class="field"><label for="${pre}-size">Property size</label><select id="${pre}-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
@@ -158,11 +174,11 @@ function quoteForm(defaultService = '') {
       <option>Single room or item</option>
       <option>Commercial premises</option>
     </select></div>
-    <div class="field"><label for="f-service">Service needed</label><select id="f-service" name="service_needed" required>
+    <div class="field"><label for="${pre}-service">Service needed</label><select id="${pre}-service" name="service_needed" required>
       ${defaultService ? '' : '<option value="" disabled selected>Select…</option>'}${opts}
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="f-notes">Job notes</label><textarea id="f-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="${pre}-notes">Job notes</label><textarea id="${pre}-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
     <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request ${ICON.arr}</button>
@@ -215,7 +231,7 @@ function home() {
       <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill, Lake Boga <span class="em">&amp;</span> Kerang</h1>
       <p class="lede fadeup d3">Carpet cleaning Swan Hill homes and businesses can rely on — plus upholstery, tile and grout, windows, bond cleans, commercial cleaning and flood drying. One local team, every town along the river.</p>
       <div class="hero-ctas fadeup d4">
-        <a class="btn" href="#quote">Get a free quote ${ICON.arr}</a>
+        <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
         <a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a>
       </div>
     </div>
@@ -386,7 +402,7 @@ function servicePage(s) {
       <h1 class="fadeup d2">${esc(s.h1)}</h1>
       <p class="lede fadeup d3">${esc(s.lede)}</p>
       <div class="hero-ctas fadeup d4" style="margin-top:30px">
-        <a class="btn" href="#quote">Get a free quote ${ICON.arr}</a>
+        <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
         <a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a>
       </div>
     </div>
@@ -404,7 +420,7 @@ function servicePage(s) {
         <span class="label">Free quote</span>
         <h3 style="margin-top:10px">${esc(s.short)} — priced today</h3>
         <p>Send the rooms and rough sizes and we will reply with a fixed price the same business day.</p>
-        <a class="btn" href="#quote">Get a free quote ${ICON.arr}</a>
+        <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
         <a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a>
       </div>
       <div class="card reveal" data-d="2">
@@ -442,7 +458,7 @@ function servicePage(s) {
   </div>
 </section>
 </main>
-` + footer();
+` + footer(s.nav);
 }
 
 /* ---------- thank you ---------- */
@@ -456,15 +472,15 @@ function thankYou() {
   <div style="position:relative;z-index:2;max-width:640px">
     <div class="tick">${ICON.tick}</div>
     <span class="label fadeup d1">Request received</span>
-    <h1 class="fadeup d2" style="margin-top:14px">Thanks<span id="ty-name"></span>, we've got it.</h1>
-    <p class="lede fadeup d3" style="max-width:48ch">We will read your notes and come back with a fixed price the same business day — usually within a couple of hours. If it is urgent (flooding, an inspection tomorrow), call us now.</p>
+    <h1 class="fadeup d2" style="margin-top:14px">Thanks<span id="ty-name"></span>, your details have been sent.</h1>
+    <p class="lede fadeup d3" style="max-width:48ch"><span id="ty-service">We have your request</span> and will come back with a fixed price the same business day — usually within a couple of hours. If it is urgent (flooding, an inspection tomorrow), call us now.</p>
     <div class="next fadeup d4">
       <a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a>
       <a class="btn ghost" href="/">Back to home</a>
     </div>
   </div>
 </section>
-<script>try{var l=JSON.parse(sessionStorage.getItem('uc_lead')||'{}');if(l.name){var f=l.name.trim().split(' ')[0];document.getElementById('ty-name').textContent=' '+f.replace(/[<>]/g,'');}}catch(e){}</script>
+<script>try{var l=JSON.parse(sessionStorage.getItem('uc_lead')||'{}');if(l.name){var f=l.name.trim().split(' ')[0];document.getElementById('ty-name').textContent=' '+f.replace(/[<>]/g,'');}if(l.service&&l.service.indexOf('Not sure')<0){document.getElementById('ty-service').textContent='We have your '+l.service.toLowerCase()+' request';}}catch(e){}</script>
 </main>
 ` + footer();
 }

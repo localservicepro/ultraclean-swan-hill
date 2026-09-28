@@ -48,7 +48,7 @@
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:+61417327173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>0417 327 173</a>
-      <a class="btn" href="/#quote">Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="/#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -61,7 +61,7 @@
   <a class="big" href="/#areas">Service areas</a>
   <a class="big" href="/#quote">Contact</a>
   <div class="m-foot">
-    <a class="btn" href="/#quote">Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn" href="/#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a class="btn ghost" href="tel:+61417327173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg> Call 0417 327 173</a>
   </div>
 </div>
@@ -76,7 +76,7 @@
       <h1 class="fadeup d2">Carpet Steam Cleaning in Kerang, Swan Hill &amp; the Murray</h1>
       <p class="lede fadeup d3">Truck-mounted hot-water extraction for homes, rentals and workplaces from Kerang to Swan Hill. Deep clean, fast dry, no residue left behind.</p>
       <div class="hero-ctas fadeup d4" style="margin-top:30px">
-        <a class="btn" href="#quote">Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="link-u" href="tel:+61417327173">Call 0417 327 173</a>
       </div>
     </div>
@@ -104,7 +104,7 @@
         <span class="label">Free quote</span>
         <h3 style="margin-top:10px">Carpet steam cleaning — priced today</h3>
         <p>Send the rooms and rough sizes and we will reply with a fixed price the same business day.</p>
-        <a class="btn" href="#quote">Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" href="#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="tel" href="tel:+61417327173">0417 327 173</a>
       </div>
       <div class="card reveal" data-d="2">
@@ -189,6 +189,41 @@
     </div>
   </div>
 </footer>
+<div class="modal" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="qm-title" hidden>
+  <div class="modal-bg" data-close-quote></div>
+  <div class="modal-panel">
+    <button class="modal-close" type="button" aria-label="Close" data-close-quote><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="modal-head">
+      <span class="label">Free quote</span>
+      <h3 id="qm-title">Tell us the job — fixed price back today.</h3>
+      <p>Or call <a href="tel:+61417327173">0417 327 173</a></p>
+    </div>
+    <form class="form quote-form" id="quote-form-modal" method="post" action="/thank-you/" data-redirect="/thank-you/" novalidate>
+  <div class="grid">
+    <div class="field"><label for="m-name">Name</label><input id="m-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required></div>
+    <div class="field"><label for="m-phone">Phone</label><input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
+    <div class="field full"><label for="m-email">Email</label><input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="field full"><label for="m-address">Property address</label><input id="m-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
+    <div class="field"><label for="m-size">Property size</label><select id="m-size" name="property_size" required>
+      <option value="" disabled selected>Select…</option>
+      <option>1–2 bedrooms / small office</option>
+      <option>3 bedrooms</option>
+      <option>4+ bedrooms</option>
+      <option>Single room or item</option>
+      <option>Commercial premises</option>
+    </select></div>
+    <div class="field"><label for="m-service">Service needed</label><select id="m-service" name="service_needed" required>
+      <option value="Carpet Cleaning" selected>Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning">Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option><option value="Flood &amp; Water Damage">Flood &amp; Water Damage</option>
+      <option>Not sure / multiple</option>
+    </select></div>
+    <div class="field full"><label for="m-notes">Job notes</label><textarea id="m-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+  </div>
+  <button class="btn" type="submit">Send my quote request <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <p class="fine">We reply the same business day. No spam, no lock-in — just a price.</p>
+</form>
+  </div>
+</div>
 <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

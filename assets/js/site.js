@@ -81,6 +81,33 @@
     if (p && p.catch) p.catch(() => { vid.style.display = 'none'; });
   }
 
+  /* quote modal */
+  const modal = $('#quote-modal');
+  if (modal) {
+    let lastFocus = null;
+    const open = (e) => {
+      if (e) e.preventDefault();
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      requestAnimationFrame(() => modal.classList.add('open'));
+      document.body.classList.add('modal-open');
+      if (menu && menu.classList.contains('open')) { menu.classList.remove('open'); burger.classList.remove('open'); document.body.style.overflow = ''; }
+      setTimeout(() => { const f = modal.querySelector('input'); if (f) f.focus(); }, 350);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'quote_modal_open' });
+    };
+    const close = () => {
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+      setTimeout(() => { modal.hidden = true; }, 400);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    $$('[data-open-quote]').forEach((el) => el.addEventListener('click', open));
+    $$('[data-close-quote]', modal).forEach((el) => el.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.hidden) close(); });
+    if (location.hash === '#book') open();
+  }
+
   /* quote form — the GHL external-tracking script captures the submit event
      (we don't stop propagation); then we send the visitor to the thank-you page */
   $$('form.quote-form').forEach((form) => {
