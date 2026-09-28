@@ -12,7 +12,9 @@ Static, dependency-free marketing site (home + 7 service pages + thank-you) buil
 - `sitemap.xml`, `robots.txt` — generated; `/thank-you/` is noindex.
 
 ## Hosting
-Any static host (Netlify, Vercel, Cloudflare Pages, GHL). Serve the repo root; links are root-relative so the site must live at the domain root. Clean URLs (`/services/carpet-cleaning/`) work via `index.html` folders.
+Built for Vercel: `vercel.json` turns on Vercel Image Optimization, and the build rewrites every Higgsfield image to `/_vercel/image?url=…&w=…` with a responsive `srcset` (AVIF/WebP, resized, edge-cached). On another static host those URLs will 404 — either self-host the images or remove `optimizeImages()` in `build/build.js`. Links are root-relative so the site must live at the domain root. Clean URLs (`/services/carpet-cleaning/`) work via `index.html` folders.
+
+Performance notes: CSS is inlined at build time, Google Fonts load non-blocking, the GHL tracking script is `defer`red, and the hero video is only fetched on desktop after page load (mobile gets the optimized poster image).
 
 ## Before launch
 1. Set the real domain in `build/data.js` (`SITE.domain`) and rebuild — canonical, OG and sitemap URLs use it.
