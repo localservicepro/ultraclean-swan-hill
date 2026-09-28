@@ -7,7 +7,7 @@
 
   /* nav frost + parallax on scroll (rAF throttled) */
   const nav = $('.nav');
-  const heroMedia = $('.hero-media > video, .hero-media > img');
+  const heroMedia = $('.hero-media');
   const bands = $$('.band img');
   let ticking = false;
   function onScroll() {
@@ -50,9 +50,11 @@
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.05, rootMargin: '0px 0px -6% 0px' });
   $$('.reveal').forEach((el) => io.observe(el));
-  /* safety net: anything already scrolled past gets revealed */
+  /* safety net: anything already scrolled past gets revealed (checked inside the rAF scroll loop) */
+  let pending = $$('.reveal');
   window.addEventListener('scroll', () => {
-    $$('.reveal:not(.in)').forEach((el) => { if (el.getBoundingClientRect().top < window.innerHeight * 0.9) el.classList.add('in'); });
+    if (!pending.length) return;
+    requestAnimationFrame(() => { pending = pending.filter((el) => { if (el.classList.contains('in')) return false; if (el.getBoundingClientRect().top < window.innerHeight * 0.9) { el.classList.add('in'); return false; } return true; }); });
   }, { passive: true });
 
   /* custom cursor */
@@ -74,11 +76,16 @@
     if (d.open) $$('.faq details').forEach((o) => { if (o !== d) o.open = false; });
   }));
 
-  /* hero video: fall back to poster if it can't play */
-  const vid = $('.hero-media video');
-  if (vid) {
-    const p = vid.play && vid.play();
-    if (p && p.catch) p.catch(() => { vid.style.display = 'none'; });
+  /* hero video: only fetched on desktop, after load, and never on data-saver or reduced-motion */
+  const vid = $('.hero-media video[data-src]');
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (vid && !reduce && !saveData && window.innerWidth > 900) {
+    const start = () => {
+      vid.src = vid.dataset.src; vid.load();
+      vid.addEventListener('canplay', () => { vid.classList.add('ready'); }, { once: true });
+      const p = vid.play && vid.play(); if (p && p.catch) p.catch(() => {});
+    };
+    if (document.readyState === 'complete') setTimeout(start, 300); else window.addEventListener('load', () => setTimeout(start, 300));
   }
 
   /* quote modal */

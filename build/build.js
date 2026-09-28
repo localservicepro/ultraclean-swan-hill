@@ -9,6 +9,22 @@ const ROOT = path.join(__dirname, '..');
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const stripTags = (s) => String(s).replace(/<[^>]+>/g, '');
 const bySlug = Object.fromEntries(SERVICES.map((s) => [s.slug, s]));
+const CSS = fs.readFileSync(path.join(ROOT, 'assets/css/site.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n\s*\n/g, '\n');
+const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
+// Images are served through Vercel's image optimizer (see vercel.json): resized, WebP/AVIF, cached at the edge.
+const IMG_WIDTHS = [480, 768, 1080, 1600];
+const optimizedUrl = (url, w, q = 72) => `/_vercel/image?url=${encodeURIComponent(url)}&w=${w}&q=${q}`;
+const srcset = (url) => IMG_WIDTHS.map((w) => `${optimizedUrl(url, w)} ${w}w`).join(', ');
+// Post-process: rewrite every Higgsfield PNG in <img src> / <video poster> to responsive optimized sources.
+function optimizeImages(html) {
+  return html
+    .replace(/<img([^>]*?)src="(https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/[^"]+)"([^>]*)>/g, (m, a, url, b) => {
+      const full = /fetchpriority="high"|class="[^"]*\bhero\b/.test(a + b) || /hero-media/.test(m);
+      const sizes = full ? '100vw' : '(max-width: 900px) 100vw, 640px';
+      return `<img${a}src="${optimizedUrl(url, 1080)}" srcset="${srcset(url)}" sizes="${sizes}" decoding="async"${b}>`;
+    })
+    .replace(/poster="(https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/[^"]+)"/g, (m, url) => `poster="${optimizedUrl(url, 1080)}"`);
+}
 
 /* ---------- brand mark ---------- */
 // Ultraclean mark: a "U" formed by a rising water droplet with a clean sparkle. Works on dark and light.
@@ -32,7 +48,7 @@ const ICON = {
 };
 
 /* ---------- layout ---------- */
-function head({ title, meta, canonical, ogImage, schema, extra = '' }) {
+function head({ title, meta, canonical, ogImage, schema, extra = '', preload = '' }) {
   return `<!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -55,11 +71,13 @@ function head({ title, meta, canonical, ogImage, schema, extra = '' }) {
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,40;1,9..144,300..700,40&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/site.css">
+${preload ? `<link rel="preload" as="image" href="${optimizedUrl(preload, 1080)}" imagesrcset="${srcset(preload)}" imagesizes="100vw" fetchpriority="high">` : ''}
+<link rel="stylesheet" href="${FONTS_URL}" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="${FONTS_URL}"></noscript>
+<style>${CSS}</style>
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
-<script src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="${SITE.trackingId}"></script>
+<script defer src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="${SITE.trackingId}"></script>
 ${extra}
 </head>
 <body>
@@ -221,12 +239,13 @@ function home() {
   return head({
     title: 'Carpet Cleaning Swan Hill & Surrounds | Ultraclean',
     meta: 'Carpet cleaning Swan Hill locals trust. Ultraclean cleans carpets, upholstery, tiles and bond cleans from Lake Boga to Kerang. Book your free quote today.',
-    canonical: '/', ogImage: IMG.hero, schema,
+    canonical: '/', ogImage: IMG.hero, schema, preload: IMG.hero,
   }) + nav('home') + `
 <main>
 <section class="hero">
   <div class="hero-media">
-    <video autoplay muted loop playsinline preload="metadata" poster="${IMG.hero}" aria-hidden="true"><source src="${IMG.heroVideo}" type="video/mp4"></video>
+    <img src="${IMG.hero}" alt="Carpet cleaning Swan Hill - Ultraclean technician steam cleaning a lounge room carpet in Lake Boga" fetchpriority="high" width="1600" height="900">
+    <video muted loop playsinline preload="none" poster="${IMG.hero}" data-src="${IMG.heroVideo}" aria-hidden="true" class="hero-video"></video>
   </div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
@@ -397,10 +416,10 @@ function servicePage(s) {
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain + '/' }, { '@type': 'ListItem', position: 2, name: 'Services', item: SITE.domain + '/#services' }, { '@type': 'ListItem', position: 3, name: s.nav, item: `${SITE.domain}/services/${s.slug}/` }] },
     faqSchema(s.faq),
   ] };
-  return head({ title: s.title, meta: s.meta, canonical: `/services/${s.slug}/`, ogImage: IMG[s.img], schema }) + nav(s.slug) + `
+  return head({ title: s.title, meta: s.meta, canonical: `/services/${s.slug}/`, ogImage: IMG[s.img], schema, preload: IMG[s.img] }) + nav(s.slug) + `
 <main>
 <section class="page-hero">
-  <div class="hero-media"><img src="${IMG[s.img]}" alt="${esc(s.alt)}" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG[s.img]}" alt="${esc(s.alt)}" fetchpriority="high" width="1600" height="900"></div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
@@ -799,6 +818,7 @@ ${ctaStrip()}
 function write(rel, content) {
   const p = path.join(ROOT, rel);
   fs.mkdirSync(path.dirname(p), { recursive: true });
+  if (rel.endsWith('.html')) content = optimizeImages(content);
   fs.writeFileSync(p, content);
   console.log('wrote', rel);
 }
