@@ -164,8 +164,8 @@ function quoteForm(defaultService = '', pre = 'f') {
   <div class="grid">
     <div class="field"><label for="${pre}-name">Name</label><input id="${pre}-name" name="full_name" type="text" autocomplete="name" placeholder="Your name" required></div>
     <div class="field"><label for="${pre}-phone">Phone</label><input id="${pre}-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
-    <div class="field full"><label for="${pre}-email">Email</label><input id="${pre}-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-    <div class="field full"><label for="${pre}-address">Property address</label><input id="${pre}-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
+    <div class="field full f-email"><label for="${pre}-email">Email</label><input id="${pre}-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <div class="field full f-address"><label for="${pre}-address">Property address</label><input id="${pre}-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
     <div class="field"><label for="${pre}-size">Property size</label><select id="${pre}-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
@@ -179,10 +179,11 @@ function quoteForm(defaultService = '', pre = 'f') {
       <option>Not sure / multiple</option>
     </select></div>
     <div class="field full"><label for="${pre}-notes">Job notes</label><textarea id="${pre}-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
-    <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+    <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request ${ICON.arr}</button>
   <p class="fine">We reply the same business day. No spam, no lock-in — just a price.</p>
+  <p class="form-error" hidden>Please fill in the highlighted fields and try again.</p>
 </form>`;
 }
 

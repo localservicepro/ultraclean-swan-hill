@@ -113,15 +113,27 @@
   $$('form.quote-form').forEach((form) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (form.querySelector('.hp input') && form.querySelector('.hp input').value) return; // honeypot
-      if (!form.reportValidity()) return;
+      const err = form.querySelector('.form-error');
+      if (!form.checkValidity()) {
+        form.classList.add('tried');
+        if (err) err.hidden = false;
+        const bad = form.querySelector(':invalid');
+        if (bad) { bad.scrollIntoView({ block: 'center', behavior: 'smooth' }); bad.focus({ preventScroll: true }); }
+        form.reportValidity();
+        return;
+      }
+      if (err) err.hidden = true;
+      const hp = form.querySelector('.hp input');
+      const isBot = hp && hp.value && hp.value.length > 0;
       const btn = form.querySelector('button[type=submit]');
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
       try {
         const data = Object.fromEntries(new FormData(form).entries());
         sessionStorage.setItem('uc_lead', JSON.stringify({ name: data.full_name, service: data.service_needed }));
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'quote_form_submit', form_id: form.id || 'quote', service: data.service_needed });
+        if (!isBot) {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'quote_form_submit', form_id: form.id || 'quote', service: data.service_needed });
+        }
       } catch (err) { /* ignore */ }
       setTimeout(() => { window.location.href = form.dataset.redirect || '/thank-you/'; }, 700);
     });
