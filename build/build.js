@@ -638,7 +638,7 @@ function contactPage() {
 /* ---------- areas ---------- */
 function areasPage() {
   const vic = AREAS.filter((a) => a.state === 'VIC'), nsw = AREAS.filter((a) => a.state === 'NSW');
-  const card = (a) => `<div class="area-card reveal"><div class="ac-head"><h3>${a.name}</h3><span class="ac-km">${a.km === 0 ? 'Home base' : 'approx. ' + a.km + ' km'}</span></div><p>${esc(a.note)}</p><a class="link-u" href="/contact/" data-open-quote>Quote for ${a.name}</a></div>`;
+  const card = (a) => `<div class="area-card reveal"><div class="ac-head"><h3>${a.name}</h3><span class="ac-km">${a.km === 0 ? 'Home base' : a.state}</span></div><p>${esc(a.note)}</p><a class="link-u" href="/contact/" data-open-quote>Quote for ${a.name}</a></div>`;
   const schema = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'WebPage', '@id': SITE.domain + '/areas/#page', url: SITE.domain + '/areas/', name: 'Service Areas — Ultraclean Swan Hill', about: { '@id': SITE.domain + '/#business' } },
     localBusiness(),
@@ -658,7 +658,7 @@ function areasPage() {
       <div class="hero-ctas fadeup d4" style="margin-top:30px"><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a></div>
     </div>
     <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Coverage</span><b>Up to ~110 km from Lake Boga</b><p>Further towns are grouped into scheduled runs; booking a day or two ahead helps.</p></div>
+      <div class="stat-card"><span class="label">Coverage</span><b>No travel surcharge</b><p>Further towns are grouped into scheduled runs; booking a day or two ahead helps.</p></div>
     </div>
   </div>
 </section>
@@ -667,7 +667,7 @@ function areasPage() {
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="label">Victoria</span><h2>Swan Hill Rural City, Gannawarra &amp; Buloke.</h2></div>
-      <p class="reveal" data-d="1">Ultraclean Swan Hill is based at Lake Boga and services these Victorian towns for carpet, upholstery, tile, window, bond, commercial and flood cleaning. Distances are approximate road distances from Lake Boga.</p>
+      <p class="reveal" data-d="1">Ultraclean Swan Hill is based at Lake Boga and services these Victorian towns for carpet, upholstery, tile, window, bond, commercial and flood cleaning.</p>
     </div>
     <div class="area-grid">${vic.map(card).join('')}</div>
   </div>

@@ -321,7 +321,7 @@ const AREAS_FAQ = [
   ['Which towns does Ultraclean Swan Hill service?', 'Swan Hill, Lake Boga, Kerang, Nyah, Koraleigh, Tooleybuc, Piangil, Wood Wood, Beverford, Murray Downs, Moulamein, Balranald, Sea Lake, Lalbert, Ultima, Quambatook, Barham, Cohuna, Manangatang and Kyalite — 13 towns in Victoria and 7 in New South Wales.'],
   ['Is there a travel charge for towns outside Swan Hill?', 'No. Every town listed on this page is inside our standard service area and there is no travel surcharge. Jobs in the further towns are grouped into scheduled runs, so booking a day or two ahead helps.'],
   ['Do you cross the border into New South Wales?', 'Yes. Murray Downs, Koraleigh, Tooleybuc, Kyalite, Moulamein, Barham and Balranald are all serviced regularly.'],
-  ['My town is not on the list — can you still come?', 'Probably. If you are within about 120 km of Lake Boga, send the address through the quote form and we will confirm.'],
+  ['My town is not on the list — can you still come?', 'Probably. Send the address through the quote form and we will confirm whether we can fit you into a scheduled run.'],
   ['How far is Lake Boga from Swan Hill?', 'About 17 km, roughly a 15-minute drive south along the Murray Valley Highway.'],
 ];
 
