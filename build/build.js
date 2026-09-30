@@ -10,7 +10,6 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const stripTags = (s) => String(s).replace(/<[^>]+>/g, '');
 const bySlug = Object.fromEntries(SERVICES.map((s) => [s.slug, s]));
 const CSS = fs.readFileSync(path.join(ROOT, 'assets/css/site.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n\s*\n/g, '\n');
-const FONTS_URL = 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap';
 // Images are served through Vercel's image optimizer (see vercel.json): resized, WebP/AVIF, cached at the edge.
 const IMG_WIDTHS = [480, 768, 1080, 1600];
 const optimizedUrl = (url, w, q = 72) => `/_vercel/image?url=${encodeURIComponent(url)}&w=${w}&q=${q}`;
@@ -71,11 +70,9 @@ function head({ title, meta, canonical, ogImage, schema, extra = '', preload = '
 <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="64x64">
 <link rel="icon" href="/assets/img/icon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/exo-2-latin-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/hanken-grotesk-latin-400-normal.woff2" crossorigin>
 ${preload ? `<link rel="preload" as="image" href="${optimizedUrl(preload, 1080)}" imagesrcset="${srcset(preload)}" imagesizes="100vw" fetchpriority="high">` : ''}
-<link rel="stylesheet" href="${FONTS_URL}" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="${FONTS_URL}"></noscript>
 <style>${CSS}</style>
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
