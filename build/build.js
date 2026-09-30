@@ -34,8 +34,9 @@ const MARK = (size = 40) => `<svg width="${size}" height="${size}" viewBox="0 0 
   <path d="M32 44c0-6 5-9 5-13 0-3-2.2-5-5-5s-5 2-5 5c0 4 5 7 5 13Z" fill="#f6f4ef"/>
   <path d="M48 12l1.4 3.6L53 17l-3.6 1.4L48 22l-1.4-3.6L43 17l3.6-1.4Z" fill="#f6f4ef"/>
 </svg>`;
-const LOGO = (light = true) => `<a class="logo" href="/" aria-label="${SITE.name} home">${MARK(40)}<span class="wm"><b>ultraclean</b><small>Swan Hill</small></span></a>`;
+const LOGO = () => `<a class="logo" href="/" aria-label="${SITE.name} home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="${LOGO_NAV_H}" decoding="async"></a>`;
 
+const LOGO_NAV_H = 650; // approx intrinsic height of logo-nav.png at 1000 wide (overridden by CSS)
 const ICON = {
   arr: '<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   arrNE: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -67,7 +68,8 @@ function head({ title, meta, canonical, ogImage, schema, extra = '', preload = '
 <meta property="og:image" content="${ogImage}">
 <meta property="og:locale" content="en_AU">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="64x64">
+<link rel="icon" href="/assets/img/icon-512.png" type="image/png" sizes="512x512">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -156,7 +158,7 @@ function footer(defaultService = '') {
   return `<footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div>${LOGO()}<p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
+      <div>${LOGO()}<p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
       <div><h4>Services</h4><ul>${svc}</ul></div>
       <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
@@ -215,7 +217,7 @@ const faqSchema = (items) => ({ '@type': 'FAQPage', mainEntity: items.map(([q, a
 
 const localBusiness = () => ({
   '@type': 'LocalBusiness', '@id': SITE.domain + '/#business', name: SITE.name, url: SITE.domain, telephone: SITE.phoneTel, email: SITE.email,
-  image: IMG.hero, logo: SITE.domain + '/assets/img/logo.svg', priceRange: '$$',
+  image: IMG.hero, logo: SITE.domain + '/assets/img/logo.png', priceRange: '$$',
   address: { '@type': 'PostalAddress', streetAddress: SITE.address.street, addressLocality: SITE.address.locality, addressRegion: SITE.address.region, postalCode: SITE.address.postcode, addressCountry: SITE.address.country },
   geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
   openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '07:00', closes: '18:00' }],
@@ -250,7 +252,7 @@ function home() {
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
-      <span class="label fadeup d1">Lake Boga · Swan Hill · Kerang · the Murray</span>
+      <span class="label fadeup d1">A higher standard of clean · Swan Hill &amp; the Murray</span>
       <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill, Lake Boga <span class="em">&amp;</span> Kerang</h1>
       <p class="lede fadeup d3">Carpet cleaning Swan Hill homes and businesses can rely on — plus upholstery, tile and grout, windows, bond cleans, commercial cleaning and flood drying. One local team, every town along the river.</p>
       <div class="hero-ctas fadeup d4">
@@ -849,18 +851,6 @@ write('contact/index.html', contactPage());
 write('areas/index.html', areasPage());
 write('blog/index.html', blogIndex());
 POSTS.forEach((p) => write(`blog/${p.slug}/index.html`, blogPost(p)));
-write('assets/img/logo.svg', MARK(64).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace(' aria-hidden="true"', ''));
-write('assets/img/favicon.svg', MARK(64).replace(' aria-hidden="true"', ''));
-write('assets/img/logo-lockup.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="420" height="80" viewBox="0 0 420 80">
-  <g transform="translate(8 8)">${MARK(64).replace(/<svg[^>]*>|<\/svg>/g, '')}</g>
-  <text x="90" y="46" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="38" letter-spacing="-1" fill="#f6f4ef">ultraclean</text>
-  <text x="92" y="66" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="#23c4d4">SWAN HILL</text>
-</svg>`);
-write('assets/img/logo-lockup-dark.svg', `<svg xmlns="http://www.w3.org/2000/svg" width="420" height="80" viewBox="0 0 420 80">
-  <g transform="translate(8 8)">${MARK(64).replace(/<svg[^>]*>|<\/svg>/g, '')}</g>
-  <text x="90" y="46" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="38" letter-spacing="-1" fill="#0b1a2a">ultraclean</text>
-  <text x="92" y="66" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="4" fill="#0e9aa8">SWAN HILL</text>
-</svg>`);
 
 const urls = ['/', ...SERVICES.map((s) => `/services/${s.slug}/`), '/about/', '/areas/', '/contact/', '/blog/', ...POSTS.map((p) => `/blog/${p.slug}/`)];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${SITE.domain}${u}</loc><changefreq>monthly</changefreq><priority>${u === '/' ? '1.0' : '0.8'}</priority></url>`).join('\n')}\n</urlset>\n`);

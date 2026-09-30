@@ -1,6 +1,7 @@
 // All business facts, copy and image URLs live here. Edit and re-run `node build/build.js`.
 const SITE = {
   name: 'Ultraclean Swan Hill',
+  tagline: 'A higher standard of clean.',
   shortName: 'Ultraclean',
   // TODO: replace with the real domain once registered (used for canonical, OG and sitemap URLs)
   domain: 'https://ultracleanswanhill.com.au',
