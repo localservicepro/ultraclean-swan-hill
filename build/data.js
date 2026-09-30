@@ -20,17 +20,17 @@ SITE.areasAll = [...SITE.areasVic, ...SITE.areasNsw];
 // Higgsfield-generated imagery (hosted). See README for regeneration notes.
 const IMG = {
   // Rebranded client photos (Higgsfield edits of the real Drive photos: navy Ultraclean uniform / van livery)
-  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_8c2345b2-02ac-4cc7-82f4-b9aa5a4850e7.png',          // Lee steam cleaning a lounge carpet
-  heroVideo: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001719_5c9020b9-5c4b-4f24-ab0e-b393f2f83f3f.mp4',
-  leePortrait: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_183afc7b-d30c-4e86-b5d2-f040957bed71.png',   // Lee in front of the branded van
-  leeBench: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_4f507cbc-20bb-44d6-b1b0-7adb3683d2b3.png',      // Lee wiping a kitchen bench (bond clean)
-  leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9241808d-6324-4311-afdd-7ffa968ca867.png',       // Lee with hard-floor wand (builders/commercial)
-  vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_ed1e1825-664d-41b0-ac3b-f1057d037c87.png',       // real van, rear open, branded
-  vanInterior: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9e4f8126-d239-4fce-818b-6b9af507519b.png',   // truck-mount unit inside the van, stickers
-  rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_1f24629f-c5c0-451c-a0a9-08e1f587ffbc.png',        // rotary machine with stickers
-  vanHero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_50830624-07d1-4dc9-b666-b4f25306661f.png',       // generated: branded van on a Swan Hill street
-  truck: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_42ad6348-bd7c-44cd-8818-15e792998255.png',         // generated: branded truck at Lake Boga
-  equipment: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_f28dbb44-7ba5-4e92-9966-2e910e2fd635.png',     // generated: equipment with stickers
+  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png',          // Lee steam cleaning a lounge carpet
+  heroVideo: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004558_6dec0c77-408b-4430-92e2-b3f97f7a3d52.mp4',
+  leePortrait: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png',   // Lee in front of the branded van
+  leeBench: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_76f4e6b5-2cf3-4c26-8ac1-cd714600b727.png',      // Lee wiping a kitchen bench (bond clean)
+  leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',       // Lee with hard-floor wand (builders/commercial)
+  vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png',       // real van, rear open, branded
+  vanInterior: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png',   // truck-mount unit inside the van, stickers
+  rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_c77d9d36-b0f4-4fb9-b324-e85a14a1e48f.png',        // rotary machine with stickers
+  vanHero: '/assets/brand/van-logo.png',       // generated: branded van on a Swan Hill street
+  truck: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_cf2a00ad-4fff-427f-a71b-897cf768e4b2.png',         // generated: branded truck at Lake Boga
+  equipment: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png',     // generated: equipment with stickers
   // Real client photos (self-hosted in /assets/photos/)
   carpet: '/assets/photos/20211008-161620.jpg',        // fresh wand lines on carpet
   carpetBefore: '/assets/photos/20221208-115447.jpg',
@@ -47,14 +47,14 @@ const IMG = {
   commercialCarpet: '/assets/photos/fb-img-1606372845324.jpg',
   rangehood: '/assets/photos/20180817-160802.jpg',
   wetCarpet: '/assets/photos/20230110-082736.jpg',
-  bond: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_4f507cbc-20bb-44d6-b1b0-7adb3683d2b3.png',
-  builders: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9241808d-6324-4311-afdd-7ffa968ca867.png',
+  bond: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_76f4e6b5-2cf3-4c26-8ac1-cd714600b727.png',
+  builders: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',
   flood: '/assets/photos/20230710-095357.jpg',
   // Generated stock kept where no client photo exists
   window: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_75360fb2-0874-4e16-af03-b848ab3f2488.png',
   macro: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png',
-  van: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_50830624-07d1-4dc9-b666-b4f25306661f.png',
-  steps: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_183afc7b-d30c-4e86-b5d2-f040957bed71.png',
+  van: '/assets/brand/van-logo.png',
+  steps: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png',
 };
 
 const c = (s) => s; // copy helper for readability

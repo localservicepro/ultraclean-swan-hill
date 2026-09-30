@@ -18,12 +18,12 @@ const srcset = (url) => IMG_WIDTHS.map((w) => `${optimizedUrl(url, w)} ${w}w`).j
 // Post-process: rewrite every Higgsfield PNG in <img src> / <video poster> to responsive optimized sources.
 function optimizeImages(html) {
   return html
-    .replace(/<img([^>]*?)src="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/)[^"]+)"([^>]*)>/g, (m, a, url, b) => {
+    .replace(/<img([^>]*?)src="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/|\/assets\/brand\/)[^"]+)"([^>]*)>/g, (m, a, url, b) => {
       const full = /fetchpriority="high"|class="[^"]*\bhero\b/.test(a + b) || /hero-media/.test(m);
       const sizes = full ? '100vw' : '(max-width: 900px) 100vw, 640px';
       return `<img${a}src="${optimizedUrl(url, 1080)}" srcset="${srcset(url)}" sizes="${sizes}" decoding="async"${b}>`;
     })
-    .replace(/poster="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/)[^"]+)"/g, (m, url) => `poster="${optimizedUrl(url, 1080)}"`);
+    .replace(/poster="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/|\/assets\/brand\/)[^"]+)"/g, (m, url) => `poster="${optimizedUrl(url, 1080)}"`);
 }
 
 /* ---------- brand mark ---------- */
