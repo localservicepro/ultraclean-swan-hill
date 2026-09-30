@@ -12,7 +12,7 @@ const POSTS = [
     date: '2026-09-28',
     readMins: 6,
     img: 'carpet',
-    alt: 'How much does carpet cleaning cost Swan Hill - Ultraclean steam cleaning a bedroom carpet showing the clean stripe',
+    alt: 'How much does carpet cleaning cost Swan Hill - fresh Ultraclean steam cleaning lines on a bedroom carpet',
     excerpt: 'Per-room prices, whole-house rates, what pushes the price up or down, and how to get a fixed quote instead of an hourly guess.',
     related: ['end-of-lease-cleaning-checklist-swan-hill', 'flooded-carpet-what-to-do-murray-river'],
     body: [
@@ -62,7 +62,7 @@ const POSTS = [
     date: '2026-09-28',
     readMins: 7,
     img: 'bond',
-    alt: 'End of lease cleaning checklist Swan Hill - spotless empty rental kitchen with keys on the bench after a bond clean',
+    alt: 'End of lease cleaning checklist Swan Hill - Ultraclean wiping down a kitchen bench during a bond clean',
     excerpt: 'Room-by-room, the items property managers actually check at the final inspection, plus what to do the week before you hand back the keys.',
     related: ['carpet-cleaning-cost-swan-hill', 'flooded-carpet-what-to-do-murray-river'],
     body: [
@@ -106,7 +106,7 @@ const POSTS = [
     date: '2026-09-28',
     readMins: 6,
     img: 'flood',
-    alt: 'Flooded carpet what to do Murray River - air movers and dehumidifier drying lifted wet carpet in a Swan Hill lounge room',
+    alt: 'Flooded carpet what to do Murray River - Ultraclean air mover drying a lounge room carpet',
     excerpt: 'Whether it is a burst pipe or the river coming up, the first two days decide whether the carpet is saved. Here is the order to do things in.',
     related: ['carpet-cleaning-cost-swan-hill', 'end-of-lease-cleaning-checklist-swan-hill'],
     body: [

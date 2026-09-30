@@ -18,19 +18,42 @@ SITE.areasAll = [...SITE.areasVic, ...SITE.areasNsw];
 
 // Higgsfield-generated imagery (hosted). See README for regeneration notes.
 const IMG = {
-  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_85064e2f-e0cb-48e8-8354-f9089ccd4369.png',
-  heroVideo: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_035327_77654163-61b4-4d8e-9eb4-ebb06276e9a8.mp4',
-  macro: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png',
-  carpet: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034341_a1e2e705-6445-4f48-8aef-3d07a37dc4f0.png',
-  upholstery: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034341_52e093d2-959f-41ab-9876-52ccdf9a9681.png',
-  tile: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_eaca6310-240d-4958-9df2-9556a39afc8e.png',
+  // Rebranded client photos (Higgsfield edits of the real Drive photos: navy Ultraclean uniform / van livery)
+  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_8c2345b2-02ac-4cc7-82f4-b9aa5a4850e7.png',          // Lee steam cleaning a lounge carpet
+  heroVideo: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001719_5c9020b9-5c4b-4f24-ab0e-b393f2f83f3f.mp4',
+  leePortrait: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_183afc7b-d30c-4e86-b5d2-f040957bed71.png',   // Lee in front of the branded van
+  leeBench: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_4f507cbc-20bb-44d6-b1b0-7adb3683d2b3.png',      // Lee wiping a kitchen bench (bond clean)
+  leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9241808d-6324-4311-afdd-7ffa968ca867.png',       // Lee with hard-floor wand (builders/commercial)
+  vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_ed1e1825-664d-41b0-ac3b-f1057d037c87.png',       // real van, rear open, branded
+  vanInterior: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9e4f8126-d239-4fce-818b-6b9af507519b.png',   // truck-mount unit inside the van, stickers
+  rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_1f24629f-c5c0-451c-a0a9-08e1f587ffbc.png',        // rotary machine with stickers
+  vanHero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_50830624-07d1-4dc9-b666-b4f25306661f.png',       // generated: branded van on a Swan Hill street
+  truck: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_42ad6348-bd7c-44cd-8818-15e792998255.png',         // generated: branded truck at Lake Boga
+  equipment: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_f28dbb44-7ba5-4e92-9966-2e910e2fd635.png',     // generated: equipment with stickers
+  // Real client photos (self-hosted in /assets/photos/)
+  carpet: '/assets/photos/20211008-161620.jpg',        // fresh wand lines on carpet
+  carpetBefore: '/assets/photos/20221208-115447.jpg',
+  carpetAfter: '/assets/photos/20221208-123630.jpg',
+  carpetLounge: '/assets/photos/20230710-095357.jpg',  // air mover drying clean carpet
+  upholstery: '/assets/photos/20251106-141857.jpg',    // lounge half cleaned
+  sofa: '/assets/photos/20251219-142205.jpg',
+  ottoman: '/assets/photos/20210127-105911.jpg',
+  tile: '/assets/photos/092a8627.jpg',                 // rotary tool on porcelain tiles
+  tileShower: '/assets/photos/20230621-091541.jpg',
+  hardFloor: '/assets/photos/20220720-113426.jpg',
+  rug: '/assets/photos/20211104-125538.jpg',
+  office: '/assets/photos/20170503-045844.jpg',
+  commercialCarpet: '/assets/photos/fb-img-1606372845324.jpg',
+  rangehood: '/assets/photos/20180817-160802.jpg',
+  wetCarpet: '/assets/photos/20230110-082736.jpg',
+  bond: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001601_4f507cbc-20bb-44d6-b1b0-7adb3683d2b3.png',
+  builders: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_9241808d-6324-4311-afdd-7ffa968ca867.png',
+  flood: '/assets/photos/20230710-095357.jpg',
+  // Generated stock kept where no client photo exists
   window: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_75360fb2-0874-4e16-af03-b848ab3f2488.png',
-  bond: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_03895434-125f-40b9-829b-27e260a9c611.png',
-  builders: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_d97a2caa-5821-4480-a793-66ed33ebe969.png',
-  flood: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034341_28c3763b-bfce-4d5e-9eb6-cd1ba25a4033.png',
-  van: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_fd0f75fc-d32d-4ac7-9378-4b79d545b985.png',
-  steps: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_c940e665-0ff4-4214-a65e-7d3ddf73442d.png',
-  office: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_29b216fe-5f87-4268-8317-3cb892dd1586.png',
+  macro: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png',
+  van: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_50830624-07d1-4dc9-b666-b4f25306661f.png',
+  steps: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_001600_183afc7b-d30c-4e86-b5d2-f040957bed71.png',
 };
 
 const c = (s) => s; // copy helper for readability
@@ -46,7 +69,7 @@ const SERVICES = [
     meta: 'Carpet cleaning Kerang, Swan Hill and the Murray towns. Truck-mounted steam cleaning for homes, rentals and offices. Dry in hours. Free quotes from Ultraclean.',
     keyword: 'Carpet Cleaning Kerang',
     img: 'carpet',
-    alt: 'Carpet cleaning Kerang - Ultraclean steam cleaning wand lifting soil out of bedroom carpet in a Murray region home',
+    alt: 'Carpet cleaning Kerang - fresh Ultraclean steam cleaning lines across a bedroom carpet in a Murray region home',
     lede: 'Truck-mounted hot-water extraction for homes, rentals and workplaces from Kerang to Swan Hill. Deep clean, fast dry, no residue left behind.',
     towns: ['Kerang', 'Swan Hill', 'Lake Boga', 'Cohuna', 'Barham', 'Nyah'],
     audience: 'Homeowners, renters and landlords',
@@ -81,7 +104,7 @@ const SERVICES = [
     meta: 'Upholstery cleaning Swan Hill — lounges, dining chairs, mattresses and rugs steam cleaned by Ultraclean. Fabric-safe methods, pet and stain treatment. Free quotes.',
     keyword: 'Upholstery Cleaning Swan Hill',
     img: 'upholstery',
-    alt: 'Upholstery cleaning Swan Hill - Ultraclean technician steam cleaning a grey linen sofa with a wool rug in the foreground',
+    alt: 'Upholstery cleaning Swan Hill - fabric lounge half cleaned by Ultraclean showing the difference',
     lede: 'Fabric-safe cleaning for lounges, dining chairs, mattresses and rugs — in your home in Swan Hill, or picked up and returned.',
     towns: ['Swan Hill', 'Lake Boga', 'Murray Downs', 'Kerang', 'Nyah', 'Beverford'],
     audience: 'Families and pet owners',
@@ -115,7 +138,7 @@ const SERVICES = [
     meta: 'Tile and grout cleaning Swan Hill and Lake Boga. Pressure-cleaned grout lines, sealed to stay clean. Kitchens, bathrooms, outdoor areas. Free quotes from Ultraclean.',
     keyword: 'Tile and Grout Cleaning Swan Hill',
     img: 'tile',
-    alt: 'Tile and grout cleaning Swan Hill - Ultraclean rotary tool restoring grout lines on a porcelain kitchen floor',
+    alt: 'Tile and grout cleaning Swan Hill - Ultraclean rotary turbo tool on a porcelain tiled floor',
     lede: 'Grout goes grey long before the tiles do. We pressure-clean it back to its original colour and seal it so it stays that way.',
     towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Cohuna', 'Sea Lake'],
     audience: 'Homeowners and new buyers',
@@ -179,7 +202,7 @@ const SERVICES = [
     meta: 'End of lease cleaning Swan Hill. Full bond clean to your real estate agent\'s checklist with carpet steam cleaning included. Receipt supplied. Free quotes from Ultraclean.',
     keyword: 'End of Lease Cleaning Swan Hill',
     img: 'bond',
-    alt: 'End of lease cleaning Swan Hill - spotless empty rental kitchen after an Ultraclean bond clean, keys on the bench',
+    alt: 'End of lease cleaning Swan Hill - Ultraclean owner Lee wiping down a kitchen bench during a bond clean',
     lede: 'A full vacate clean to your property manager\'s checklist — oven, windows, walls and carpets — with the receipt agents in Swan Hill ask for.',
     towns: ['Swan Hill', 'Kerang', 'Murray Downs', 'Lake Boga', 'Cohuna', 'Balranald'],
     audience: 'Tenants and property managers',
@@ -211,7 +234,7 @@ const SERVICES = [
     meta: 'Commercial cleaning Swan Hill — regular office, retail and clinic cleaning contracts, plus builders cleans for new homes and fit-outs. Insured, reliable. Free quotes.',
     keyword: 'Commercial Cleaning Swan Hill',
     img: 'builders',
-    alt: 'Commercial cleaning Swan Hill - newly built home after an Ultraclean builders clean with cleaning trolley by the window',
+    alt: 'Commercial cleaning Swan Hill - Ultraclean owner Lee cleaning the hard floors of a new build',
     lede: 'Reliable regular cleaning for offices, shops and clinics across Swan Hill, and thorough builders cleans that get new homes handover-ready.',
     towns: ['Swan Hill', 'Kerang', 'Murray Downs', 'Lake Boga', 'Barham', 'Cohuna'],
     audience: 'Offices, retail and builders',
@@ -243,7 +266,7 @@ const SERVICES = [
     meta: 'Flooded carpet in Swan Hill or Lake Boga? Ultraclean extracts water, dries carpet and underlay with air movers and dehumidifiers, and sanitises. Call 0417 327 173.',
     keyword: 'Flood Carpet Drying Swan Hill',
     img: 'flood',
-    alt: 'Flood carpet drying Swan Hill - Ultraclean air movers and dehumidifier drying lifted wet carpet in a flooded lounge room',
+    alt: 'Flood carpet drying Swan Hill - Ultraclean air mover drying a lounge room carpet',
     lede: 'Burst pipe, overflowing washing machine, storm or river water — the sooner carpet is extracted and dried, the more you save. Call us first.',
     towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Barham', 'Moulamein'],
     audience: 'Homeowners, insurers and landlords',

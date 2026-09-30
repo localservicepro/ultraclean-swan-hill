@@ -18,7 +18,7 @@ Performance notes: CSS is inlined at build time, Google Fonts load non-blocking,
 
 ## Before launch
 1. Set the real domain in `build/data.js` (`SITE.domain`) and rebuild — canonical, OG and sitemap URLs use it.
-2. Imagery is Higgsfield-generated and hosted on Higgsfield's CDN. Download and self-host it (or replace with real job photos) before go-live.
+2. Client job photos live in `assets/photos/` (from the Drive folder "Photos / Initial Web Images"). The uniform/van shots were rebranded from AustClean to Ultraclean with Higgsfield and, like the hero video, are hosted on Higgsfield's CDN — download and self-host those before go-live.
 3. Confirm opening hours (`SITE.hours`) — currently a placeholder of Mon–Sat 7am–6pm.
 4. Test a live form submission end-to-end in GHL: the LeadConnector `external-tracking.js` script captures the submit; the form has no other endpoint.
 

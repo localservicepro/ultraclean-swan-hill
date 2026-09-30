@@ -18,12 +18,12 @@ const srcset = (url) => IMG_WIDTHS.map((w) => `${optimizedUrl(url, w)} ${w}w`).j
 // Post-process: rewrite every Higgsfield PNG in <img src> / <video poster> to responsive optimized sources.
 function optimizeImages(html) {
   return html
-    .replace(/<img([^>]*?)src="(https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/[^"]+)"([^>]*)>/g, (m, a, url, b) => {
+    .replace(/<img([^>]*?)src="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/)[^"]+)"([^>]*)>/g, (m, a, url, b) => {
       const full = /fetchpriority="high"|class="[^"]*\bhero\b/.test(a + b) || /hero-media/.test(m);
       const sizes = full ? '100vw' : '(max-width: 900px) 100vw, 640px';
       return `<img${a}src="${optimizedUrl(url, 1080)}" srcset="${srcset(url)}" sizes="${sizes}" decoding="async"${b}>`;
     })
-    .replace(/poster="(https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/[^"]+)"/g, (m, url) => `poster="${optimizedUrl(url, 1080)}"`);
+    .replace(/poster="((?:https:\/\/d8j0ntlcm91z4\.cloudfront\.net\/|\/assets\/photos\/)[^"]+)"/g, (m, url) => `poster="${optimizedUrl(url, 1080)}"`);
 }
 
 /* ---------- brand mark ---------- */
@@ -244,7 +244,7 @@ function home() {
 <main>
 <section class="hero">
   <div class="hero-media">
-    <img src="${IMG.hero}" alt="Carpet cleaning Swan Hill - Ultraclean technician steam cleaning a lounge room carpet in Lake Boga" fetchpriority="high" width="1600" height="900">
+    <img src="${IMG.hero}" alt="Carpet cleaning Swan Hill - Ultraclean owner Lee steam cleaning a lounge room carpet" fetchpriority="high" width="1600" height="900">
     <video muted loop playsinline preload="none" poster="${IMG.hero}" data-src="${IMG.heroVideo}" aria-hidden="true" class="hero-video"></video>
   </div>
   <div class="hero-scrim"></div>
@@ -302,8 +302,8 @@ function home() {
 <section class="paper section" id="about">
   <div class="wrap about-grid">
     <div class="about-media reveal">
-      <div class="main"><img src="${IMG.van}" alt="Ultraclean Swan Hill cleaning van parked on the Lake Boga foreshore at sunset" loading="lazy"></div>
-      <div class="float"><img src="${IMG.steps}" alt="Ultraclean technician carrying a carpet cleaning machine up the steps of a Swan Hill home" loading="lazy"></div>
+      <div class="main"><img src="${IMG.leePortrait}" alt="Lee from Ultraclean Swan Hill in front of the branded cleaning van" loading="lazy"></div>
+      <div class="float"><img src="${IMG.vanRear}" alt="Ultraclean Swan Hill van with the truck-mounted carpet cleaning unit" loading="lazy"></div>
     </div>
     <div class="about-copy reveal" data-d="1">
       <span class="label">About Ultraclean</span>
@@ -341,12 +341,17 @@ function home() {
     <div class="section-head">
       <div class="reveal"><span class="label">On the job</span><h2>What a proper clean <span class="em">looks like.</span></h2></div>
     </div>
-    <div class="mosaic">
-      <figure class="m1 reveal"><img src="${IMG.carpet}" alt="Carpet cleaning Swan Hill - clean stripe of steam cleaned carpet next to soiled carpet" loading="lazy"><figcaption>Carpet steam clean</figcaption></figure>
-      <figure class="m2 reveal" data-d="1"><img src="${IMG.tile}" alt="Tile and grout cleaning Swan Hill - grout lines restored to white" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
-      <figure class="m3 reveal" data-d="2"><img src="${IMG.bond}" alt="End of lease cleaning Swan Hill - spotless rental kitchen ready for inspection" loading="lazy"><figcaption>Bond clean</figcaption></figure>
-      <figure class="m4 reveal" data-d="1"><img src="${IMG.upholstery}" alt="Upholstery cleaning Swan Hill - linen sofa being steam cleaned" loading="lazy"><figcaption>Upholstery</figcaption></figure>
-      <figure class="m5 reveal" data-d="2"><img src="${IMG.window}" alt="Window cleaning Swan Hill - shopfront glass being squeegeed" loading="lazy"><figcaption>Windows</figcaption></figure>
+    <div class="ba reveal">
+      <figure><img src="${IMG.carpetBefore}" alt="Before - soiled bedroom carpet in a Swan Hill rental before Ultraclean steam cleaning" loading="lazy"><figcaption>Before</figcaption></figure>
+      <figure><img src="${IMG.carpetAfter}" alt="After - the same Swan Hill bedroom carpet after Ultraclean steam cleaning" loading="lazy"><figcaption class="after">After</figcaption></figure>
+      <p>Same room, same afternoon. A three-bedroom vacate clean in Swan Hill — carpets steam cleaned, receipt supplied, bond returned in full.</p>
+    </div>
+    <div class="mosaic" style="margin-top:14px">
+      <figure class="m1 reveal"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded van parked outside a Swan Hill home" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
+      <figure class="m2 reveal" data-d="1"><img src="${IMG.tile}" alt="Tile and grout cleaning Swan Hill - rotary turbo tool on porcelain tiles" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
+      <figure class="m3 reveal" data-d="2"><img src="${IMG.upholstery}" alt="Upholstery cleaning Swan Hill - lounge half cleaned showing the difference" loading="lazy"><figcaption>Upholstery</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Truck-mounted carpet cleaning unit inside the Ultraclean van" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
+      <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean carpet cleaning wand, air mover and dehumidifier" loading="lazy"><figcaption>The gear</figcaption></figure>
     </div>
   </div>
 </section>
@@ -525,7 +530,7 @@ function aboutPage() {
   return head({ title: 'About Ultraclean Swan Hill | Local, Insured Cleaners', meta: 'Ultraclean Swan Hill is an owner-operated cleaning business based in Lake Boga, servicing Swan Hill, Kerang and 20 Murray River towns. Insured, local, truck-mounted equipment.', canonical: '/about/', ogImage: IMG.van, schema }) + nav('about') + `
 <main>
 <section class="page-hero">
-  <div class="hero-media"><img src="${IMG.van}" alt="Ultraclean Swan Hill cleaning van on the Lake Boga foreshore at sunset" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded cleaning van on a residential street" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
@@ -571,6 +576,19 @@ function aboutPage() {
   </div>
 </section>
 
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels on the van: the truck-mount extraction unit, rotary tile tool, air movers and dehumidifiers. One visit covers the whole job.</p></div>
+    <div class="mosaic">
+      <figure class="m1 reveal"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" loading="lazy"><figcaption>Lake Boga base</figcaption></figure>
+      <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>Truck-mount van</figcaption></figure>
+      <figure class="m3 reveal" data-d="2"><img src="${IMG.rotary}" alt="Ultraclean rotary tile and carpet cleaning machine" loading="lazy"><figcaption>Rotary tile tool</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Inside the Ultraclean van - truck-mounted extraction unit" loading="lazy"><figcaption>Inside the van</figcaption></figure>
+      <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean wand, air mover and dehumidifier" loading="lazy"><figcaption>Drying gear</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <section class="paper section">
   <div class="wrap">
     <div class="section-head"><div class="reveal"><span class="label">How we work</span><h2>Four steps, no surprises.</h2></div></div>
@@ -604,7 +622,7 @@ function contactPage() {
   return head({ title: 'Contact Ultraclean Swan Hill | Free Cleaning Quote', meta: 'Contact Ultraclean Swan Hill for a free fixed-price cleaning quote. Call 0417 327 173 or send the form — same business day reply. Based in Lake Boga, servicing Swan Hill, Kerang and the Murray.', canonical: '/contact/', ogImage: IMG.hero, schema }) + nav('contact') + `
 <main>
 <section class="contact-hero">
-  <div class="hero-media"><img src="${IMG.steps}" alt="Ultraclean technician carrying carpet cleaning equipment to a Swan Hill home" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.leePortrait}" alt="Lee from Ultraclean Swan Hill beside the branded van" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap contact-hero-in">
     <div class="contact-intro">
@@ -670,7 +688,7 @@ function areasPage() {
   return head({ title: 'Service Areas | Cleaners Swan Hill, Kerang & Murray Towns | Ultraclean', meta: 'Ultraclean Swan Hill services 20 towns from Lake Boga: Swan Hill, Kerang, Cohuna, Barham, Balranald, Nyah, Tooleybuc, Sea Lake and more. No travel surcharge. See every town we cover.', canonical: '/areas/', ogImage: IMG.carpet, schema }) + nav('areas') + `
 <main>
 <section class="page-hero">
-  <div class="hero-media"><img src="${IMG.window}" alt="Cleaners Swan Hill - Ultraclean window cleaning a shopfront on a Murray region main street" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
@@ -745,7 +763,7 @@ function blogIndex() {
   return head({ title: 'Cleaning Guides for Swan Hill Homes & Renters | Ultraclean Blog', meta: 'Plain-English guides from Ultraclean Swan Hill: carpet cleaning costs, the end of lease checklist local agents use, and what to do when carpet floods along the Murray.', canonical: '/blog/', ogImage: IMG.carpet, schema }) + nav('blog') + `
 <main>
 <section class="page-hero" style="min-height:60svh">
-  <div class="hero-media"><img src="${IMG.macro}" alt="Ultraclean Swan Hill cleaning guides" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.rug}" alt="Freshly cleaned patterned rug in a Swan Hill home" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
