@@ -45,7 +45,10 @@ const IMG = {
   ottoman: '/assets/photos/20210127-105911.jpg',
   tile: '/assets/photos/092a8627.jpg',                 // rotary tool on porcelain tiles
   tileShower: '/assets/photos/20230621-091541.jpg',
-  tileHalf: '/assets/photos/tile-grout-cleaning-half-done.jpg',   // half-cleaned tiled floor, turbo tool mid-job (client supplied)
+  // client-supplied tile job photos (Drive > Client Images)
+  tileHalf: '/assets/photos/tile-grout-cleaning-swan-hill-half-cleaned-floor.jpg',   // 1920x1080, floor half cleaned
+  tileTurbo: '/assets/photos/tile-floor-cleaning-swan-hill-turbo-tool.jpg',          // 480x639, turbo tool mid-pass
+  tileCollage: '/assets/photos/tile-grout-cleaning-before-after-collage.jpg',        // 689x380, three-panel collage
   hardFloor: '/assets/photos/20220720-113426.jpg',
   rug: '/assets/photos/20211104-125538.jpg',
   office: '/assets/photos/20170503-045844.jpg',
@@ -152,6 +155,13 @@ const SERVICES = [
     jobPhoto: 'tileHalf',
     jobCaption: 'Half done: before & after',
     jobAlt: 'Tile and grout cleaning in progress - half of the tiled floor cleaned with a high-pressure turbo tool, the other half still grey',
+    gallery: {
+      title: 'Recent tile & grout jobs',
+      items: [
+        { img: 'tileTurbo', ratio: 480 / 639, alt: 'Tile floor cleaning Swan Hill - high-pressure turbo tool lifting dirt from large format tiles, clean tiles on the right', caption: 'Turbo tool mid-pass' },
+        { img: 'tileCollage', ratio: 689 / 380, alt: 'Tile and grout cleaning before and after - grout lines restored on ceramic floor tiles', caption: 'Grout lines back to their original colour' },
+      ],
+    },
     lede: 'Grout goes grey long before the tiles do. We pressure-clean it back to its original colour and seal it so it stays that way.',
     towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Cohuna', 'Sea Lake'],
     audience: 'Homeowners and new buyers',

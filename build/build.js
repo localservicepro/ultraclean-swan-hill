@@ -421,6 +421,11 @@ function heroVisual(s) {
       <figure><img src="${IMG[s.jobPhoto || s.img]}" alt="${esc(s.jobAlt || (s.short + ' - recent Ultraclean job in Swan Hill'))}" loading="lazy"><figcaption>${esc(s.jobCaption || 'Recent job')}</figcaption></figure>
     </div>`;
 }
+function jobGallery(s) {
+  if (!s.gallery) return '';
+  return `<h2>${esc(s.gallery.title)}</h2>
+      <div class="job-gallery">${s.gallery.items.map((g) => `<figure style="flex:${g.ratio.toFixed(3)} 1 0"><img src="${IMG[g.img]}" alt="${esc(g.alt)}" loading="lazy" style="aspect-ratio:${g.ratio.toFixed(3)}"><figcaption>${esc(g.caption)}</figcaption></figure>`).join('')}</div>`;
+}
 function servicePage(s) {
   const body = s.body.map(([t, v]) => {
     if (t === 'h2') return `<h2>${esc(v)}</h2>`;
@@ -456,7 +461,7 @@ function servicePage(s) {
 
 <section class="section">
   <div class="wrap svc-body">
-    <article class="prose reveal">${body}</article>
+    <article class="prose reveal">${body}${jobGallery(s)}</article>
     <aside class="aside">
       ${s.pricing ? `<div class="card price reveal"><span class="label">Guide pricing</span><div class="price-row"><b>${s.pricing.from}</b><span>${esc(s.pricing.unit)}</span></div><p>${esc(s.pricing.note)}</p></div>` : ''}
       <div class="card reveal" data-d="1">
