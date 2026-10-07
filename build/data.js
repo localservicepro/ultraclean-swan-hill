@@ -45,6 +45,7 @@ const IMG = {
   ottoman: '/assets/photos/20210127-105911.jpg',
   tile: '/assets/photos/092a8627.jpg',                 // rotary tool on porcelain tiles
   tileShower: '/assets/photos/20230621-091541.jpg',
+  tileHalf: '/assets/photos/tile-grout-cleaning-half-done.jpg',   // half-cleaned tiled floor, turbo tool mid-job (client supplied)
   hardFloor: '/assets/photos/20220720-113426.jpg',
   rug: '/assets/photos/20211104-125538.jpg',
   office: '/assets/photos/20170503-045844.jpg',
@@ -148,6 +149,9 @@ const SERVICES = [
     keyword: 'Tile and Grout Cleaning Swan Hill',
     img: 'tile',
     alt: 'Tile and grout cleaning Swan Hill - Ultraclean rotary turbo tool on a porcelain tiled floor',
+    jobPhoto: 'tileHalf',
+    jobCaption: 'Half done: before & after',
+    jobAlt: 'Tile and grout cleaning in progress - half of the tiled floor cleaned with a high-pressure turbo tool, the other half still grey',
     lede: 'Grout goes grey long before the tiles do. We pressure-clean it back to its original colour and seal it so it stays that way.',
     towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Cohuna', 'Sea Lake'],
     audience: 'Homeowners and new buyers',

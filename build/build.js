@@ -418,7 +418,7 @@ function heroVisual(s) {
     </div>`;
   }
   return `<div class="hero-side hero-ba single fadeup d5">
-      <figure><img src="${IMG[s.jobPhoto || s.img]}" alt="${esc(s.short)} - recent Ultraclean job in Swan Hill" loading="lazy"><figcaption>Recent job</figcaption></figure>
+      <figure><img src="${IMG[s.jobPhoto || s.img]}" alt="${esc(s.jobAlt || (s.short + ' - recent Ultraclean job in Swan Hill'))}" loading="lazy"><figcaption>${esc(s.jobCaption || 'Recent job')}</figcaption></figure>
     </div>`;
 }
 function servicePage(s) {
