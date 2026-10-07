@@ -373,6 +373,10 @@ body.cur-hover .cur-ring { width: 56px; height: 56px; background: rgba(8,159,236
 .aside .card { border: 1px solid var(--line-2); border-radius: 18px; padding: 26px; background: var(--ink-2); }
 .aside .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
 .aside .card p { font-size: .95rem; }
+.aside .card.price { border-color: var(--accent); }
+.price-row { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 8px; }
+.price-row b { font-family: var(--display); font-weight: 800; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+.price-row span { font-size: .92rem; color: var(--text-2); }
 .aside .card .btn { width: 100%; justify-content: center; margin-top: 18px; }
 .aside .card .tel { display: block; margin-top: 14px; text-align: center; font-family: var(--mono); font-size: .9rem; color: var(--text); }
 .aside .towns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }

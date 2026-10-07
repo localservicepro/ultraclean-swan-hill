@@ -348,6 +348,10 @@ body.cur-hover .cur-ring { width: 56px; height: 56px; background: rgba(8,159,236
 .aside .card { border: 1px solid var(--line-2); border-radius: 18px; padding: 26px; background: var(--ink-2); }
 .aside .card h3 { font-size: 1.25rem; margin-bottom: 10px; }
 .aside .card p { font-size: .95rem; }
+.aside .card.price { border-color: var(--accent); }
+.price-row { display: flex; align-items: baseline; gap: 10px; margin: 10px 0 8px; }
+.price-row b { font-family: var(--display); font-weight: 800; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+.price-row span { font-size: .92rem; color: var(--text-2); }
 .aside .card .btn { width: 100%; justify-content: center; margin-top: 18px; }
 .aside .card .tel { display: block; margin-top: 14px; text-align: center; font-family: var(--mono); font-size: .9rem; color: var(--text); }
 .aside .towns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
@@ -660,10 +664,11 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <h2>Insured and accountable</h2>
 <p>Ultraclean is fully insured. You deal with the same local person every time, and if anything is not right you call us and it is fixed on the next visit — no head office, no call centre.</p></article>
     <aside class="aside">
+      
       <div class="card reveal" data-d="1">
         <span class="label">Free quote</span>
         <h3 style="margin-top:10px">Commercial &amp; builders cleans — priced today</h3>
-        <p>Send the rooms and rough sizes and we will reply with a fixed price the same business day.</p>
+        <p>Send the rooms, seating positions or a photo and we will reply with a fixed price the same business day.</p>
         <a class="btn" href="#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="tel" href="tel:+61417327173">0417 327 173</a>
       </div>

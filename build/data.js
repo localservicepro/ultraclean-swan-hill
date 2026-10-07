@@ -78,6 +78,7 @@ const SERVICES = [
     lede: 'Truck-mounted hot-water extraction for homes, rentals and workplaces in Swan Hill and surrounds. Deep clean, fast dry, no residue left behind.',
     towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Nyah', 'Cohuna', 'Barham'],
     beforeAfter: ['carpetBefore', 'carpetAfter'],
+    pricing: { from: '$55–60', unit: 'per standard-sized bedroom', note: 'Upwards for really dirty carpet, pet smells or stains. Living areas, hallways and stairs are quoted on size.' },
     audience: 'Homeowners, renters and landlords',
     body: [
       ['h2', 'Carpet cleaning Swan Hill and surrounds locals actually notice'],
@@ -114,6 +115,7 @@ const SERVICES = [
     lede: 'Lounges, dining chairs, mattresses and anything else upholstery, be it natural or synthetic, cleaned in place or picked up and delivered.',
     towns: ['Swan Hill', 'Lake Boga', 'Murray Downs', 'Kerang', 'Nyah', 'Beverford'],
     beforeAfter: ['sofaBefore', 'sofaAfter'],
+    pricing: { from: '$50–55', unit: 'per seating position', note: 'Depends on the condition of the upholstery, whether the cushions are double-sided, and the level and nature of the soiling. A photo gets you the most accurate price.' },
     audience: 'Families and pet owners',
     body: [
       ['h2', 'Upholstery cleaning Swan Hill families rely on'],

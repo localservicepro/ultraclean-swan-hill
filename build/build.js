@@ -458,10 +458,11 @@ function servicePage(s) {
   <div class="wrap svc-body">
     <article class="prose reveal">${body}</article>
     <aside class="aside">
+      ${s.pricing ? `<div class="card price reveal"><span class="label">Guide pricing</span><div class="price-row"><b>${s.pricing.from}</b><span>${esc(s.pricing.unit)}</span></div><p>${esc(s.pricing.note)}</p></div>` : ''}
       <div class="card reveal" data-d="1">
         <span class="label">Free quote</span>
         <h3 style="margin-top:10px">${esc(s.short)} — priced today</h3>
-        <p>Send the rooms and rough sizes and we will reply with a fixed price the same business day.</p>
+        <p>Send the rooms, seating positions or a photo and we will reply with a fixed price the same business day.</p>
         <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
         <a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a>
       </div>
