@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Carpet Cleaning Swan Hill &amp; Surrounds | Ultraclean</title>
-<meta name="description" content="Carpet cleaning Swan Hill locals trust. Ultraclean cleans carpets, upholstery, tiles and bond cleans from Lake Boga to Kerang. Book your free quote today.">
+<meta name="description" content="Carpet cleaning Swan Hill locals trust. Over 10 years experience in Swan Hill and surrounds: carpets, upholstery, tiles, windows and bond cleans. Book your free quote today.">
 <link rel="canonical" href="https://ultracleanswanhill.com.au/">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#0b1a2a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ultraclean Swan Hill">
 <meta property="og:title" content="Carpet Cleaning Swan Hill &amp; Surrounds | Ultraclean">
-<meta property="og:description" content="Carpet cleaning Swan Hill locals trust. Ultraclean cleans carpets, upholstery, tiles and bond cleans from Lake Boga to Kerang. Book your free quote today.">
+<meta property="og:description" content="Carpet cleaning Swan Hill locals trust. Over 10 years experience in Swan Hill and surrounds: carpets, upholstery, tiles, windows and bond cleans. Book your free quote today.">
 <meta property="og:url" content="https://ultracleanswanhill.com.au/">
 <meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png">
 <meta property="og:locale" content="en_AU">
@@ -80,6 +80,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 800; letter-spa
 h1 { font-size: clamp(2.2rem, min(5.2vw, 8.4svh), 4.8rem); }
 h2 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); }
 h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.15; }
+.lede.bright { color: var(--text); }
 .lede { font-size: clamp(1.02rem, min(1.5vw, 2.4svh), 1.35rem); color: var(--text-2); line-height: 1.5; max-width: 40ch; }
 .label { font-family: var(--display); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 .label.muted { color: var(--text-3); }
@@ -109,7 +110,7 @@ strong { color: var(--text); font-weight: 600; }
 .nav.frost { background: rgba(8, 17, 28, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); border-bottom-color: var(--line); }
 .nav-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: inline-flex; align-items: center; }
-.logo img { height: 46px; width: auto; display: block; }
+.logo img { height: 50px; width: auto; display: block; }
 .nav.frost .logo img { height: 42px; }
 .logo .wm { display: flex; flex-direction: column; line-height: 1; }
 .logo .wm b { font-family: var(--display); font-weight: 600; font-size: 1.32rem; letter-spacing: -0.02em; }
@@ -127,8 +128,13 @@ strong { color: var(--text); font-weight: 600; }
 .mega a:hover { background: rgba(255,255,255,0.05); color: var(--text); }
 .mega a span.n { font-family: var(--mono); font-size: 0.66rem; color: var(--accent); letter-spacing: .1em; }
 .nav-cta { display: flex; align-items: center; gap: 18px; }
-.nav-phone { font-family: var(--mono); font-size: 0.86rem; letter-spacing: 0.02em; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
-.nav-phone svg { width: 15px; height: 15px; color: var(--accent); }
+.nav-phone { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: 0.01em; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
+.nav-phone svg { width: 18px; height: 18px; color: var(--accent); }
+.nav-phone-m { display: none; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); align-items: center; justify-content: center; }
+.nav-phone-m svg { width: 20px; height: 20px; }
+.hero-phone { display: inline-flex; align-items: center; gap: 10px; padding: 10px 0; font-family: var(--display); font-weight: 800; font-size: clamp(1.35rem, 2.6vw, 2rem); color: var(--text); letter-spacing: .01em; line-height: 1; }
+.hero-phone svg { width: 1em; height: 1em; color: var(--accent); }
+.hero-phone:hover span { color: var(--accent); }
 .nav .btn { padding: 12px 20px; font-size: 0.9rem; }
 .burger { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
 .burger i { display: block; width: 18px; height: 1.5px; background: var(--text); transition: transform .3s, opacity .3s; }
@@ -146,7 +152,7 @@ strong { color: var(--text); font-weight: 600; }
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: clamp(28px, 5vh, 80px); padding-top: calc(var(--nav-h) + 24px); }
 .hero-media { position: absolute; inset: -6% 0 0 0; z-index: 0; }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; transition: opacity 1s; }
+.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; transition: opacity 2.2s ease-in-out; }
 .hero-media .hero-video.ready { opacity: 1; }
 .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,17,28,0.6) 0%, rgba(8,17,28,0.35) 40%, rgba(8,17,28,0.94) 100%); }
 .hero-scrim::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,17,28,0.82) 0%, rgba(8,17,28,0.2) 60%); }
@@ -227,6 +233,10 @@ strong { color: var(--text); font-weight: 600; }
 .step p { font-size: .96rem; }
 .mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 140px; gap: 14px; }
 .mosaic figure { position: relative; overflow: hidden; border-radius: 14px; background: var(--ink-3); }
+.mosaic figure.contain { grid-column: span 12; grid-row: span 4; background: #0d1a2b; }
+.mosaic figure.contain img { object-fit: contain; }
+@media (max-width: 900px) { .mosaic figure.contain { grid-row: span 3; } }
+@media (max-width: 600px) { .mosaic figure.contain { grid-row: span 2; } }
 .mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 .mosaic figure:hover img { transform: scale(1.06); }
 .mosaic figcaption { position: absolute; left: 14px; bottom: 12px; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text); background: rgba(8,17,28,.6); padding: 6px 10px; border-radius: 6px; backdrop-filter: blur(6px); }
@@ -312,10 +322,20 @@ footer .logo img { height: 56px; }
 .cur-ring { width: 34px; height: 34px; border: 1px solid rgba(8,159,236,.6); transition: width .3s, height .3s, background .3s; }
 body.cur-hover .cur-ring { width: 56px; height: 56px; background: rgba(8,159,236,.12); }
 @media (hover: none), (pointer: coarse) { .cur, .cur-ring { display: none; } }
+.hero-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 420px; justify-self: end; }
+.hero-ba figure { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3/4; background: var(--ink-3); border: 1px solid var(--line-2); }
+.hero-ba img { width: 100%; height: 100%; object-fit: cover; }
+.hero-ba figcaption { position: absolute; left: 10px; top: 10px; font-family: var(--display); font-weight: 600; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(8,17,28,.78); color: var(--text); backdrop-filter: blur(6px); }
+.hero-ba figcaption.after { background: var(--accent); color: var(--accent-ink); }
+.hero-ba.single { grid-template-columns: 1fr; max-width: 360px; }
+.hero-ba.single figure { aspect-ratio: 4/3; }
+@media (max-width: 900px) { .hero-ba { justify-self: start; max-width: 100%; } .hero-ba.single { max-width: 100%; } .hero-ba figure { aspect-ratio: 1; } }
 .page-hero { position: relative; min-height: 78svh; display: flex; align-items: flex-end; padding-top: calc(var(--nav-h) + 40px); padding-bottom: clamp(36px, 5vw, 64px); overflow: hidden; }
 .page-hero .hero-media { inset: -6% 0 0 0; }
 .crumbs { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); display: flex; gap: 12px; margin-bottom: 20px; }
 .crumbs a:hover { color: var(--accent); }
+.crumbs { flex-wrap: wrap; row-gap: 4px; }
+.crumbs a, .crumbs span { overflow-wrap: normal; white-space: nowrap; }
 .page-hero h1 { max-width: 16ch; font-size: clamp(2rem, min(4.6vw, 7.8svh), 4rem); margin-bottom: clamp(12px, 2vh, 22px); }
 .page-hero .hero-in { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
 .svc-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px clamp(40px, 6vw, 100px); align-items: start; }
@@ -451,6 +471,7 @@ body.modal-open { overflow: hidden; }
   :root { --nav-h: 68px; }
   .nav-links, .nav-phone { display: none; }
   .burger { display: flex; }
+  .nav-phone-m { display: inline-flex; }
   .hero-in, .page-hero .hero-in { grid-template-columns: 1fr; }
   .hero-side { justify-self: start; max-width: 100%; grid-template-columns: 1fr 1fr; width: 100%; }
   .section-head, .intro-grid, .about-grid, .areas-grid, .quote-grid, .faq-grid, .svc-body { grid-template-columns: 1fr; }
@@ -551,7 +572,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   .hero, .page-hero, .contact-hero { min-height: auto; padding-top: calc(var(--nav-h) + 20px); padding-bottom: 28px; }
   .hero h1, .page-hero h1 { font-size: 2rem; margin: 8px 0 12px; }
   .hero .lede, .page-hero .lede { font-size: .95rem; margin-bottom: 14px; max-width: 60ch; }
-  .hero-side { display: none; }
+  .hero-side, .hero-ba { display: none; }
   .scroll-hint { display: none; }
   .mobile-menu a.big { font-size: 1.4rem; padding: 8px 0; }
   .modal-panel { max-height: 100svh; border-radius: 0; }
@@ -566,7 +587,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   html { scroll-behavior: auto; }
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://ultracleanswanhill.com.au/#business","name":"Ultraclean Swan Hill","url":"https://ultracleanswanhill.com.au","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","image":"https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png","logo":"https://ultracleanswanhill.com.au/assets/img/logo.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"529 Lakeside Drive","addressLocality":"Lake Boga","addressRegion":"VIC","postalCode":"3584","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-35.4605,"longitude":143.4635},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cleaning services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Carpet Cleaning","url":"https://ultracleanswanhill.com.au/services/carpet-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Upholstery & Rug Cleaning","url":"https://ultracleanswanhill.com.au/services/upholstery-rug-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tile & Grout Cleaning","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Window Cleaning","url":"https://ultracleanswanhill.com.au/services/window-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bond / End of Lease Cleaning","url":"https://ultracleanswanhill.com.au/services/end-of-lease-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial & Builders Cleaning","url":"https://ultracleanswanhill.com.au/services/commercial-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flood & Water Damage","url":"https://ultracleanswanhill.com.au/services/flood-water-damage/"}}]}},{"@type":"WebSite","url":"https://ultracleanswanhill.com.au","name":"Ultraclean Swan Hill"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does carpet cleaning cost in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"It depends on how many rooms you have, how soiled the carpet is and whether you need stain treatment. Fill in the quote form with the rooms and rough sizes and Ultraclean will send back a fixed price for carpet cleaning in Swan Hill — no surprises on the day."}},{"@type":"Question","name":"Do you travel to Kerang, Cohuna and Barham for carpet cleaning?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kerang, Cohuna and Barham are all inside our standard service area from Lake Boga, along with Swan Hill, Nyah, Tooleybuc, Balranald, Sea Lake and the other towns listed on this page. There is no travel surcharge within the service area."}},{"@type":"Question","name":"Will your end of lease clean meet Swan Hill real estate agent checklists?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our bond clean follows the vacate checklists local Swan Hill agencies use, includes carpet steam cleaning and a receipt, and if the inspection picks up anything we return and fix it free."}},{"@type":"Question","name":"How long do carpets take to dry after cleaning in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"Usually 4 to 8 hours. We use hot-water extraction with strong vacuum recovery and leave air movers running, so carpets are walkable the same day."}},{"@type":"Question","name":"Can you dry out flooded carpets in Swan Hill and Lake Boga?","acceptedAnswer":{"@type":"Answer","text":"Yes. We extract the water, lift the carpet to dry the underlay with air movers and dehumidifiers, treat for mould and relay and clean the carpet. Call 0417 327 173 as soon as it happens."}},{"@type":"Question","name":"Do you offer regular commercial cleaning contracts in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"We do. Offices, shops, clinics and community buildings in Swan Hill, Kerang and Barham are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://ultracleanswanhill.com.au/#business","name":"Ultraclean Swan Hill","url":"https://ultracleanswanhill.com.au","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","image":"https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png","logo":"https://ultracleanswanhill.com.au/assets/img/logo.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"529 Lakeside Drive","addressLocality":"Lake Boga","addressRegion":"VIC","postalCode":"3584","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-35.4605,"longitude":143.4635},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cleaning services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Carpet Cleaning","url":"https://ultracleanswanhill.com.au/services/carpet-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Upholstery & Rug Cleaning","url":"https://ultracleanswanhill.com.au/services/upholstery-rug-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tile & Grout Cleaning","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Window Cleaning","url":"https://ultracleanswanhill.com.au/services/window-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bond / End of Lease Cleaning","url":"https://ultracleanswanhill.com.au/services/end-of-lease-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial & Builders Cleaning","url":"https://ultracleanswanhill.com.au/services/commercial-cleaning/"}}]}},{"@type":"WebSite","url":"https://ultracleanswanhill.com.au","name":"Ultraclean Swan Hill"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does carpet cleaning cost in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"It depends on how many rooms you have, how soiled the carpet is and whether you need stain treatment. Fill in the quote form with the rooms and rough sizes and Ultraclean will send back a fixed price for carpet cleaning in Swan Hill — no surprises on the day."}},{"@type":"Question","name":"Do you travel to Cohuna, Barham and the other towns around Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"Yes. Swan Hill and surrounds is our service area — Lake Boga, Kerang, Nyah, Tooleybuc, Balranald, Sea Lake, Cohuna, Barham and the other towns listed on this site. Travel to the further towns is shown in your fixed quote up front."}},{"@type":"Question","name":"Will your end of lease clean meet Swan Hill real estate agent checklists?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our bond clean follows the vacate checklists local Swan Hill agencies use, includes carpet steam cleaning and a receipt, and if the inspection picks up anything we return and fix it free."}},{"@type":"Question","name":"How long do carpets take to dry after cleaning in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"Usually 4 to 8 hours. We use hot-water extraction with strong vacuum recovery and leave air movers running, so carpets are walkable the same day."}},{"@type":"Question","name":"Do you clean windows as well as carpets?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ultraclean cleans windows inside and out for homes and shopfronts in Swan Hill and surrounds, including frames, tracks and flyscreens, and can bundle them with a carpet or bond clean on the same visit."}},{"@type":"Question","name":"Do you offer regular commercial cleaning contracts in Swan Hill?","acceptedAnswer":{"@type":"Answer","text":"We do. Offices, shops, clinics and community buildings in Swan Hill and surrounds are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in."}}]}]}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
 <script defer src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_f348309a624d4909a1804129527150dd"></script>
 
@@ -579,7 +600,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><button type="button" aria-haspopup="true">Services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega"><a href="/services/carpet-cleaning/"><span class="n">01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span class="n">02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span class="n">03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span class="n">04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span class="n">05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span class="n">06</span>Commercial &amp; Builders Cleaning</a><a href="/services/flood-water-damage/"><span class="n">07</span>Flood &amp; Water Damage</a></div></li>
+        <li><button type="button" aria-haspopup="true">Services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega"><a href="/services/carpet-cleaning/"><span class="n">01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span class="n">02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span class="n">03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span class="n">04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span class="n">05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span class="n">06</span>Commercial &amp; Builders Cleaning</a></div></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/areas/">Areas</a></li>
         <li><a href="/blog/">Blog</a></li>
@@ -589,6 +610,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="nav-cta">
       <a class="nav-phone" href="tel:+61417327173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>0417 327 173</a>
       <a class="btn" href="/#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="nav-phone-m" href="tel:+61417327173" aria-label="Call 0417 327 173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -596,7 +618,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <div class="mobile-menu" id="mobile-menu">
   <a class="big" href="/">Home</a>
   <a class="big" href="/#services">Services</a>
-  <div class="sub"><a href="/services/carpet-cleaning/"><span>01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span>02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span>03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span>04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span>05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span>06</span>Commercial &amp; Builders Cleaning</a><a href="/services/flood-water-damage/"><span>07</span>Flood &amp; Water Damage</a></div>
+  <div class="sub"><a href="/services/carpet-cleaning/"><span>01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span>02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span>03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span>04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span>05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span>06</span>Commercial &amp; Builders Cleaning</a></div>
   <a class="big" href="/about/">About</a>
   <a class="big" href="/areas/">Service areas</a>
   <a class="big" href="/blog/">Blog</a>
@@ -617,34 +639,34 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   <div class="wrap hero-in">
     <div>
       <span class="label fadeup d1">A higher standard of clean · Swan Hill &amp; the Murray</span>
-      <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill, Lake Boga <span class="em">&amp;</span> Kerang</h1>
-      <p class="lede fadeup d3">Carpet cleaning Swan Hill homes and businesses can rely on — plus upholstery, tile and grout, windows, bond cleans, commercial cleaning and flood drying. One local team, every town along the river.</p>
+      <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill <span class="em">&amp;</span> All Surrounding Areas</h1>
+      <p class="lede bright fadeup d3">Local, reliable cleaning backed by over 10 years experience in the Swan Hill &amp; surrounding area. From carpets &amp; upholstery to tile &amp; grout, windows, bond cleans, commercial cleaning &amp; flood restoration – professional results you can rely on.</p>
       <div class="hero-ctas fadeup d4">
         <a class="btn" href="#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="link-u" href="tel:+61417327173">Call 0417 327 173</a>
+        <a class="hero-phone" href="tel:+61417327173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span>0417 327 173</span></a>
       </div>
     </div>
     <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Local &amp; insured</span><b>Based in Lake Boga</b><p>Owner-operated. The person who quotes is the person who turns up.</p></div>
+      <div class="stat-card"><span class="label">Local &amp; insured</span><b>Over 10 years experience</b><p>Owner-operated in Swan Hill &amp; surrounds. The person who quotes is the person who turns up.</p></div>
       <div class="stat-card"><span class="label">Dry in hours</span><b>Truck-mounted steam</b><p>Hot-water extraction with strong recovery — no sticky residue, no soggy carpet.</p></div>
     </div>
   </div>
   <div class="scroll-hint"><i></i>Scroll</div>
 </section>
 
-<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Carpet steam cleaning</span><span>Upholstery &amp; rug cleaning</span><span>Tile &amp; grout cleaning</span><span>Window cleaning</span><span>Bond &amp; end of lease cleans</span><span>Commercial &amp; builders cleans</span><span>Flood &amp; water damage drying</span><span>Swan Hill</span><span>Lake Boga</span><span>Kerang</span><span>Nyah</span><span>Piangil</span><span>Wood Wood</span><span>Beverford</span><span>Sea Lake</span><span>Lalbert</span><span>Ultima</span><span>Quambatook</span><span>Cohuna</span><span>Manangatang</span><span>Murray Downs</span><span>Koraleigh</span><span>Tooleybuc</span><span>Moulamein</span><span>Balranald</span><span>Barham</span><span>Kyalite</span><span>Carpet steam cleaning</span><span>Upholstery &amp; rug cleaning</span><span>Tile &amp; grout cleaning</span><span>Window cleaning</span><span>Bond &amp; end of lease cleans</span><span>Commercial &amp; builders cleans</span><span>Flood &amp; water damage drying</span><span>Swan Hill</span><span>Lake Boga</span><span>Kerang</span><span>Nyah</span><span>Piangil</span><span>Wood Wood</span><span>Beverford</span><span>Sea Lake</span><span>Lalbert</span><span>Ultima</span><span>Quambatook</span><span>Cohuna</span><span>Manangatang</span><span>Murray Downs</span><span>Koraleigh</span><span>Tooleybuc</span><span>Moulamein</span><span>Balranald</span><span>Barham</span><span>Kyalite</span></div></div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Carpet steam cleaning</span><span>Upholstery &amp; rug cleaning</span><span>Tile &amp; grout cleaning</span><span>Window cleaning</span><span>Bond &amp; end of lease cleans</span><span>Commercial &amp; builders cleans</span><span>Swan Hill</span><span>Lake Boga</span><span>Kerang</span><span>Nyah</span><span>Piangil</span><span>Wood Wood</span><span>Beverford</span><span>Sea Lake</span><span>Lalbert</span><span>Ultima</span><span>Quambatook</span><span>Cohuna</span><span>Manangatang</span><span>Murray Downs</span><span>Koraleigh</span><span>Tooleybuc</span><span>Moulamein</span><span>Balranald</span><span>Barham</span><span>Kyalite</span><span>Carpet steam cleaning</span><span>Upholstery &amp; rug cleaning</span><span>Tile &amp; grout cleaning</span><span>Window cleaning</span><span>Bond &amp; end of lease cleans</span><span>Commercial &amp; builders cleans</span><span>Swan Hill</span><span>Lake Boga</span><span>Kerang</span><span>Nyah</span><span>Piangil</span><span>Wood Wood</span><span>Beverford</span><span>Sea Lake</span><span>Lalbert</span><span>Ultima</span><span>Quambatook</span><span>Cohuna</span><span>Manangatang</span><span>Murray Downs</span><span>Koraleigh</span><span>Tooleybuc</span><span>Moulamein</span><span>Balranald</span><span>Barham</span><span>Kyalite</span></div></div>
 
 <section class="intro">
   <div class="wrap intro-grid">
-    <p class="statement reveal">Nine services, twenty towns, <span class="em">one local number.</span> Carpet cleaning in Swan Hill done the way you would do it yourself if you had the gear.</p>
+    <p class="statement reveal">Specialty services, all areas, <span class="em">one local number.</span></p>
     <div class="intro-copy reveal" data-d="1">
-      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business based at Lake Boga, covering Swan Hill, Kerang, Nyah, Murray Downs and the Murray River towns on both sides of the border. We started with carpet steam cleaning and grew into everything a home, rental or workplace needs kept clean: upholstery and rugs, tile and grout, windows, builders cleans, bond cleans, regular commercial contracts and emergency flood drying.</p>
-      <p>No franchise, no call centre. You get a fixed quote, a confirmed time, and a job that is finished properly before we leave.</p>
+      <p>Over 10 years of cleaning experience in Swan Hill &amp; the Murray. Local experience. Professional equipment. Quality work. Whether it's in home, rental or workplace, we'll get it sorted for you.</p>
+      <p><strong>Ultraclean Swan Hill</strong> is locally owned and based at Lake Boga, covering Swan Hill and the surrounding towns on both sides of the river: carpet steam cleaning, upholstery and rugs, tile and grout, windows, builders cleans, bond cleans and regular commercial contracts.</p>
       <ul class="points">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Fixed quotes before we start — the price you are told is the price you pay</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Professional truck-mounted equipment and safe, low-residue products</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Fully insured, police-checked, and happy to work around tenants and trading hours</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>No travel surcharge anywhere in our service area</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Clear quotes up front — any travel to outlying towns is shown in the price</span></li>
       </ul>
     </div>
   </div>
@@ -653,7 +675,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <section class="services section" id="services">
   <div class="wrap">
     <div class="section-head">
-      <div class="reveal"><span class="label">What we do</span><h2>Every cleaning job a Swan Hill home or business <span class="em">actually needs.</span></h2></div>
+      <div class="reveal"><span class="label">What we do</span><h2>Professional cleaning for homes &amp; businesses with <span class="em">over 10 years local experience.</span></h2></div>
       <p class="reveal" data-d="1">Each service has its own page with what is included, how long it takes and what it costs to get a quote. Carpets are where we started; the rest is what customers kept asking for.</p>
     </div>
     <div class="svc-list"><a class="svc reveal" href="/services/carpet-cleaning/">
@@ -665,7 +687,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     </a><a class="svc reveal" href="/services/upholstery-rug-cleaning/">
       <span class="n">02</span>
       <h3>Upholstery &amp; Rug Cleaning</h3>
-      <p>Lounges, dining chairs, mattresses and wool or synthetic rugs cleaned in place or picked up and returned.</p>
+      <p>Lounges, dining chairs, mattresses and anything else upholstered, natural or synthetic, cleaned in place or picked up and delivered.</p>
       <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       <span class="svc-thumb"><img src="/_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="" loading="lazy"></span>
     </a><a class="svc reveal" href="/services/tile-grout-cleaning/">
@@ -692,36 +714,30 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
       <p>Regular contract cleaning for offices, shops and clinics, plus post-construction builders cleans.</p>
       <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       <span class="svc-thumb"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="" loading="lazy"></span>
-    </a><a class="svc reveal" href="/services/flood-water-damage/">
-      <span class="n">07</span>
-      <h3>Flood &amp; Water Damage</h3>
-      <p>Fast water extraction, carpet drying and sanitising after floods, burst pipes and overflows.</p>
-      <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      <span class="svc-thumb"><img src="/_vercel/image?url=%2Fassets%2Fphotos%2F20230710-095357.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F20230710-095357.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F20230710-095357.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F20230710-095357.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F20230710-095357.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="" loading="lazy"></span>
     </a></div>
   </div>
 </section>
 
 <section class="band" aria-label="Clean carpet fibre close-up">
-  <img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Carpet cleaning Swan Hill - freshly steam cleaned carpet fibres up close after an Ultraclean service" loading="lazy">
-  <div class="band-txt"><p class="reveal">Clean means the fibre, the backing and the underlay — not just the top you can see.</p></div>
+  <img src="/_vercel/image?url=%2Fassets%2Fphotos%2F20211008-161620.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F20211008-161620.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F20211008-161620.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F20211008-161620.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F20211008-161620.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Carpet cleaning Swan Hill - fresh steam cleaning lines across a bedroom carpet" loading="lazy">
+  <div class="band-txt"><p class="reveal">Clean means the fibre — not just the surface you can see.</p></div>
 </section>
 
 <section class="paper section" id="about">
   <div class="wrap about-grid">
     <div class="about-media reveal">
-      <div class="main"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Lee from Ultraclean Swan Hill in front of the branded cleaning van" loading="lazy"></div>
+      <div class="main"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Lee from Ultraclean Swan Hill cleaning hard floors in a Swan Hill home" loading="lazy"></div>
       <div class="float"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Ultraclean Swan Hill van with the truck-mounted carpet cleaning unit" loading="lazy"></div>
     </div>
     <div class="about-copy reveal" data-d="1">
       <span class="label">About Ultraclean</span>
       <h2>A new name on the van, the same local hands doing the work.</h2>
-      <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill. We are not a franchise and we are not a booking platform — when you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
+      <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill, with over 10 years of experience in the cleaning industry locally. When you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
       <p>We invest in the equipment that makes the difference: truck-mounted hot-water extraction, high-pressure tile turbo tools, commercial air movers and dehumidifiers for water damage, and water-fed poles for windows. The products we use are safe for kids, pets and septic systems, which matters out here.</p>
       <div class="facts">
         <div><b>Lake Boga</b><span>Home base, VIC 3584</span></div>
         <div><b>20 towns</b><span>VIC and NSW sides of the Murray</span></div>
-        <div><b>9 services</b><span>Carpets through to flood drying</span></div>
+        <div><b>10+ years</b><span>Cleaning experience in Swan Hill &amp; surrounds</span></div>
         <div><b>Fully insured</b><span>Public liability and police checked</span></div>
       </div>
       <a class="btn on-paper" href="/about/" style="margin-top:28px">More about Ultraclean <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -755,10 +771,10 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
       <p>Same room, same afternoon. A three-bedroom vacate clean in Swan Hill — carpets steam cleaned, receipt supplied, bond returned in full.</p>
     </div>
     <div class="mosaic" style="margin-top:14px">
-      <figure class="m1 reveal"><img src="/_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Ultraclean Swan Hill branded van parked outside a Swan Hill home" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
+      <figure class="m1 contain reveal"><img src="/_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fbrand%2Fvan-logo.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Ultraclean Swan Hill branded van" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="/_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Tile and grout cleaning Swan Hill - rotary turbo tool on porcelain tiles" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="/_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F20251106-141857.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Upholstery cleaning Swan Hill - lounge half cleaned showing the difference" loading="lazy"><figcaption>Upholstery</figcaption></figure>
-      <figure class="m4 reveal" data-d="1"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Truck-mounted carpet cleaning unit inside the Ultraclean van" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="/_vercel/image?url=%2Fassets%2Fphotos%2Ffb-img-1599429371383.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2Ffb-img-1599429371383.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2Ffb-img-1599429371383.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2Ffb-img-1599429371383.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2Ffb-img-1599429371383.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Truck-mounted carpet cleaning unit inside the Ultraclean van" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
       <figure class="m5 reveal" data-d="2"><img src="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png&w=1080&q=72" srcset="/_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png&w=480&q=72 480w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png&w=768&q=72 768w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png&w=1080&q=72 1080w, /_vercel/image?url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3EWpoiN6nlg900Jz4gzZzRlxgtK%2Fhf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Ultraclean carpet cleaning wand, air mover and dehumidifier" loading="lazy"><figcaption>The gear</figcaption></figure>
     </div>
   </div>
@@ -769,7 +785,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   <div class="wrap areas-grid">
     <div>
       <div class="section-head" style="grid-template-columns:1fr;margin-bottom:36px">
-        <div class="reveal"><span class="label">Service areas</span><h2>Both sides of the river, <span class="em">no travel surcharge.</span></h2></div>
+        <div class="reveal"><span class="label">Service areas</span><h2>Swan Hill first, <span class="em">then every town around it.</span></h2></div>
         <p class="reveal" data-d="1">Ultraclean is based in Lake Boga and services twenty towns across the Swan Hill Rural City, Gannawarra and Buloke shires in Victoria, and the Murray River, Balranald and Wakool districts in New South Wales.</p>
       </div>
       <div class="area-group reveal"><span class="label muted">Victoria</span><div class="chips"><span class="chip">Swan Hill</span><span class="chip home">Lake Boga</span><span class="chip">Kerang</span><span class="chip">Nyah</span><span class="chip">Piangil</span><span class="chip">Wood Wood</span><span class="chip">Beverford</span><span class="chip">Sea Lake</span><span class="chip">Lalbert</span><span class="chip">Ultima</span><span class="chip">Quambatook</span><span class="chip">Cohuna</span><span class="chip">Manangatang</span></div></div>
@@ -782,7 +798,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><div><b>Phone</b><a href="tel:+61417327173">0417 327 173</a></div></div>
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg><div><b>Email</b><a href="mailto:Ultracleanswanhill@gmail.com">Ultracleanswanhill@gmail.com</a></div></div>
       <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><div><b>Base</b><span>Lake Boga VIC 3584</span></div></div>
-      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>Hours</b><span>Mon–Sat 7:00am – 6:00pm<br>Emergency flood drying by arrangement</span></div></div>
+      <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><div><b>Hours</b><span>Mon–Sat 7:00am – 6:00pm</span></div></div>
     </div>
   </div>
 </section>
@@ -806,19 +822,21 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
     <div class="field full f-email"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
     <div class="field full f-address"><label for="f-address">Property address</label><input id="f-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="f-size">Property size</label><select id="f-size" name="property_size" required>
+    <div class="field"><label for="f-size">Property size / seating positions</label><select id="f-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
       <option>4+ bedrooms</option>
-      <option>Single room or item</option>
+      <option>Lounge — 2–3 seating positions</option>
+      <option>Lounge — 4+ seats / modular</option>
+      <option>Single room, rug or item</option>
       <option>Commercial premises</option>
     </select></div>
     <div class="field"><label for="f-service">Service needed</label><select id="f-service" name="service_needed" required>
-      <option value="" disabled selected>Select…</option><option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning">Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option><option value="Flood &amp; Water Damage">Flood &amp; Water Damage</option>
+      <option value="" disabled selected>Select…</option><option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning">Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option>
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="f-notes">Job notes</label><textarea id="f-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="f-notes">Job notes</label><textarea id="f-notes" name="job_notes" placeholder="Rooms or seating positions, sizes, stains, dates — a photo helps, text it to 0417 327 173"></textarea></div>
     <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -831,15 +849,15 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <section class="section" id="faq">
   <div class="wrap faq-grid">
     <div class="reveal"><span class="label">Questions</span><h2 style="margin-top:14px">Straight answers about cleaning in <span class="em">Swan Hill.</span></h2><p style="margin-top:20px;max-width:34ch">Something not covered? Call 0417 327 173 or send the form and we will answer it directly.</p></div>
-    <div class="reveal" data-d="1"><div class="faq"><details><summary>How much does carpet cleaning cost in Swan Hill?<i></i></summary><div class="a">It depends on how many rooms you have, how soiled the carpet is and whether you need stain treatment. Fill in the quote form with the rooms and rough sizes and Ultraclean will send back a fixed price for carpet cleaning in Swan Hill — no surprises on the day.</div></details><details><summary>Do you travel to Kerang, Cohuna and Barham for carpet cleaning?<i></i></summary><div class="a">Yes. Kerang, Cohuna and Barham are all inside our standard service area from Lake Boga, along with Swan Hill, Nyah, Tooleybuc, Balranald, Sea Lake and the other towns listed on this page. There is no travel surcharge within the service area.</div></details><details><summary>Will your end of lease clean meet Swan Hill real estate agent checklists?<i></i></summary><div class="a">Yes. Our bond clean follows the vacate checklists local Swan Hill agencies use, includes carpet steam cleaning and a receipt, and if the inspection picks up anything we return and fix it free.</div></details><details><summary>How long do carpets take to dry after cleaning in Swan Hill?<i></i></summary><div class="a">Usually 4 to 8 hours. We use hot-water extraction with strong vacuum recovery and leave air movers running, so carpets are walkable the same day.</div></details><details><summary>Can you dry out flooded carpets in Swan Hill and Lake Boga?<i></i></summary><div class="a">Yes. We extract the water, lift the carpet to dry the underlay with air movers and dehumidifiers, treat for mould and relay and clean the carpet. Call 0417 327 173 as soon as it happens.</div></details><details><summary>Do you offer regular commercial cleaning contracts in Swan Hill?<i></i></summary><div class="a">We do. Offices, shops, clinics and community buildings in Swan Hill, Kerang and Barham are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in.</div></details></div></div>
+    <div class="reveal" data-d="1"><div class="faq"><details><summary>How much does carpet cleaning cost in Swan Hill?<i></i></summary><div class="a">It depends on how many rooms you have, how soiled the carpet is and whether you need stain treatment. Fill in the quote form with the rooms and rough sizes and Ultraclean will send back a fixed price for carpet cleaning in Swan Hill — no surprises on the day.</div></details><details><summary>Do you travel to Cohuna, Barham and the other towns around Swan Hill?<i></i></summary><div class="a">Yes. Swan Hill and surrounds is our service area — Lake Boga, Kerang, Nyah, Tooleybuc, Balranald, Sea Lake, Cohuna, Barham and the other towns listed on this site. Travel to the further towns is shown in your fixed quote up front.</div></details><details><summary>Will your end of lease clean meet Swan Hill real estate agent checklists?<i></i></summary><div class="a">Yes. Our bond clean follows the vacate checklists local Swan Hill agencies use, includes carpet steam cleaning and a receipt, and if the inspection picks up anything we return and fix it free.</div></details><details><summary>How long do carpets take to dry after cleaning in Swan Hill?<i></i></summary><div class="a">Usually 4 to 8 hours. We use hot-water extraction with strong vacuum recovery and leave air movers running, so carpets are walkable the same day.</div></details><details><summary>Do you clean windows as well as carpets?<i></i></summary><div class="a">Yes. Ultraclean cleans windows inside and out for homes and shopfronts in Swan Hill and surrounds, including frames, tracks and flyscreens, and can bundle them with a carpet or bond clean on the same visit.</div></details><details><summary>Do you offer regular commercial cleaning contracts in Swan Hill?<i></i></summary><div class="a">We do. Offices, shops, clinics and community buildings in Swan Hill and surrounds are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in.</div></details></div></div>
   </div>
 </section>
 </main>
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
-      <div><h4>Services</h4><ul><li><a href="/services/carpet-cleaning/">Carpet Cleaning</a></li><li><a href="/services/upholstery-rug-cleaning/">Upholstery &amp; Rug Cleaning</a></li><li><a href="/services/tile-grout-cleaning/">Tile &amp; Grout Cleaning</a></li><li><a href="/services/window-cleaning/">Window Cleaning</a></li><li><a href="/services/end-of-lease-cleaning/">Bond / End of Lease Cleaning</a></li><li><a href="/services/commercial-cleaning/">Commercial &amp; Builders Cleaning</a></li><li><a href="/services/flood-water-damage/">Flood &amp; Water Damage</a></li></ul></div>
+      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill &amp; all surrounding areas — over 10 years local experience.</p></div>
+      <div><h4>Services</h4><ul><li><a href="/services/carpet-cleaning/">Carpet Cleaning</a></li><li><a href="/services/upholstery-rug-cleaning/">Upholstery &amp; Rug Cleaning</a></li><li><a href="/services/tile-grout-cleaning/">Tile &amp; Grout Cleaning</a></li><li><a href="/services/window-cleaning/">Window Cleaning</a></li><li><a href="/services/end-of-lease-cleaning/">Bond / End of Lease Cleaning</a></li><li><a href="/services/commercial-cleaning/">Commercial &amp; Builders Cleaning</a></li></ul></div>
       <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
         <li><a href="tel:+61417327173">0417 327 173</a></li>
@@ -869,19 +887,21 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="field"><label for="m-phone">Phone</label><input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
     <div class="field full f-email"><label for="m-email">Email</label><input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
     <div class="field full f-address"><label for="m-address">Property address</label><input id="m-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="m-size">Property size</label><select id="m-size" name="property_size" required>
+    <div class="field"><label for="m-size">Property size / seating positions</label><select id="m-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
       <option>4+ bedrooms</option>
-      <option>Single room or item</option>
+      <option>Lounge — 2–3 seating positions</option>
+      <option>Lounge — 4+ seats / modular</option>
+      <option>Single room, rug or item</option>
       <option>Commercial premises</option>
     </select></div>
     <div class="field"><label for="m-service">Service needed</label><select id="m-service" name="service_needed" required>
-      <option value="" disabled selected>Select…</option><option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning">Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option><option value="Flood &amp; Water Damage">Flood &amp; Water Damage</option>
+      <option value="" disabled selected>Select…</option><option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning">Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option>
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="m-notes">Job notes</label><textarea id="m-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="m-notes">Job notes</label><textarea id="m-notes" name="job_notes" placeholder="Rooms or seating positions, sizes, stains, dates — a photo helps, text it to 0417 327 173"></textarea></div>
     <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>

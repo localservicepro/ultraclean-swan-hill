@@ -82,7 +82,7 @@
   if (vid && !reduce && !saveData && window.innerWidth > 900) {
     const start = () => {
       vid.src = vid.dataset.src; vid.load();
-      vid.addEventListener('canplay', () => { vid.classList.add('ready'); }, { once: true });
+      vid.addEventListener('canplaythrough', () => { setTimeout(() => vid.classList.add('ready'), 200); }, { once: true });
       const p = vid.play && vid.play(); if (p && p.catch) p.catch(() => {});
     };
     if (document.readyState === 'complete') setTimeout(start, 300); else window.addEventListener('load', () => setTimeout(start, 300));

@@ -103,6 +103,7 @@ function nav(current = '') {
     <div class="nav-cta">
       <a class="nav-phone" href="tel:${SITE.phoneTel}">${ICON.phone}${SITE.phoneDisplay}</a>
       <a class="btn" href="/#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
+      <a class="nav-phone-m" href="tel:${SITE.phoneTel}" aria-label="Call ${SITE.phoneDisplay}">${ICON.phone}</a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -155,7 +156,7 @@ function footer(defaultService = '') {
   return `<footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div>${LOGO()}<p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
+      <div>${LOGO()}<p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill &amp; all surrounding areas — over 10 years local experience.</p></div>
       <div><h4>Services</h4><ul>${svc}</ul></div>
       <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
@@ -186,19 +187,21 @@ function quoteForm(defaultService = '', pre = 'f') {
     <div class="field"><label for="${pre}-phone">Phone</label><input id="${pre}-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
     <div class="field full f-email"><label for="${pre}-email">Email</label><input id="${pre}-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
     <div class="field full f-address"><label for="${pre}-address">Property address</label><input id="${pre}-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="${pre}-size">Property size</label><select id="${pre}-size" name="property_size" required>
+    <div class="field"><label for="${pre}-size">Property size / seating positions</label><select id="${pre}-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
       <option>4+ bedrooms</option>
-      <option>Single room or item</option>
+      <option>Lounge — 2–3 seating positions</option>
+      <option>Lounge — 4+ seats / modular</option>
+      <option>Single room, rug or item</option>
       <option>Commercial premises</option>
     </select></div>
     <div class="field"><label for="${pre}-service">Service needed</label><select id="${pre}-service" name="service_needed" required>
       ${defaultService ? '' : '<option value="" disabled selected>Select…</option>'}${opts}
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="${pre}-notes">Job notes</label><textarea id="${pre}-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="${pre}-notes">Job notes</label><textarea id="${pre}-notes" name="job_notes" placeholder="Rooms or seating positions, sizes, stains, dates — a photo helps, text it to 0417 327 173"></textarea></div>
     <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request ${ICON.arr}</button>
@@ -237,7 +240,7 @@ function home() {
 
   return head({
     title: 'Carpet Cleaning Swan Hill & Surrounds | Ultraclean',
-    meta: 'Carpet cleaning Swan Hill locals trust. Ultraclean cleans carpets, upholstery, tiles and bond cleans from Lake Boga to Kerang. Book your free quote today.',
+    meta: 'Carpet cleaning Swan Hill locals trust. Over 10 years experience in Swan Hill and surrounds: carpets, upholstery, tiles, windows and bond cleans. Book your free quote today.',
     canonical: '/', ogImage: IMG.hero, schema, preload: IMG.hero,
   }) + nav('home') + `
 <main>
@@ -250,15 +253,15 @@ function home() {
   <div class="wrap hero-in">
     <div>
       <span class="label fadeup d1">A higher standard of clean · Swan Hill &amp; the Murray</span>
-      <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill, Lake Boga <span class="em">&amp;</span> Kerang</h1>
-      <p class="lede fadeup d3">Carpet cleaning Swan Hill homes and businesses can rely on — plus upholstery, tile and grout, windows, bond cleans, commercial cleaning and flood drying. One local team, every town along the river.</p>
+      <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill <span class="em">&amp;</span> All Surrounding Areas</h1>
+      <p class="lede bright fadeup d3">Local, reliable cleaning backed by over 10 years experience in the Swan Hill &amp; surrounding area. From carpets &amp; upholstery to tile &amp; grout, windows, bond cleans, commercial cleaning &amp; flood restoration – professional results you can rely on.</p>
       <div class="hero-ctas fadeup d4">
         <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
-        <a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a>
+        <a class="hero-phone" href="tel:${SITE.phoneTel}">${ICON.phone}<span>${SITE.phoneDisplay}</span></a>
       </div>
     </div>
     <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Local &amp; insured</span><b>Based in Lake Boga</b><p>Owner-operated. The person who quotes is the person who turns up.</p></div>
+      <div class="stat-card"><span class="label">Local &amp; insured</span><b>Over 10 years experience</b><p>Owner-operated in Swan Hill &amp; surrounds. The person who quotes is the person who turns up.</p></div>
       <div class="stat-card"><span class="label">Dry in hours</span><b>Truck-mounted steam</b><p>Hot-water extraction with strong recovery — no sticky residue, no soggy carpet.</p></div>
     </div>
   </div>
@@ -269,15 +272,15 @@ function home() {
 
 <section class="intro">
   <div class="wrap intro-grid">
-    <p class="statement reveal">Nine services, twenty towns, <span class="em">one local number.</span> Carpet cleaning in Swan Hill done the way you would do it yourself if you had the gear.</p>
+    <p class="statement reveal">Specialty services, all areas, <span class="em">one local number.</span></p>
     <div class="intro-copy reveal" data-d="1">
-      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business based at Lake Boga, covering Swan Hill, Kerang, Nyah, Murray Downs and the Murray River towns on both sides of the border. We started with carpet steam cleaning and grew into everything a home, rental or workplace needs kept clean: upholstery and rugs, tile and grout, windows, builders cleans, bond cleans, regular commercial contracts and emergency flood drying.</p>
-      <p>No franchise, no call centre. You get a fixed quote, a confirmed time, and a job that is finished properly before we leave.</p>
+      <p>Over 10 years of cleaning experience in Swan Hill &amp; the Murray. Local experience. Professional equipment. Quality work. Whether it's in home, rental or workplace, we'll get it sorted for you.</p>
+      <p><strong>Ultraclean Swan Hill</strong> is locally owned and based at Lake Boga, covering Swan Hill and the surrounding towns on both sides of the river: carpet steam cleaning, upholstery and rugs, tile and grout, windows, builders cleans, bond cleans and regular commercial contracts.</p>
       <ul class="points">
         <li>${ICON.tick}<span>Fixed quotes before we start — the price you are told is the price you pay</span></li>
         <li>${ICON.tick}<span>Professional truck-mounted equipment and safe, low-residue products</span></li>
         <li>${ICON.tick}<span>Fully insured, police-checked, and happy to work around tenants and trading hours</span></li>
-        <li>${ICON.tick}<span>No travel surcharge anywhere in our service area</span></li>
+        <li>${ICON.tick}<span>Clear quotes up front — any travel to outlying towns is shown in the price</span></li>
       </ul>
     </div>
   </div>
@@ -286,7 +289,7 @@ function home() {
 <section class="services section" id="services">
   <div class="wrap">
     <div class="section-head">
-      <div class="reveal"><span class="label">What we do</span><h2>Every cleaning job a Swan Hill home or business <span class="em">actually needs.</span></h2></div>
+      <div class="reveal"><span class="label">What we do</span><h2>Professional cleaning for homes &amp; businesses with <span class="em">over 10 years local experience.</span></h2></div>
       <p class="reveal" data-d="1">Each service has its own page with what is included, how long it takes and what it costs to get a quote. Carpets are where we started; the rest is what customers kept asking for.</p>
     </div>
     <div class="svc-list">${svcList}</div>
@@ -294,25 +297,25 @@ function home() {
 </section>
 
 <section class="band" aria-label="Clean carpet fibre close-up">
-  <img src="${IMG.macro}" alt="Carpet cleaning Swan Hill - freshly steam cleaned carpet fibres up close after an Ultraclean service" loading="lazy">
-  <div class="band-txt"><p class="reveal">Clean means the fibre, the backing and the underlay — not just the top you can see.</p></div>
+  <img src="${IMG.carpet}" alt="Carpet cleaning Swan Hill - fresh steam cleaning lines across a bedroom carpet" loading="lazy">
+  <div class="band-txt"><p class="reveal">Clean means the fibre — not just the surface you can see.</p></div>
 </section>
 
 <section class="paper section" id="about">
   <div class="wrap about-grid">
     <div class="about-media reveal">
-      <div class="main"><img src="${IMG.leePortrait}" alt="Lee from Ultraclean Swan Hill in front of the branded cleaning van" loading="lazy"></div>
+      <div class="main"><img src="${IMG.leeWand}" alt="Lee from Ultraclean Swan Hill cleaning hard floors in a Swan Hill home" loading="lazy"></div>
       <div class="float"><img src="${IMG.vanRear}" alt="Ultraclean Swan Hill van with the truck-mounted carpet cleaning unit" loading="lazy"></div>
     </div>
     <div class="about-copy reveal" data-d="1">
       <span class="label">About Ultraclean</span>
       <h2>A new name on the van, the same local hands doing the work.</h2>
-      <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill. We are not a franchise and we are not a booking platform — when you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
+      <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill, with over 10 years of experience in the cleaning industry locally. When you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
       <p>We invest in the equipment that makes the difference: truck-mounted hot-water extraction, high-pressure tile turbo tools, commercial air movers and dehumidifiers for water damage, and water-fed poles for windows. The products we use are safe for kids, pets and septic systems, which matters out here.</p>
       <div class="facts">
         <div><b>Lake Boga</b><span>Home base, VIC 3584</span></div>
         <div><b>20 towns</b><span>VIC and NSW sides of the Murray</span></div>
-        <div><b>9 services</b><span>Carpets through to flood drying</span></div>
+        <div><b>10+ years</b><span>Cleaning experience in Swan Hill &amp; surrounds</span></div>
         <div><b>Fully insured</b><span>Public liability and police checked</span></div>
       </div>
       <a class="btn on-paper" href="/about/" style="margin-top:28px">More about Ultraclean ${ICON.arr}</a>
@@ -346,7 +349,7 @@ function home() {
       <p>Same room, same afternoon. A three-bedroom vacate clean in Swan Hill — carpets steam cleaned, receipt supplied, bond returned in full.</p>
     </div>
     <div class="mosaic" style="margin-top:14px">
-      <figure class="m1 reveal"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded van parked outside a Swan Hill home" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
+      <figure class="m1 contain reveal"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded van" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.tile}" alt="Tile and grout cleaning Swan Hill - rotary turbo tool on porcelain tiles" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.upholstery}" alt="Upholstery cleaning Swan Hill - lounge half cleaned showing the difference" loading="lazy"><figcaption>Upholstery</figcaption></figure>
       <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Truck-mounted carpet cleaning unit inside the Ultraclean van" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
@@ -360,7 +363,7 @@ function home() {
   <div class="wrap areas-grid">
     <div>
       <div class="section-head" style="grid-template-columns:1fr;margin-bottom:36px">
-        <div class="reveal"><span class="label">Service areas</span><h2>Both sides of the river, <span class="em">no travel surcharge.</span></h2></div>
+        <div class="reveal"><span class="label">Service areas</span><h2>Swan Hill first, <span class="em">then every town around it.</span></h2></div>
         <p class="reveal" data-d="1">Ultraclean is based in Lake Boga and services twenty towns across the Swan Hill Rural City, Gannawarra and Buloke shires in Victoria, and the Murray River, Balranald and Wakool districts in New South Wales.</p>
       </div>
       <div class="area-group reveal"><span class="label muted">Victoria</span><div class="chips">${chips(SITE.areasVic)}</div></div>
@@ -373,7 +376,7 @@ function home() {
       <div class="row">${ICON.phone}<div><b>Phone</b><a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div></div>
       <div class="row">${ICON.mail}<div><b>Email</b><a href="mailto:${SITE.email}">${SITE.email}</a></div></div>
       <div class="row">${ICON.pin}<div><b>Base</b><span>${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</span></div></div>
-      <div class="row">${ICON.clock}<div><b>Hours</b><span>${SITE.hours}<br>Emergency flood drying by arrangement</span></div></div>
+      <div class="row">${ICON.clock}<div><b>Hours</b><span>${SITE.hours}</span></div></div>
     </div>
   </div>
 </section>
@@ -406,6 +409,18 @@ function home() {
 }
 
 /* ---------- service page ---------- */
+function heroVisual(s) {
+  if (s.beforeAfter) {
+    const [b, a] = s.beforeAfter;
+    return `<div class="hero-side hero-ba fadeup d5">
+      <figure><img src="${IMG[b]}" alt="Before - ${esc(s.short)} by Ultraclean Swan Hill" loading="lazy"><figcaption>Before</figcaption></figure>
+      <figure><img src="${IMG[a]}" alt="After - ${esc(s.short)} by Ultraclean Swan Hill" loading="lazy"><figcaption class="after">After</figcaption></figure>
+    </div>`;
+  }
+  return `<div class="hero-side hero-ba single fadeup d5">
+      <figure><img src="${IMG[s.jobPhoto || s.img]}" alt="${esc(s.short)} - recent Ultraclean job in Swan Hill" loading="lazy"><figcaption>Recent job</figcaption></figure>
+    </div>`;
+}
 function servicePage(s) {
   const body = s.body.map(([t, v]) => {
     if (t === 'h2') return `<h2>${esc(v)}</h2>`;
@@ -435,9 +450,7 @@ function servicePage(s) {
         <a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a>
       </div>
     </div>
-    <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Who it is for</span><b>${esc(s.audience)}</b><p>Serving ${s.towns.slice(0, 3).join(', ')} and every town in our service area.</p></div>
-    </div>
+    ${heroVisual(s)}
   </div>
 </section>
 
@@ -502,7 +515,7 @@ function thankYou() {
     <div class="tick">${ICON.tick}</div>
     <span class="label fadeup d1">Request received</span>
     <h1 class="fadeup d2" style="margin-top:14px">Thanks<span id="ty-name"></span>, your details have been sent.</h1>
-    <p class="lede fadeup d3" style="max-width:48ch"><span id="ty-service">We have your request</span> and will come back with a fixed price the same business day — usually within a couple of hours. If it is urgent (flooding, an inspection tomorrow), call us now.</p>
+    <p class="lede fadeup d3" style="max-width:48ch"><span id="ty-service">We have your request</span> and will come back with a fixed price the same business day — usually within a couple of hours. If it is urgent (an inspection tomorrow, guests arriving), call us now.</p>
     <div class="next fadeup d4">
       <a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a>
       <a class="btn ghost" href="/">Back to home</a>
@@ -535,11 +548,11 @@ function aboutPage() {
     <div>
       ${crumbs([['About']])}
       <h1 class="fadeup d2">About Ultraclean Swan Hill — Local Cleaners Based in Lake Boga</h1>
-      <p class="lede fadeup d3">An independent, owner-operated cleaning business covering Swan Hill, Kerang and the Murray River towns on both sides of the border.</p>
+      <p class="lede fadeup d3">An owner-operated cleaning business with over 10 years experience, covering Swan Hill and the surrounding towns on both sides of the river.</p>
       <div class="hero-ctas fadeup d4" style="margin-top:30px"><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a></div>
     </div>
     <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">In one line</span><b>Nine services, twenty towns</b><p>Carpets, upholstery, tile and grout, windows, bond cleans, builders cleans, commercial contracts and flood drying.</p></div>
+      <div class="stat-card"><span class="label">In one line</span><b>Over 10 years experience</b><p>Carpets, upholstery, tile and grout, windows, bond cleans, builders cleans and commercial contracts across Swan Hill &amp; surrounds.</p></div>
     </div>
   </div>
 </section>
@@ -548,18 +561,18 @@ function aboutPage() {
   <div class="wrap svc-body">
     <article class="prose reveal">
       <h2>Who we are</h2>
-      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business operating from Lake Boga VIC 3584, about 17 km south of Swan Hill. We are not a franchise and not a booking platform: when you call ${SITE.phoneDisplay} you speak to the person who will quote the job and turn up to do it.</p>
-      <p>The business started with carpet steam cleaning for homes and rentals around Swan Hill and Lake Boga. Customers kept asking whether we could do the lounge, the tiles, the windows and the whole house before an inspection — so the service list grew to nine services, and the run grew to twenty towns from Sea Lake to Balranald.</p>
+      <p><strong>Ultraclean Swan Hill</strong> is a locally owned cleaning business operating from Lake Boga VIC 3584, about 17 km south of Swan Hill, with over 10 years of experience in the cleaning industry in Swan Hill and surrounds. When you call ${SITE.phoneDisplay} you speak to the person who will quote the job and turn up to do it.</p>
+      <p>The business started with carpet steam cleaning for homes and rentals around Swan Hill and Lake Boga. Customers kept asking whether we could do the lounge, the tiles, the windows and the whole house before an inspection — so the service list grew, and the run grew to twenty towns from Sea Lake to Balranald.</p>
       <h2>What we do</h2>
       <ul>${SERVICES.map((x) => `<li>${ICON.tick}<span><a href="/services/${x.slug}/" class="link-u">${esc(x.nav)}</a> — ${esc(x.blurb)}</span></li>`).join('')}</ul>
       <h2>Equipment that does the job properly</h2>
-      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers and dehumidifiers for water damage. Everything travels on the truck, so one visit covers the whole job.</p>
+      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers for fast drying. Everything travels on the truck, so one visit covers the whole job.</p>
       <h2>Safe products, rural-ready</h2>
-      <p>Many properties around Swan Hill, Kerang and the NSW river towns are on septic systems and tank water. We use low-residue, biodegradable products that are safe for kids, pets and septic tanks, and we rinse thoroughly so nothing sticky is left behind to attract dirt.</p>
+      <p>Many properties around Swan Hill and surrounds are on septic systems and tank water. We use low-residue, biodegradable products that are safe for kids, pets and septic tanks, and we rinse thoroughly so nothing sticky is left behind to attract dirt.</p>
       <h2>Insured, checked, accountable</h2>
       <p>Ultraclean carries public liability insurance and our operators are police checked. Property managers, builders and commercial clients can request certificates. If a job is not right, you call the same number and we come back and fix it.</p>
       <h2>Where we work</h2>
-      <p>Victoria: ${SITE.areasVic.join(', ')}. New South Wales: ${SITE.areasNsw.join(', ')}. See the <a href="/areas/" class="link-u">service areas page</a> for details on each town. There is no travel surcharge inside the service area.</p>
+      <p>Victoria: ${SITE.areasVic.join(', ')}. New South Wales: ${SITE.areasNsw.join(', ')}. See the <a href="/areas/" class="link-u">service areas page</a> for details on each town. Travel to the further towns is shown in your quote.</p>
     </article>
     <aside class="aside">
       <div class="card reveal" data-d="1"><span class="label">Get in touch</span><h3 style="margin-top:10px">Talk to the person doing the work</h3><p>Fixed quote the same business day. No call centre.</p><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div>
@@ -567,7 +580,8 @@ function aboutPage() {
         <ul class="related" style="margin-top:10px">
           <li><span style="color:var(--text-2)">Based</span> <span>Lake Boga VIC 3584</span></li>
           <li><span style="color:var(--text-2)">Hours</span> <span>${SITE.hours}</span></li>
-          <li><span style="color:var(--text-2)">Coverage</span> <span>20 towns, VIC &amp; NSW</span></li>
+          <li><span style="color:var(--text-2)">Experience</span> <span>Over 10 years</span></li>
+          <li><span style="color:var(--text-2)">Coverage</span> <span>Swan Hill &amp; 19 surrounding towns</span></li>
           <li><span style="color:var(--text-2)">Insurance</span> <span>Public liability</span></li>
         </ul></div>
       <div class="card reveal" data-d="3"><span class="label muted">Explore</span><ul class="related" style="margin-top:10px"><li><a href="/areas/">Service areas ${ICON.arrNE}</a></li><li><a href="/contact/">Contact &amp; quote ${ICON.arrNE}</a></li><li><a href="/#services">All services ${ICON.arrNE}</a></li></ul></div>
@@ -577,12 +591,12 @@ function aboutPage() {
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels on the van: the truck-mount extraction unit, rotary tile tool, air movers and dehumidifiers. One visit covers the whole job.</p></div>
+    <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels on the van: the truck-mount extraction unit, rotary tile tool and air movers. One visit covers the whole job.</p></div>
     <div class="mosaic">
       <figure class="m1 reveal"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" loading="lazy"><figcaption>Lake Boga base</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>Truck-mount van</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.rotary}" alt="Ultraclean rotary tile and carpet cleaning machine" loading="lazy"><figcaption>Rotary tile tool</figcaption></figure>
-      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Inside the Ultraclean van - truck-mounted extraction unit" loading="lazy"><figcaption>Inside the van</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Inside the Ultraclean van - truck-mounted extraction unit" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
       <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean wand, air mover and dehumidifier" loading="lazy"><figcaption>Drying gear</figcaption></figure>
     </div>
   </div>
@@ -621,7 +635,7 @@ function contactPage() {
   return head({ title: 'Contact Ultraclean Swan Hill | Free Cleaning Quote', meta: 'Contact Ultraclean Swan Hill for a free fixed-price cleaning quote. Call 0417 327 173 or send the form — same business day reply. Based in Lake Boga, servicing Swan Hill, Kerang and the Murray.', canonical: '/contact/', ogImage: IMG.hero, schema }) + nav('contact') + `
 <main>
 <section class="contact-hero">
-  <div class="hero-media"><img src="${IMG.leePortrait}" alt="Lee from Ultraclean Swan Hill beside the branded van" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.hero}" alt="Lee from Ultraclean Swan Hill steam cleaning a lounge carpet" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap contact-hero-in">
     <div class="contact-intro">
@@ -643,7 +657,7 @@ function contactPage() {
   <div class="wrap svc-body">
     <article class="prose reveal">
       <h2>Getting a quote from Ultraclean Swan Hill</h2>
-      <p>Ultraclean Swan Hill provides free, fixed-price quotes for carpet cleaning, upholstery and rug cleaning, tile and grout cleaning, window cleaning, end of lease cleaning, commercial and builders cleaning, and flood and water damage drying across Swan Hill, Lake Boga, Kerang and the Murray River towns. Quotes are answered the same business day, Monday to Saturday.</p>
+      <p>Ultraclean Swan Hill provides free, fixed-price quotes for carpet cleaning, upholstery and rug cleaning, tile and grout cleaning, window cleaning, end of lease cleaning, and commercial and builders cleaning across Swan Hill and the surrounding towns. Quotes are answered the same business day, Monday to Saturday.</p>
       <h2>What to include</h2>
       <ul>
         <li>${ICON.tick}<span>The property address or town, so we can schedule you on the right run</span></li>
@@ -653,12 +667,12 @@ function contactPage() {
         <li>${ICON.tick}<span>Preferred days or times, including after hours for commercial premises</span></li>
       </ul>
       <h2>Property managers, builders and businesses</h2>
-      <p>For vacate cleans between tenancies, builders cleans at handover and regular commercial contracts, email ${SITE.email} or call ${SITE.phoneDisplay} and ask for a site visit. We supply insurance certificates, bond clean receipts and drying reports for insurers.</p>
+      <p>For vacate cleans between tenancies, builders cleans at handover and regular commercial contracts, email ${SITE.email} or call ${SITE.phoneDisplay} and ask for a site visit. We supply insurance certificates and bond clean receipts.</p>
       <h2>Where we are</h2>
       <p>Ultraclean operates from Lake Boga VIC 3584 — about 17 km south of Swan Hill on the Murray Valley Highway. We do not run a shopfront; all work is done at your property. See the full list of towns on the <a href="/areas/" class="link-u">service areas page</a>.</p>
     </article>
     <aside class="aside">
-      <div class="card reveal" data-d="1"><span class="label">Urgent?</span><h3 style="margin-top:10px">Flooded carpet or an inspection tomorrow</h3><p>Call now. For water damage in Swan Hill, Lake Boga and Kerang we aim to be on site the same day.</p><a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a></div>
+      <div class="card reveal" data-d="1"><span class="label">Urgent?</span><h3 style="margin-top:10px">Inspection tomorrow?</h3><p>Call now. For urgent jobs in Swan Hill and surrounds we will fit you in wherever we can.</p><a class="btn" href="tel:${SITE.phoneTel}">${ICON.phone} Call ${SITE.phoneDisplay}</a></div>
       <div class="card reveal" data-d="2"><span class="label muted">Find us</span><p style="margin-top:8px">${SITE.address.locality} ${SITE.address.region} ${SITE.address.postcode}</p><a class="link-u" style="margin-top:12px;display:inline-block" href="https://maps.google.com/?q=${encodeURIComponent(SITE.address.locality + ' ' + SITE.address.region + ' ' + SITE.address.postcode)}" target="_blank" rel="noopener">Open in Google Maps</a></div>
     </aside>
   </div>
@@ -684,7 +698,7 @@ function areasPage() {
     { '@type': 'ItemList', name: 'Towns serviced by Ultraclean Swan Hill', itemListElement: AREAS.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: `${a.name}, ${a.state}` })) },
     breadcrumbSchema([['Service areas', '/areas/', '/areas/']]), faqSchema(AREAS_FAQ),
   ] };
-  return head({ title: 'Service Areas | Cleaners Swan Hill, Kerang & Murray Towns | Ultraclean', meta: 'Ultraclean Swan Hill services 20 towns from Lake Boga: Swan Hill, Kerang, Cohuna, Barham, Balranald, Nyah, Tooleybuc, Sea Lake and more. No travel surcharge. See every town we cover.', canonical: '/areas/', ogImage: IMG.carpet, schema }) + nav('areas') + `
+  return head({ title: 'Service Areas | Cleaners Swan Hill & Surrounds | Ultraclean', meta: 'Ultraclean services Swan Hill and 19 surrounding towns from Lake Boga: Kerang, Cohuna, Barham, Balranald, Nyah, Tooleybuc, Sea Lake and more. See every town we cover.', canonical: '/areas/', ogImage: IMG.carpet, schema }) + nav('areas') + `
 <main>
 <section class="page-hero">
   <div class="hero-media"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" fetchpriority="high"></div>
@@ -692,12 +706,12 @@ function areasPage() {
   <div class="wrap hero-in">
     <div>
       ${crumbs([['Service areas']])}
-      <h1 class="fadeup d2">Cleaners for Swan Hill, Kerang &amp; 20 Murray River Towns</h1>
-      <p class="lede fadeup d3">Ultraclean travels from Lake Boga to every town on this page — 13 in Victoria, 7 in New South Wales — with no travel surcharge.</p>
+      <h1 class="fadeup d2">Cleaners for Swan Hill &amp; All Surrounding Areas</h1>
+      <p class="lede fadeup d3">Ultraclean travels from Lake Boga to every town on this page — Swan Hill first, then 19 towns around it across Victoria and New South Wales.</p>
       <div class="hero-ctas fadeup d4" style="margin-top:30px"><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="link-u" href="tel:${SITE.phoneTel}">Call ${SITE.phoneDisplay}</a></div>
     </div>
     <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Coverage</span><b>No travel surcharge</b><p>Further towns are grouped into scheduled runs; booking a day or two ahead helps.</p></div>
+      <div class="stat-card"><span class="label">Coverage</span><b>Swan Hill &amp; surrounds</b><p>Further towns are grouped into scheduled runs; any travel is shown in your quote up front.</p></div>
     </div>
   </div>
 </section>
@@ -706,7 +720,7 @@ function areasPage() {
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><span class="label">Victoria</span><h2>Swan Hill Rural City, Gannawarra &amp; Buloke.</h2></div>
-      <p class="reveal" data-d="1">Ultraclean Swan Hill is based at Lake Boga and services these Victorian towns for carpet, upholstery, tile, window, bond, commercial and flood cleaning.</p>
+      <p class="reveal" data-d="1">Ultraclean Swan Hill is based at Lake Boga and services these Victorian towns for carpet, upholstery, tile, window, bond and commercial cleaning.</p>
     </div>
     <div class="area-grid">${vic.map(card).join('')}</div>
   </div>
@@ -759,7 +773,7 @@ function blogIndex() {
       blogPost: POSTS.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.domain}/blog/${p.slug}/`, datePublished: p.date, image: IMG[p.img] })) },
     localBusiness(), breadcrumbSchema([['Blog', '/blog/', '/blog/']]),
   ] };
-  return head({ title: 'Cleaning Guides for Swan Hill Homes & Renters | Ultraclean Blog', meta: 'Plain-English guides from Ultraclean Swan Hill: carpet cleaning costs, the end of lease checklist local agents use, and what to do when carpet floods along the Murray.', canonical: '/blog/', ogImage: IMG.carpet, schema }) + nav('blog') + `
+  return head({ title: 'Cleaning Guides for Swan Hill Homes & Renters | Ultraclean Blog', meta: 'Plain-English guides from Ultraclean Swan Hill: carpet cleaning costs and the end of lease checklist local agents use.', canonical: '/blog/', ogImage: IMG.carpet, schema }) + nav('blog') + `
 <main>
 <section class="page-hero" style="min-height:60svh">
   <div class="hero-media"><img src="${IMG.rug}" alt="Freshly cleaned patterned rug in a Swan Hill home" fetchpriority="high"></div>
@@ -817,7 +831,7 @@ function blogPost(p) {
       <h2>Frequently asked questions</h2>
       ${faqBlock(p.faq)}
       <h2>Need it done? Ultraclean Swan Hill</h2>
-      <p>Ultraclean Swan Hill is an owner-operated cleaning business based in Lake Boga, servicing Swan Hill, Kerang, Nyah, Murray Downs, Cohuna, Barham, Balranald, Sea Lake and the Murray River towns on both sides of the border. Fixed quotes, truck-mounted equipment, fully insured. Call <a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a> or <a href="/contact/">request a free quote</a> and hear back the same business day.</p>
+      <p>Ultraclean Swan Hill is an owner-operated cleaning business based in Lake Boga, servicing Swan Hill and surrounds — Lake Boga, Kerang, Nyah, Murray Downs, Cohuna, Barham, Balranald, Sea Lake and the Murray River towns on both sides of the border. Over 10 years experience, fixed quotes, truck-mounted equipment, fully insured. Call <a href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a> or <a href="/contact/">request a free quote</a> and hear back the same business day.</p>
     </article>
     <aside class="aside">
       <div class="card reveal" data-d="1"><span class="label">Free quote</span><h3 style="margin-top:10px">Fixed price, same business day</h3><p>Tell us the property and what needs doing.</p><a class="btn" href="/contact/" data-open-quote>Get a free quote ${ICON.arr}</a><a class="tel" href="tel:${SITE.phoneTel}">${SITE.phoneDisplay}</a></div>

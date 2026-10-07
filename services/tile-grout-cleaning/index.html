@@ -80,6 +80,7 @@ h1, h2, h3, .display { font-family: var(--display); font-weight: 800; letter-spa
 h1 { font-size: clamp(2.2rem, min(5.2vw, 8.4svh), 4.8rem); }
 h2 { font-size: clamp(1.8rem, 3.6vw, 3.1rem); }
 h3 { font-size: clamp(1.35rem, 2vw, 1.75rem); line-height: 1.15; }
+.lede.bright { color: var(--text); }
 .lede { font-size: clamp(1.02rem, min(1.5vw, 2.4svh), 1.35rem); color: var(--text-2); line-height: 1.5; max-width: 40ch; }
 .label { font-family: var(--display); font-weight: 600; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 .label.muted { color: var(--text-3); }
@@ -109,7 +110,7 @@ strong { color: var(--text); font-weight: 600; }
 .nav.frost { background: rgba(8, 17, 28, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); border-bottom-color: var(--line); }
 .nav-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: inline-flex; align-items: center; }
-.logo img { height: 46px; width: auto; display: block; }
+.logo img { height: 50px; width: auto; display: block; }
 .nav.frost .logo img { height: 42px; }
 .logo .wm { display: flex; flex-direction: column; line-height: 1; }
 .logo .wm b { font-family: var(--display); font-weight: 600; font-size: 1.32rem; letter-spacing: -0.02em; }
@@ -127,8 +128,13 @@ strong { color: var(--text); font-weight: 600; }
 .mega a:hover { background: rgba(255,255,255,0.05); color: var(--text); }
 .mega a span.n { font-family: var(--mono); font-size: 0.66rem; color: var(--accent); letter-spacing: .1em; }
 .nav-cta { display: flex; align-items: center; gap: 18px; }
-.nav-phone { font-family: var(--mono); font-size: 0.86rem; letter-spacing: 0.02em; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
-.nav-phone svg { width: 15px; height: 15px; color: var(--accent); }
+.nav-phone { font-family: var(--display); font-weight: 800; font-size: 1.15rem; letter-spacing: 0.01em; color: var(--text); display: inline-flex; align-items: center; gap: 8px; }
+.nav-phone svg { width: 18px; height: 18px; color: var(--accent); }
+.nav-phone-m { display: none; width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); align-items: center; justify-content: center; }
+.nav-phone-m svg { width: 20px; height: 20px; }
+.hero-phone { display: inline-flex; align-items: center; gap: 10px; padding: 10px 0; font-family: var(--display); font-weight: 800; font-size: clamp(1.35rem, 2.6vw, 2rem); color: var(--text); letter-spacing: .01em; line-height: 1; }
+.hero-phone svg { width: 1em; height: 1em; color: var(--accent); }
+.hero-phone:hover span { color: var(--accent); }
 .nav .btn { padding: 12px 20px; font-size: 0.9rem; }
 .burger { display: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-2); align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
 .burger i { display: block; width: 18px; height: 1.5px; background: var(--text); transition: transform .3s, opacity .3s; }
@@ -146,7 +152,7 @@ strong { color: var(--text); font-weight: 600; }
 .hero { position: relative; min-height: 100svh; display: flex; align-items: flex-end; overflow: hidden; padding-bottom: clamp(28px, 5vh, 80px); padding-top: calc(var(--nav-h) + 24px); }
 .hero-media { position: absolute; inset: -6% 0 0 0; z-index: 0; }
 .hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; will-change: transform; }
-.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; transition: opacity 1s; }
+.hero-media .hero-video { position: absolute; inset: 0; opacity: 0; transition: opacity 2.2s ease-in-out; }
 .hero-media .hero-video.ready { opacity: 1; }
 .hero-scrim { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,17,28,0.6) 0%, rgba(8,17,28,0.35) 40%, rgba(8,17,28,0.94) 100%); }
 .hero-scrim::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(8,17,28,0.82) 0%, rgba(8,17,28,0.2) 60%); }
@@ -227,6 +233,10 @@ strong { color: var(--text); font-weight: 600; }
 .step p { font-size: .96rem; }
 .mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 140px; gap: 14px; }
 .mosaic figure { position: relative; overflow: hidden; border-radius: 14px; background: var(--ink-3); }
+.mosaic figure.contain { grid-column: span 12; grid-row: span 4; background: #0d1a2b; }
+.mosaic figure.contain img { object-fit: contain; }
+@media (max-width: 900px) { .mosaic figure.contain { grid-row: span 3; } }
+@media (max-width: 600px) { .mosaic figure.contain { grid-row: span 2; } }
 .mosaic img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
 .mosaic figure:hover img { transform: scale(1.06); }
 .mosaic figcaption { position: absolute; left: 14px; bottom: 12px; font-family: var(--mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text); background: rgba(8,17,28,.6); padding: 6px 10px; border-radius: 6px; backdrop-filter: blur(6px); }
@@ -312,10 +322,20 @@ footer .logo img { height: 56px; }
 .cur-ring { width: 34px; height: 34px; border: 1px solid rgba(8,159,236,.6); transition: width .3s, height .3s, background .3s; }
 body.cur-hover .cur-ring { width: 56px; height: 56px; background: rgba(8,159,236,.12); }
 @media (hover: none), (pointer: coarse) { .cur, .cur-ring { display: none; } }
+.hero-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 420px; justify-self: end; }
+.hero-ba figure { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 3/4; background: var(--ink-3); border: 1px solid var(--line-2); }
+.hero-ba img { width: 100%; height: 100%; object-fit: cover; }
+.hero-ba figcaption { position: absolute; left: 10px; top: 10px; font-family: var(--display); font-weight: 600; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(8,17,28,.78); color: var(--text); backdrop-filter: blur(6px); }
+.hero-ba figcaption.after { background: var(--accent); color: var(--accent-ink); }
+.hero-ba.single { grid-template-columns: 1fr; max-width: 360px; }
+.hero-ba.single figure { aspect-ratio: 4/3; }
+@media (max-width: 900px) { .hero-ba { justify-self: start; max-width: 100%; } .hero-ba.single { max-width: 100%; } .hero-ba figure { aspect-ratio: 1; } }
 .page-hero { position: relative; min-height: 78svh; display: flex; align-items: flex-end; padding-top: calc(var(--nav-h) + 40px); padding-bottom: clamp(36px, 5vw, 64px); overflow: hidden; }
 .page-hero .hero-media { inset: -6% 0 0 0; }
 .crumbs { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); display: flex; gap: 12px; margin-bottom: 20px; }
 .crumbs a:hover { color: var(--accent); }
+.crumbs { flex-wrap: wrap; row-gap: 4px; }
+.crumbs a, .crumbs span { overflow-wrap: normal; white-space: nowrap; }
 .page-hero h1 { max-width: 16ch; font-size: clamp(2rem, min(4.6vw, 7.8svh), 4rem); margin-bottom: clamp(12px, 2vh, 22px); }
 .page-hero .hero-in { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
 .svc-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 48px clamp(40px, 6vw, 100px); align-items: start; }
@@ -451,6 +471,7 @@ body.modal-open { overflow: hidden; }
   :root { --nav-h: 68px; }
   .nav-links, .nav-phone { display: none; }
   .burger { display: flex; }
+  .nav-phone-m { display: inline-flex; }
   .hero-in, .page-hero .hero-in { grid-template-columns: 1fr; }
   .hero-side { justify-self: start; max-width: 100%; grid-template-columns: 1fr 1fr; width: 100%; }
   .section-head, .intro-grid, .about-grid, .areas-grid, .quote-grid, .faq-grid, .svc-body { grid-template-columns: 1fr; }
@@ -551,7 +572,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   .hero, .page-hero, .contact-hero { min-height: auto; padding-top: calc(var(--nav-h) + 20px); padding-bottom: 28px; }
   .hero h1, .page-hero h1 { font-size: 2rem; margin: 8px 0 12px; }
   .hero .lede, .page-hero .lede { font-size: .95rem; margin-bottom: 14px; max-width: 60ch; }
-  .hero-side { display: none; }
+  .hero-side, .hero-ba { display: none; }
   .scroll-hint { display: none; }
   .mobile-menu a.big { font-size: 1.4rem; padding: 8px 0; }
   .modal-panel { max-height: 100svh; border-radius: 0; }
@@ -566,7 +587,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   html { scroll-behavior: auto; }
 }
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/#service","name":"Tile & Grout Cleaning","serviceType":"Tile & Grout Cleaning","description":"Tile and grout cleaning Swan Hill and Lake Boga. Pressure-cleaned grout lines, sealed to stay clean. Kitchens, bathrooms, outdoor areas. Free quotes from Ultraclean.","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/","image":"/assets/photos/092a8627.jpg","provider":{"@id":"https://ultracleanswanhill.com.au/#business"},"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}]},{"@type":"LocalBusiness","@id":"https://ultracleanswanhill.com.au/#business","name":"Ultraclean Swan Hill","url":"https://ultracleanswanhill.com.au","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","image":"https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png","logo":"https://ultracleanswanhill.com.au/assets/img/logo.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"529 Lakeside Drive","addressLocality":"Lake Boga","addressRegion":"VIC","postalCode":"3584","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-35.4605,"longitude":143.4635},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cleaning services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Carpet Cleaning","url":"https://ultracleanswanhill.com.au/services/carpet-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Upholstery & Rug Cleaning","url":"https://ultracleanswanhill.com.au/services/upholstery-rug-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tile & Grout Cleaning","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Window Cleaning","url":"https://ultracleanswanhill.com.au/services/window-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bond / End of Lease Cleaning","url":"https://ultracleanswanhill.com.au/services/end-of-lease-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial & Builders Cleaning","url":"https://ultracleanswanhill.com.au/services/commercial-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Flood & Water Damage","url":"https://ultracleanswanhill.com.au/services/flood-water-damage/"}}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ultracleanswanhill.com.au/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://ultracleanswanhill.com.au/#services"},{"@type":"ListItem","position":3,"name":"Tile & Grout Cleaning","item":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will the cleaning damage my tiles or grout?","acceptedAnswer":{"@type":"Answer","text":"No. The pressure is controlled and contained inside the tool head, and we choose products to suit the surface — stone gets a stone-safe cleaner."}},{"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"A typical kitchen, meals and hallway takes two to three hours including drying time before sealing."}},{"@type":"Question","name":"Can you change the colour of my grout?","acceptedAnswer":{"@type":"Answer","text":"Yes. If the grout is stained beyond cleaning, a colour seal can bring it back to a uniform colour and seal it in one step."}},{"@type":"Question","name":"Do you clean outdoor tiles in Lake Boga?","acceptedAnswer":{"@type":"Answer","text":"We do — patios, verandahs and pool areas are a regular job, especially before summer."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/#service","name":"Tile & Grout Cleaning","serviceType":"Tile & Grout Cleaning","description":"Tile and grout cleaning Swan Hill and Lake Boga. Pressure-cleaned grout lines, sealed to stay clean. Kitchens, bathrooms, outdoor areas. Free quotes from Ultraclean.","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/","image":"/assets/photos/092a8627.jpg","provider":{"@id":"https://ultracleanswanhill.com.au/#business"},"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}]},{"@type":"LocalBusiness","@id":"https://ultracleanswanhill.com.au/#business","name":"Ultraclean Swan Hill","url":"https://ultracleanswanhill.com.au","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","image":"https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png","logo":"https://ultracleanswanhill.com.au/assets/img/logo.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"529 Lakeside Drive","addressLocality":"Lake Boga","addressRegion":"VIC","postalCode":"3584","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-35.4605,"longitude":143.4635},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cleaning services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Carpet Cleaning","url":"https://ultracleanswanhill.com.au/services/carpet-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Upholstery & Rug Cleaning","url":"https://ultracleanswanhill.com.au/services/upholstery-rug-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tile & Grout Cleaning","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Window Cleaning","url":"https://ultracleanswanhill.com.au/services/window-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bond / End of Lease Cleaning","url":"https://ultracleanswanhill.com.au/services/end-of-lease-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial & Builders Cleaning","url":"https://ultracleanswanhill.com.au/services/commercial-cleaning/"}}]}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ultracleanswanhill.com.au/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://ultracleanswanhill.com.au/#services"},{"@type":"ListItem","position":3,"name":"Tile & Grout Cleaning","item":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will the cleaning damage my tiles or grout?","acceptedAnswer":{"@type":"Answer","text":"No. The pressure is controlled and contained inside the tool head, and we choose products to suit the surface — stone gets a stone-safe cleaner."}},{"@type":"Question","name":"How long does it take?","acceptedAnswer":{"@type":"Answer","text":"A typical kitchen, meals and hallway takes two to three hours including drying time before sealing."}},{"@type":"Question","name":"Can you change the colour of my grout?","acceptedAnswer":{"@type":"Answer","text":"Yes. If the grout is stained beyond cleaning, a colour seal can bring it back to a uniform colour and seal it in one step."}},{"@type":"Question","name":"Do you clean outdoor tiles in Lake Boga?","acceptedAnswer":{"@type":"Answer","text":"We do — patios, verandahs and pool areas are a regular job, especially before summer."}}]}]}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
 <script defer src="https://link.msgsndr.com/js/external-tracking.js" data-tracking-id="tk_f348309a624d4909a1804129527150dd"></script>
 
@@ -579,7 +600,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><button type="button" aria-haspopup="true">Services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega"><a href="/services/carpet-cleaning/"><span class="n">01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span class="n">02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span class="n">03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span class="n">04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span class="n">05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span class="n">06</span>Commercial &amp; Builders Cleaning</a><a href="/services/flood-water-damage/"><span class="n">07</span>Flood &amp; Water Damage</a></div></li>
+        <li><button type="button" aria-haspopup="true">Services <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button><div class="mega"><a href="/services/carpet-cleaning/"><span class="n">01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span class="n">02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span class="n">03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span class="n">04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span class="n">05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span class="n">06</span>Commercial &amp; Builders Cleaning</a></div></li>
         <li><a href="/about/">About</a></li>
         <li><a href="/areas/">Areas</a></li>
         <li><a href="/blog/">Blog</a></li>
@@ -589,6 +610,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="nav-cta">
       <a class="nav-phone" href="tel:+61417327173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>0417 327 173</a>
       <a class="btn" href="/#quote" data-open-quote>Get a free quote <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="nav-phone-m" href="tel:+61417327173" aria-label="Call 0417 327 173"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
       <button class="burger" type="button" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -596,7 +618,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <div class="mobile-menu" id="mobile-menu">
   <a class="big" href="/">Home</a>
   <a class="big" href="/#services">Services</a>
-  <div class="sub"><a href="/services/carpet-cleaning/"><span>01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span>02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span>03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span>04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span>05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span>06</span>Commercial &amp; Builders Cleaning</a><a href="/services/flood-water-damage/"><span>07</span>Flood &amp; Water Damage</a></div>
+  <div class="sub"><a href="/services/carpet-cleaning/"><span>01</span>Carpet Cleaning</a><a href="/services/upholstery-rug-cleaning/"><span>02</span>Upholstery &amp; Rug Cleaning</a><a href="/services/tile-grout-cleaning/"><span>03</span>Tile &amp; Grout Cleaning</a><a href="/services/window-cleaning/"><span>04</span>Window Cleaning</a><a href="/services/end-of-lease-cleaning/"><span>05</span>Bond / End of Lease Cleaning</a><a href="/services/commercial-cleaning/"><span>06</span>Commercial &amp; Builders Cleaning</a></div>
   <a class="big" href="/about/">About</a>
   <a class="big" href="/areas/">Service areas</a>
   <a class="big" href="/blog/">Blog</a>
@@ -621,8 +643,8 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
         <a class="link-u" href="tel:+61417327173">Call 0417 327 173</a>
       </div>
     </div>
-    <div class="hero-side fadeup d5">
-      <div class="stat-card"><span class="label">Who it is for</span><b>Homeowners and new buyers</b><p>Serving Swan Hill, Lake Boga, Kerang and every town in our service area.</p></div>
+    <div class="hero-side hero-ba single fadeup d5">
+      <figure><img src="/_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1080&q=72" srcset="/_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=480&q=72 480w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=768&q=72 768w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1080&q=72 1080w, /_vercel/image?url=%2Fassets%2Fphotos%2F092a8627.jpg&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 640px" decoding="async" alt="Tile &amp; grout cleaning - recent Ultraclean job in Swan Hill" loading="lazy"><figcaption>Recent job</figcaption></figure>
     </div>
   </div>
 </section>
@@ -630,7 +652,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <section class="section">
   <div class="wrap svc-body">
     <article class="prose reveal"><h2>Tile and grout cleaning Swan Hill homes have been putting off</h2>
-<p>Grout is porous. Mopping pushes dirty water into it, and over a few years the lines in a Swan Hill kitchen or bathroom go from white to grey to brown. Ultraclean tile and grout cleaning uses an alkaline pre-treatment to loosen the soil, then a high-pressure, high-temperature turbo tool that blasts the grout clean and vacuums the water away at the same time — no flooding, no splashing up the walls.</p>
+<p>Grout is porous. Mopping pushes dirty water into it, and over a few years the lines in a Swan Hill kitchen or bathroom go from white to grey to brown. Ultraclean tile and grout cleaning starts by testing a small area to find the best pH cleaner for the surface — a safe acid or alkaline product depending on the tile and the soiling — then applies the pre-treatment to loosen it, followed by a high-pressure, high-temperature turbo tool that blasts the grout clean and vacuums the water away at the same time — no flooding, no splashing up the walls.</p>
 <h2>Surfaces we clean</h2>
 <ul><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Porcelain and ceramic floor tiles</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Kitchen and bathroom walls, shower recesses</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Slate, travertine and natural stone (with stone-safe products)</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Outdoor patios, alfresco areas and pool surrounds</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Commercial floors in shops, cafés and clinics</span></li></ul>
 <h2>Grout sealing</h2>
@@ -682,19 +704,21 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
     <div class="field full f-email"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
     <div class="field full f-address"><label for="f-address">Property address</label><input id="f-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="f-size">Property size</label><select id="f-size" name="property_size" required>
+    <div class="field"><label for="f-size">Property size / seating positions</label><select id="f-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
       <option>4+ bedrooms</option>
-      <option>Single room or item</option>
+      <option>Lounge — 2–3 seating positions</option>
+      <option>Lounge — 4+ seats / modular</option>
+      <option>Single room, rug or item</option>
       <option>Commercial premises</option>
     </select></div>
     <div class="field"><label for="f-service">Service needed</label><select id="f-service" name="service_needed" required>
-      <option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning" selected>Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option><option value="Flood &amp; Water Damage">Flood &amp; Water Damage</option>
+      <option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning" selected>Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option>
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="f-notes">Job notes</label><textarea id="f-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="f-notes">Job notes</label><textarea id="f-notes" name="job_notes" placeholder="Rooms or seating positions, sizes, stains, dates — a photo helps, text it to 0417 327 173"></textarea></div>
     <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -707,8 +731,8 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill, Lake Boga, Kerang and the Murray River towns — Victorian and NSW sides.</p></div>
-      <div><h4>Services</h4><ul><li><a href="/services/carpet-cleaning/">Carpet Cleaning</a></li><li><a href="/services/upholstery-rug-cleaning/">Upholstery &amp; Rug Cleaning</a></li><li><a href="/services/tile-grout-cleaning/">Tile &amp; Grout Cleaning</a></li><li><a href="/services/window-cleaning/">Window Cleaning</a></li><li><a href="/services/end-of-lease-cleaning/">Bond / End of Lease Cleaning</a></li><li><a href="/services/commercial-cleaning/">Commercial &amp; Builders Cleaning</a></li><li><a href="/services/flood-water-damage/">Flood &amp; Water Damage</a></li></ul></div>
+      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill &amp; all surrounding areas — over 10 years local experience.</p></div>
+      <div><h4>Services</h4><ul><li><a href="/services/carpet-cleaning/">Carpet Cleaning</a></li><li><a href="/services/upholstery-rug-cleaning/">Upholstery &amp; Rug Cleaning</a></li><li><a href="/services/tile-grout-cleaning/">Tile &amp; Grout Cleaning</a></li><li><a href="/services/window-cleaning/">Window Cleaning</a></li><li><a href="/services/end-of-lease-cleaning/">Bond / End of Lease Cleaning</a></li><li><a href="/services/commercial-cleaning/">Commercial &amp; Builders Cleaning</a></li></ul></div>
       <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>
         <li><a href="tel:+61417327173">0417 327 173</a></li>
@@ -738,19 +762,21 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
     <div class="field"><label for="m-phone">Phone</label><input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="04xx xxx xxx" required></div>
     <div class="field full f-email"><label for="m-email">Email</label><input id="m-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
     <div class="field full f-address"><label for="m-address">Property address</label><input id="m-address" name="property_address" type="text" autocomplete="street-address" placeholder="Street, town" required></div>
-    <div class="field"><label for="m-size">Property size</label><select id="m-size" name="property_size" required>
+    <div class="field"><label for="m-size">Property size / seating positions</label><select id="m-size" name="property_size" required>
       <option value="" disabled selected>Select…</option>
       <option>1–2 bedrooms / small office</option>
       <option>3 bedrooms</option>
       <option>4+ bedrooms</option>
-      <option>Single room or item</option>
+      <option>Lounge — 2–3 seating positions</option>
+      <option>Lounge — 4+ seats / modular</option>
+      <option>Single room, rug or item</option>
       <option>Commercial premises</option>
     </select></div>
     <div class="field"><label for="m-service">Service needed</label><select id="m-service" name="service_needed" required>
-      <option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning" selected>Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option><option value="Flood &amp; Water Damage">Flood &amp; Water Damage</option>
+      <option value="Carpet Cleaning">Carpet Cleaning</option><option value="Upholstery &amp; Rug Cleaning">Upholstery &amp; Rug Cleaning</option><option value="Tile &amp; Grout Cleaning" selected>Tile &amp; Grout Cleaning</option><option value="Window Cleaning">Window Cleaning</option><option value="Bond / End of Lease Cleaning">Bond / End of Lease Cleaning</option><option value="Commercial &amp; Builders Cleaning">Commercial &amp; Builders Cleaning</option>
       <option>Not sure / multiple</option>
     </select></div>
-    <div class="field full"><label for="m-notes">Job notes</label><textarea id="m-notes" name="job_notes" placeholder="Rooms, stains, dates, anything we should know"></textarea></div>
+    <div class="field full"><label for="m-notes">Job notes</label><textarea id="m-notes" name="job_notes" placeholder="Rooms or seating positions, sizes, stains, dates — a photo helps, text it to 0417 327 173"></textarea></div>
     <div class="hp" aria-hidden="true" style="display:none"><label>Leave this field empty<input type="text" name="_hp_url" tabindex="-1" autocomplete="off"></label></div>
   </div>
   <button class="btn" type="submit">Send my quote request <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>

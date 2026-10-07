@@ -14,19 +14,19 @@ const POSTS = [
     img: 'carpet',
     alt: 'How much does carpet cleaning cost Swan Hill - fresh Ultraclean steam cleaning lines on a bedroom carpet',
     excerpt: 'Per-room prices, whole-house rates, what pushes the price up or down, and how to get a fixed quote instead of an hourly guess.',
-    related: ['end-of-lease-cleaning-checklist-swan-hill', 'flooded-carpet-what-to-do-murray-river'],
+    related: ['end-of-lease-cleaning-checklist-swan-hill'],
     body: [
-      ['p', 'If you are asking <strong>how much does carpet cleaning cost in Swan Hill</strong>, the short answer for 2026 is: roughly <strong>$60–$100 for a single room</strong>, <strong>$180–$280 for a typical three-bedroom home</strong>, and <strong>$300–$450 for a large four-bedroom house</strong> including hallways. Those are indicative carpet cleaning cost ranges for professional hot-water extraction (steam cleaning) in Swan Hill, Lake Boga and Kerang. This guide explains what sits behind those numbers, what pushes a job up or down, and how to get a fixed price from Ultraclean Swan Hill before anyone turns up.'],
+      ['p', 'If you are asking <strong>how much does carpet cleaning cost in Swan Hill</strong>, the short answer for 2026 is: guide pricing of <strong>$55–60 per standard-sized bedroom</strong>, upwards for really dirty carpet, pet smells or stains. That is for professional truck-mounted hot-water extraction (steam cleaning) in Swan Hill and surrounds. This guide explains what sits behind that number, what pushes a job up or down, and how to get a fixed price from Ultraclean Swan Hill before anyone turns up.'],
       ['h2', 'Typical carpet steam cleaning prices around Swan Hill in 2026'],
-      ['p', 'Most professional cleaners in regional Victoria price by the room, with a minimum call-out that covers travel and setting up the truck-mounted machine. Here is what Swan Hill homeowners and renters can generally expect:'],
-      ['ul', ['<strong>One room or a small lounge:</strong> $60–$100 (usually the minimum charge)', '<strong>Two to three rooms plus a hallway:</strong> $150–$220', '<strong>Three-bedroom home, bedrooms, lounge and hall:</strong> $180–$280', '<strong>Four-bedroom home with two living areas:</strong> $300–$450', '<strong>Stairs:</strong> $3–$5 per step', '<strong>Rugs:</strong> $40–$120 each depending on size and fibre']],
+      ['p', 'Ultraclean prices carpet cleaning by the room, with the price depending on the condition of the carpet. Here is the guide pricing for Swan Hill and surrounds:'],
+      ['ul', ['<strong>Standard-sized bedroom:</strong> $55–60 guide price', '<strong>Really dirty carpet, pet smells or stains:</strong> priced upwards from the guide, quoted before we start', '<strong>Lounge rooms, hallways and stairs:</strong> quoted on size — send the rooms and rough measurements', '<strong>Rugs:</strong> quoted on size and fibre, or send a photo']],
       ['p', 'Ultraclean quotes a <strong>fixed price for the whole job</strong> rather than an hourly rate, so the figure you are given before the visit is the figure on the invoice. Send the rooms and rough sizes through the <a href="/contact/">quote form</a> and you will have a price the same business day.'],
       ['h2', 'What changes the price of a carpet clean'],
       ['p', 'Two houses with the same number of rooms can be quoted differently. These are the factors that actually move the carpet cleaning cost:'],
       ['h3', 'Soiling level and traffic lanes'],
       ['p', 'Carpet that has not been professionally cleaned for several years, or that carries the red Mallee dust that blows through Swan Hill every summer, needs more pre-spray, more passes and more time. Heavy traffic lanes in hallways may need a dedicated restoration treatment.'],
       ['h3', 'Stains and pet accidents'],
-      ['p', 'General cleaning lifts everyday grime, but wine, ink, rust, and pet urine need specific spotting chemistry. Expect <strong>$20–$60 per treated area</strong>. Pet urine that has soaked into the underlay is treated from both sides and costs more than a surface stain.'],
+      ['p', 'General cleaning lifts everyday grime, but wine, ink, rust, and pet urine need specific spotting chemistry. Stain work is quoted per area before we start. Pet urine that has soaked in deeply takes more treatment than a surface stain.'],
       ['h3', 'Carpet type'],
       ['p', 'Synthetic nylon and polypropylene carpets are the fastest to clean and dry. Wool carpets need cooler water, wool-safe products and more careful drying, so their carpet cleaning cost sits at the upper end of the range.'],
       ['h3', 'Furniture moving'],
@@ -38,14 +38,14 @@ const POSTS = [
       ['p', 'Professional hot-water extraction uses water heated well above what a portable unit can manage, with a truck-mounted vacuum that pulls the dirty water back out. Carpets are typically dry within 4–8 hours, and the fibre, backing and underlay are all rinsed. For most Swan Hill homes it is the only option that both cleans properly and satisfies a bond inspection.'],
       ['h2', 'Carpet cleaning cost for rentals, offices and upholstery'],
       ['p', 'The question of how much carpet cleaning costs in Swan Hill comes up most often at the end of a lease. Agents want a receipt from a professional steam clean, and a three-bedroom rental with light soiling generally sits at the lower end of the ranges above because the house is empty and nothing needs moving. Bundling the carpets with a full <a href="/services/end-of-lease-cleaning/">bond clean</a> is cheaper than two separate bookings.'],
-      ['p', 'For offices and shops in Swan Hill and Kerang, carpet tiles are priced per square metre rather than per room — typically <strong>$3–$6 per m²</strong> with a minimum charge, cleaned after hours. Upholstery is priced per piece: a three-seater lounge is usually <strong>$120–$180</strong>, a dining chair <strong>$15–$25</strong>, and a queen mattress <strong>$90–$140</strong>. Adding these to a carpet booking costs less than a separate visit because the truck is already set up.'],
+      ['p', 'For offices and shops in Swan Hill and surrounds, carpet tiles are priced on floor area rather than per room and quoted after a quick look at the site, cleaned after hours. Upholstery is priced per seating position: guide pricing is <strong>$50–55 per seating position</strong>, depending on the condition of the fabric, whether the cushions are double-sided, and the level and nature of soiling. The easiest way to get an accurate price is to send a photo. Adding these to a carpet booking costs less than a separate visit because the truck is already set up.'],
       ['h2', 'How to get an accurate carpet cleaning quote in Swan Hill'],
       ['ol', ['Count the rooms and hallways with carpet, and note rough sizes (a standard bedroom is about 3 m × 3.5 m).', 'List any stains, pet issues or areas that concern you. A phone photo is ideal.', 'Mention the deadline — a bond inspection, settlement or guests arriving.', 'Say whether furniture will be cleared or needs moving.', 'Send it through the <a href="/contact/">quote form</a> or call <a href="tel:+61417327173">0417 327 173</a>.']],
       ['p', 'You will receive a written fixed carpet cleaning cost for your Swan Hill home the same business day. If you also need <a href="/services/upholstery-rug-cleaning/">upholstery or rugs</a> done, ask for them on the same visit — with the machine already set up, adding a lounge or a rug costs less than a separate booking.'],
     ],
     faq: [
-      ['How much does carpet cleaning cost per room in Swan Hill?', 'In 2026, professional carpet steam cleaning in Swan Hill typically costs $60–$100 for a single room, with most three-bedroom homes falling between $180 and $280. Prices depend on soiling, stains, carpet type and furniture. Ultraclean quotes a fixed price for the whole job before the visit.'],
-      ['Is professional carpet cleaning worth the cost?', 'Yes for most homes. A professional steam clean removes soil, allergens and odours a hired machine cannot reach, extends carpet life, and is usually required for a bond refund. For a three-bedroom Swan Hill home the difference between hiring a machine and a professional job is often less than $150.'],
+      ['How much does carpet cleaning cost per room in Swan Hill?', 'Guide pricing in 2026 is $55–60 per standard-sized bedroom in Swan Hill and surrounds, going upwards for really dirty carpet, pet smells or stains. Living areas, hallways and stairs are quoted on size. Ultraclean confirms a fixed price for the whole job before the visit.'],
+      ['Is professional carpet cleaning worth the cost?', 'Yes for most homes. A professional steam clean removes soil, allergens and odours a hired machine cannot reach, extends carpet life, and is usually required for a bond refund. For a three-bedroom Swan Hill home a professional job usually costs little more than a weekend of machine hire and chemicals once you count your time.'],
       ['How long does carpet cleaning take?', 'A three-bedroom home in Swan Hill takes about two to three hours to clean. Carpets are walkable within four to eight hours with the truck-mounted extraction Ultraclean uses; in summer they are often dry sooner. Keep foot traffic light until the carpet is fully dry.'],
       ['Do you charge extra for travel to Kerang or Lake Boga?', 'No. Ultraclean is based in Lake Boga and there is no travel surcharge anywhere in the service area, including Swan Hill, Kerang, Nyah, Murray Downs, Cohuna, Barham and Balranald. Jobs further from base are grouped into scheduled runs, so the carpet cleaning cost is the same wherever you are.'],
       ['How often should carpets be professionally cleaned?', 'Every 12 to 18 months for an average household keeps the carpet cleaning cost down over time, and every 6 to 12 months with pets, young children or allergy sufferers. Around Swan Hill, dust storms and irrigation season can bring that forward. Most carpet manufacturers require periodic professional cleaning to keep the warranty valid.'],
@@ -64,7 +64,7 @@ const POSTS = [
     img: 'bond',
     alt: 'End of lease cleaning checklist Swan Hill - Ultraclean wiping down a kitchen bench during a bond clean',
     excerpt: 'Room-by-room, the items property managers actually check at the final inspection, plus what to do the week before you hand back the keys.',
-    related: ['carpet-cleaning-cost-swan-hill', 'flooded-carpet-what-to-do-murray-river'],
+    related: ['carpet-cleaning-cost-swan-hill'],
     body: [
       ['p', 'This <strong>end of lease cleaning checklist for Swan Hill</strong> renters is built from the vacate lists local property managers actually inspect against. Under Victorian tenancy law you must leave the property "reasonably clean", but in practice agents in Swan Hill, Kerang and Murray Downs walk through with a printed list and photograph anything that misses. Work through every item on this end of lease cleaning checklist, or hand it to a professional, and the final inspection becomes a formality rather than a fight over the bond.'],
       ['h2', 'Before you start: the week before the inspection'],
@@ -89,13 +89,14 @@ const POSTS = [
     ],
     faq: [
       ['What does an end of lease clean include in Swan Hill?', 'A full end of lease cleaning checklist covers the oven and kitchen inside and out, bathrooms descaled and de-moulded, walls spot-cleaned, skirting boards, light fittings, windows and tracks, wardrobes, floors mopped and carpets steam cleaned. Swan Hill agents usually also expect the garage swept and cobwebs removed outside.'],
-      ['How much does an end of lease clean cost in Swan Hill?', 'A two-bedroom unit in Swan Hill typically costs $250–$400 for a full bond clean, and a three- or four-bedroom house $400–$700 including carpet steam cleaning. The price depends on the condition of the property and whether the oven, walls and windows need extra work. Ultraclean quotes a fixed price beforehand.'],
+      ['How much does an end of lease clean cost in Swan Hill?', 'Bond cleans are quoted per property. Tell us the number of bedrooms and bathrooms, whether the oven, walls and windows need extra work, and whether carpets are included, and Ultraclean will send back a fixed price for the whole vacate clean before you book.'],
       ['Do I have to get the carpets professionally cleaned when I move out?', 'Usually, yes. Most Swan Hill leases require professional carpet cleaning at the end of the tenancy, especially where pets were allowed, and the agent will ask for a receipt. Even where it is not written into the lease, carpets must be returned in the condition noted on the entry report.'],
       ['How long does a bond clean take?', 'A two-bedroom unit takes around three to four hours with two cleaners; a four-bedroom house is a full day, with carpets done at the end so they can dry. Book the clean one or two days before the final inspection so there is time for drying and any touch-ups.'],
       ['What happens if the agent finds something after the clean?', 'If Ultraclean did the vacate clean, we come back and re-clean any item raised at the inspection at no charge. If you cleaned it yourself, the agent will usually give you a chance to fix the items before claiming against the bond through the Residential Tenancies Bond Authority.'],
     ],
   },
   {
+    hidden: true, // client: flood services on hold
     slug: 'flooded-carpet-what-to-do-murray-river',
     title: 'Floodwater in Your Carpet? What to Do in the First 48 Hours',
     metaTitle: 'Flooded Carpet: What to Do in 48 Hours | Ultraclean Swan Hill'.slice(0, 60),
@@ -142,4 +143,4 @@ const POSTS = [
   },
 ];
 
-module.exports = { POSTS };
+module.exports = { POSTS: POSTS.filter((x) => !x.hidden) };
