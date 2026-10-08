@@ -332,7 +332,7 @@ function home() {
     <div class="steps">
       <div class="step reveal"><span class="n">1</span><h3>Tell us the job</h3><p>Use the quote form or call. Rooms, sizes, stains, dates — a photo helps but is not essential.</p></div>
       <div class="step reveal" data-d="1"><span class="n">2</span><h3>Fixed price back</h3><p>You get a written price for the whole job, not an hourly rate that grows on the day.</p></div>
-      <div class="step reveal" data-d="2"><span class="n">3</span><h3>We turn up on time</h3><p>Confirmed time slot, text when we are on the way, gear on the truck for the whole job.</p></div>
+      <div class="step reveal" data-d="2"><span class="n">3</span><h3>We turn up on time</h3><p>Confirmed time slot, text when we are on the way, gear in the van for the whole job.</p></div>
       <div class="step reveal" data-d="3"><span class="n">4</span><h3>Walk-through before we go</h3><p>We check every room with you. If something is not right, we fix it then and there.</p></div>
     </div>
   </div>
@@ -572,7 +572,7 @@ function aboutPage() {
       <h2>What we do</h2>
       <ul>${SERVICES.map((x) => `<li>${ICON.tick}<span><a href="/services/${x.slug}/" class="link-u">${esc(x.nav)}</a> — ${esc(x.blurb)}</span></li>`).join('')}</ul>
       <h2>Equipment that does the job properly</h2>
-      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers for fast drying. Everything travels on the truck, so one visit covers the whole job.</p>
+      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers for fast drying. Everything travels in the van, so one visit covers the whole job.</p>
       <h2>Safe products, rural-ready</h2>
       <p>Many properties around Swan Hill and surrounds are on septic systems and tank water. We use low-residue, biodegradable products that are safe for kids, pets and septic tanks, and we rinse thoroughly so nothing sticky is left behind to attract dirt.</p>
       <h2>Insured, checked, accountable</h2>
@@ -597,10 +597,10 @@ function aboutPage() {
 
 <section class="section" style="padding-top:0">
   <div class="wrap">
-    <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels on the van: the truck-mount extraction unit, rotary tile tool and air movers. One visit covers the whole job.</p></div>
+    <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels in the van: the truck-mount extraction unit, rotary tile tool and air movers. One visit covers the whole job.</p></div>
     <div class="mosaic">
       <figure class="m1 reveal"><img src="${IMG.vanJob}" alt="Ultraclean van on a carpet cleaning job with the rear doors open and hoses run into the house" loading="lazy"><figcaption>On the job</figcaption></figure>
-      <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>Truck-mount van</figcaption></figure>
+      <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>The van, set up</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.rotary}" alt="Ultraclean rotary tile and carpet cleaning machine" loading="lazy"><figcaption>Rotary tile tool</figcaption></figure>
       <figure class="m4 reveal" data-d="1"><img src="${IMG.upholsteryTool}" alt="Ultraclean upholstery cleaning tool on a fabric couch" loading="lazy"><figcaption>Upholstery tool</figcaption></figure>
       <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean wand, air mover and dehumidifier" loading="lazy"><figcaption>Drying gear</figcaption></figure>
