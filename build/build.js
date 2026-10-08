@@ -572,7 +572,7 @@ function aboutPage() {
       <h2>What we do</h2>
       <ul>${SERVICES.map((x) => `<li>${ICON.tick}<span><a href="/services/${x.slug}/" class="link-u">${esc(x.nav)}</a> — ${esc(x.blurb)}</span></li>`).join('')}</ul>
       <h2>Equipment that does the job properly</h2>
-      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers for fast drying. Everything travels in the van, so one visit covers the whole job.</p>
+      <p>Results come down to gear as much as effort. Ultraclean runs truck-mounted hot-water extraction for carpets and upholstery (hotter water, stronger vacuum recovery, faster drying than portable units), a CRB counter-rotating brush that agitates the pre-spray deep into carpet fibres and lifts ground-in dirt, high-pressure turbo tools for tile and grout, water-fed poles for second-storey glass, and commercial air movers for fast drying. Everything travels in the van, so one visit covers the whole job.</p>
       <h2>Safe products, rural-ready</h2>
       <p>Many properties around Swan Hill and surrounds are on septic systems and tank water. We use low-residue, biodegradable products that are safe for kids, pets and septic tanks, and we rinse thoroughly so nothing sticky is left behind to attract dirt.</p>
       <h2>Insured, checked, accountable</h2>
