@@ -46,6 +46,15 @@ const IMG = {
   tile: '/assets/photos/092a8627.jpg',                 // rotary tool on porcelain tiles
   tileShower: '/assets/photos/20230621-091541.jpg',
   // client-supplied tile job photos (Drive > Client Images)
+  // Our Results gallery (real job photos from Drive)
+  heaterBefore: '/assets/photos/20230110-082736.jpg',
+  heaterAfter: '/assets/photos/20230110-095220.jpg',
+  carpetHalf: '/assets/photos/20251023-093332.jpg',
+  ottomanHalf: '/assets/photos/20210127-105911.jpg',
+  cushionHalf: '/assets/photos/20250710-102810.jpg',
+  carpetTestPatch: '/assets/photos/20200826-100158.jpg',
+  carpetMidClean: '/assets/photos/20210401-155853.jpg',
+  hardFloorTurbo: '/assets/photos/20220720-113426.jpg',
   tileHalf: '/assets/photos/tile-grout-cleaning-swan-hill-half-cleaned-floor.jpg',   // 1920x1080, floor half cleaned
   tileTurbo: '/assets/photos/tile-floor-cleaning-swan-hill-turbo-tool.jpg',          // 480x639, turbo tool mid-pass
   tileCollage: '/assets/photos/tile-grout-cleaning-before-after-collage.jpg',        // 689x380, three-panel collage
@@ -356,7 +365,7 @@ const AREAS = [
 const ABOUT_FAQ = [
   ['How long has Ultraclean been cleaning in Swan Hill?', 'Lee has over 10 years of experience in the cleaning industry in Swan Hill and the surrounding towns. Ultraclean Swan Hill is owner-operated: the person who quotes your job is the person who does it.'],
   ['Are you insured?', 'Yes. Ultraclean carries public liability insurance and our operators are police checked. Certificates are available on request for property managers and commercial clients.'],
-  ['What equipment do you use?', 'Truck-mounted hot-water extraction for carpets and upholstery, a CRB (counter-rotating brush) to agitate pre-spray deep into carpet fibres, high-pressure turbo tools for tile and grout, water-fed poles for windows, and commercial air movers and dehumidifiers for water damage.'],
+  ['What equipment do you use?', 'Truck-mounted hot-water extraction for carpets and upholstery, a CRB (counter-rotating brush) to agitate pre-spray deep into carpet fibres, high-pressure turbo tools for tile and grout, water-fed poles for windows, and commercial air movers for faster drying.'],
   ['Are your products safe for kids, pets and septic systems?', 'Yes. We use low-residue, biodegradable cleaning products chosen to be safe around children and pets and suitable for the septic systems common on rural properties around Swan Hill.'],
   ['Do you clean on weekends or after hours?', 'Saturdays are a normal working day, and commercial cleaning is done after hours by arrangement.'],
 ];
@@ -377,4 +386,22 @@ const AREAS_FAQ = [
   ['How far is Lake Boga from Swan Hill?', 'About 17 km, roughly a 15-minute drive south along the Murray Valley Highway.'],
 ];
 
-module.exports = { SITE, IMG, SERVICES: SERVICES.filter((x) => !x.hidden), SERVICES_ALL: SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ };
+const RESULTS = {
+  pairs: [
+    { before: 'carpetBefore', after: 'carpetAfter', title: 'Vacate clean, Swan Hill rental', alt: 'bedroom carpet in a Swan Hill rental' },
+    { before: 'heaterBefore', after: 'heaterAfter', title: 'Traffic lane by the wood heater', alt: 'lounge room carpet with a heavy traffic lane beside a wood heater' },
+    { before: 'sofaBefore', after: 'sofaAfter', title: 'Fabric corner lounge', alt: 'grey fabric corner lounge' },
+  ],
+  shots: [
+    { img: 'carpetHalf', caption: 'Carpet, half done', alt: 'Carpet cleaning Swan Hill - lounge room carpet half cleaned showing the difference' },
+    { img: 'tileHalf', caption: 'Tile, half done', alt: 'Tile and grout cleaning Swan Hill - floor half cleaned with a turbo tool' },
+    { img: 'ottomanHalf', caption: 'Ottoman, half done', alt: 'Upholstery cleaning - fabric ottoman half cleaned' },
+    { img: 'cushionHalf', caption: 'Cushion, half done', alt: 'Upholstery cleaning - fabric cushion half cleaned showing the soiling removed' },
+    { img: 'carpetTestPatch', caption: 'Test patch', alt: 'Carpet cleaning test patch on a sunroom carpet showing the difference' },
+    { img: 'carpetMidClean', caption: 'Mid-clean', alt: 'Carpet cleaning in progress - traffic lane lifting mid-clean' },
+    { img: 'carpet', caption: 'Fresh carpet lines', alt: 'Freshly steam cleaned bedroom carpet with clean lines' },
+    { img: 'hardFloorTurbo', caption: 'Hard floor clean', alt: 'Hard floor cleaning with a turbo tool on a timber-look tiled floor' },
+  ],
+};
+
+module.exports = { SITE, IMG, RESULTS, SERVICES: SERVICES.filter((x) => !x.hidden), SERVICES_ALL: SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ };

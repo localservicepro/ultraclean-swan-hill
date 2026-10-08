@@ -54,7 +54,7 @@
   --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   --gutter: clamp(20px, 5vw, 72px);
   --max: 1360px;
-  --nav-h: 76px;
+  --nav-h: 84px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -110,8 +110,10 @@ strong { color: var(--text); font-weight: 600; }
 .nav.frost { background: rgba(8, 17, 28, 0.82); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); border-bottom-color: var(--line); }
 .nav-in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: inline-flex; align-items: center; }
-.logo img { height: 50px; width: auto; display: block; }
-.nav.frost .logo img { height: 42px; }
+.logo { align-self: flex-start; margin-top: 8px; transition: margin .4s; }
+.logo img { height: 118px; width: auto; display: block; transition: height .4s; filter: drop-shadow(0 6px 18px rgba(0,0,0,.45)); }
+.nav.frost .logo { margin-top: 6px; }
+.nav.frost .logo img { height: 72px; }
 .logo .wm { display: flex; flex-direction: column; line-height: 1; }
 .logo .wm b { font-family: var(--display); font-weight: 600; font-size: 1.32rem; letter-spacing: -0.02em; }
 .logo .wm small { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-top: 4px; }
@@ -304,7 +306,7 @@ strong { color: var(--text); font-weight: 600; }
 .cta-strip .in { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 32px; align-items: center; }
 .cta-strip h2 { font-size: clamp(1.7rem, 3.4vw, 2.9rem); }
 footer { border-top: 1px solid var(--line); padding: 64px 0 32px; background: #050b13; }
-footer .logo img { height: 56px; }
+footer .logo img { height: 96px; }
 .foot-grid .tagline { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-top: 14px; }
 .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; }
 .foot-grid h4 { font-family: var(--mono); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); margin-bottom: 18px; font-weight: 500; }
@@ -472,7 +474,7 @@ body.modal-open { overflow: hidden; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
-  :root { --nav-h: 68px; }
+  :root { --nav-h: 74px; }
   .nav-links, .nav-phone { display: none; }
   .burger { display: flex; }
   .nav-phone-m { display: inline-flex; }
@@ -487,7 +489,9 @@ body.modal-open { overflow: hidden; }
   .m5 { grid-column: span 5; grid-row: span 2; }
   .about-media .float { right: 0; bottom: -6%; }
   .aside { position: static; }
-  .logo img { height: 40px; }
+  .logo { margin-top: 6px; }
+  .logo img { height: 92px; }
+  .nav.frost .logo img { height: 62px; }
 }
 @media (max-width: 600px) {
   body { font-size: 16px; }
@@ -519,8 +523,10 @@ body.modal-open { overflow: hidden; }
   .page-hero { min-height: 72svh; }
 }
 @media (min-width: 901px) and (max-width: 1200px) {
-  :root { --nav-h: 70px; }
+  :root { --nav-h: 80px; }
   .nav-links { gap: 22px; }
+  .logo img { height: 104px; }
+  .nav.frost .logo img { height: 68px; }
   .nav-links a, .nav-links button { font-size: .9rem; }
   .nav-cta { gap: 12px; }
   .nav .btn { padding: 11px 16px; font-size: .85rem; }
@@ -564,7 +570,8 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   body { font-size: 15px; }
   h1 { font-size: 2rem; }
   .hero h1 { max-width: none; }
-  .logo img { height: 34px; }
+  .logo img { height: 82px; }
+  .nav.frost .logo img { height: 58px; }
   .burger { width: 40px; height: 40px; }
   .chips { gap: 8px; }
   .chip { font-size: .85rem; padding: 8px 12px; }
@@ -572,7 +579,9 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
   .form .btn, .contact-form .form .btn, .modal .form .btn { padding: 14px; font-size: .95rem; }
 }
 @media (max-height: 520px) and (orientation: landscape) {
-  :root { --nav-h: 60px; }
+  :root { --nav-h: 64px; }
+  .logo { margin-top: 5px; }
+  .logo img, .nav.frost .logo img { height: 54px; }
   .hero, .page-hero, .contact-hero { min-height: auto; padding-top: calc(var(--nav-h) + 20px); padding-bottom: 28px; }
   .hero h1, .page-hero h1 { font-size: 2rem; margin: 8px 0 12px; }
   .hero .lede, .page-hero .lede { font-size: .95rem; margin-bottom: 14px; max-width: 60ch; }
@@ -595,6 +604,26 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 .job-gallery img { display: block; width: 100%; height: auto; object-fit: cover; }
 .job-gallery figcaption { position: absolute; left: 10px; bottom: 10px; right: 10px; width: fit-content; max-width: calc(100% - 20px); padding: 6px 10px; border-radius: 999px; background: rgba(4, 20, 36, .78); color: #fff; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.3; }
 @media (max-width: 600px) { .job-gallery { flex-direction: column; } .job-gallery figure { flex: none !important; } }
+.results-pairs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.pair-card { border-radius: 16px; overflow: hidden; background: var(--ink-2); border: 1px solid var(--line); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.pair figure { position: relative; margin: 0; aspect-ratio: 4 / 5; background: var(--ink-3); overflow: hidden; }
+.pair img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pair figcaption, .results-grid figcaption { position: absolute; left: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(4, 20, 36, .8); color: #fff; line-height: 1.2; }
+.pair figcaption { top: 10px; }
+.pair figcaption.after { background: var(--accent); color: var(--accent-ink); }
+.pair-card h3 { font-size: 1.05rem; margin: 0; padding: 14px 16px 16px; }
+.results-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.results-grid figure { position: relative; margin: 0; aspect-ratio: 1; border-radius: 14px; overflow: hidden; background: var(--ink-3); }
+.results-grid img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s; }
+.results-grid figure:hover img { transform: scale(1.05); }
+.results-grid figcaption { bottom: 10px; max-width: calc(100% - 20px); }
+@media (max-width: 900px) {
+  .results-pairs { grid-template-columns: minmax(0, 1fr); }
+  .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
+.results-grid figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 600px) { .results-grid figcaption, .pair figcaption { font-size: 11px; letter-spacing: .04em; padding: 5px 8px; left: 8px; } .results-grid figcaption { bottom: 8px; max-width: calc(100% - 16px); } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ContactPage","@id":"https://ultracleanswanhill.com.au/contact/#page","url":"https://ultracleanswanhill.com.au/contact/","name":"Contact Ultraclean Swan Hill","about":{"@id":"https://ultracleanswanhill.com.au/#business"}},{"@type":"LocalBusiness","@id":"https://ultracleanswanhill.com.au/#business","name":"Ultraclean Swan Hill","url":"https://ultracleanswanhill.com.au","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","image":"https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png","logo":"https://ultracleanswanhill.com.au/assets/img/logo.png","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"529 Lakeside Drive","addressLocality":"Lake Boga","addressRegion":"VIC","postalCode":"3584","addressCountry":"AU"},"geo":{"@type":"GeoCoordinates","latitude":-35.4605,"longitude":143.4635},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"18:00"}],"areaServed":[{"@type":"City","name":"Swan Hill"},{"@type":"City","name":"Lake Boga"},{"@type":"City","name":"Kerang"},{"@type":"City","name":"Nyah"},{"@type":"City","name":"Piangil"},{"@type":"City","name":"Wood Wood"},{"@type":"City","name":"Beverford"},{"@type":"City","name":"Sea Lake"},{"@type":"City","name":"Lalbert"},{"@type":"City","name":"Ultima"},{"@type":"City","name":"Quambatook"},{"@type":"City","name":"Cohuna"},{"@type":"City","name":"Manangatang"},{"@type":"City","name":"Murray Downs"},{"@type":"City","name":"Koraleigh"},{"@type":"City","name":"Tooleybuc"},{"@type":"City","name":"Moulamein"},{"@type":"City","name":"Balranald"},{"@type":"City","name":"Barham"},{"@type":"City","name":"Kyalite"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Cleaning services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Carpet Cleaning","url":"https://ultracleanswanhill.com.au/services/carpet-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Upholstery & Rug Cleaning","url":"https://ultracleanswanhill.com.au/services/upholstery-rug-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Tile & Grout Cleaning","url":"https://ultracleanswanhill.com.au/services/tile-grout-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Window Cleaning","url":"https://ultracleanswanhill.com.au/services/window-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Bond / End of Lease Cleaning","url":"https://ultracleanswanhill.com.au/services/end-of-lease-cleaning/"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial & Builders Cleaning","url":"https://ultracleanswanhill.com.au/services/commercial-cleaning/"}}]},"contactPoint":{"@type":"ContactPoint","telephone":"+61417327173","email":"Ultracleanswanhill@gmail.com","contactType":"customer service","areaServed":"AU","availableLanguage":"en"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ultracleanswanhill.com.au/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://ultracleanswanhill.com.au/contact/"}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How quickly will I get a quote?","acceptedAnswer":{"@type":"Answer","text":"Most quotes go back the same business day, often within a couple of hours. Include the rooms, rough sizes and any stains or problem areas in the job notes to get an accurate fixed price straight away."}},{"@type":"Question","name":"Do you need to visit before quoting?","acceptedAnswer":{"@type":"Answer","text":"Usually not for residential jobs — a description or a few photos is enough. For commercial contracts and builders cleans we do a quick site visit so the quote is accurate."}},{"@type":"Question","name":"Can I book a time that suits me?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tell us your preferred days in the job notes. We confirm a time slot and send a text when we are on the way."}},{"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"Ultraclean Swan Hill operates from Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to all 20 towns in the service area."}},{"@type":"Question","name":"What if I need help urgently?","acceptedAnswer":{"@type":"Answer","text":"Call 0417 327 173. For an inspection tomorrow or an urgent job in Swan Hill and surrounds we will fit you in wherever we can."}}]}]}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
@@ -605,7 +634,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <div class="grain" aria-hidden="true"><svg><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg></div>
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a>
+    <a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="400" height="261" decoding="async"></a>
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
@@ -693,7 +722,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>The property address or town, so we can schedule you on the right run</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Number of rooms or the areas to be cleaned, with rough sizes</span></li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Any stains, pet issues, water damage or problem areas</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Any stains, pet issues or problem areas</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Deadlines — an inspection date, settlement or handover</span></li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Preferred days or times, including after hours for commercial premises</span></li>
       </ul>
@@ -719,7 +748,7 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="650" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill &amp; all surrounding areas — over 10 years local experience.</p></div>
+      <div><a class="logo" href="/" aria-label="Ultraclean Swan Hill home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="400" height="261" decoding="async"></a><p class="tagline">A higher standard of clean.</p><p>Carpet, upholstery, tile, window, bond and commercial cleaning for Swan Hill &amp; all surrounding areas — over 10 years local experience.</p></div>
       <div><h4>Services</h4><ul><li><a href="/services/carpet-cleaning/">Carpet Cleaning</a></li><li><a href="/services/upholstery-rug-cleaning/">Upholstery &amp; Rug Cleaning</a></li><li><a href="/services/tile-grout-cleaning/">Tile &amp; Grout Cleaning</a></li><li><a href="/services/window-cleaning/">Window Cleaning</a></li><li><a href="/services/end-of-lease-cleaning/">Bond / End of Lease Cleaning</a></li><li><a href="/services/commercial-cleaning/">Commercial &amp; Builders Cleaning</a></li></ul></div>
       <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li><a href="/areas/">Service areas</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/#faq">FAQ</a></li></ul></div>
       <div><h4>Contact</h4><ul>

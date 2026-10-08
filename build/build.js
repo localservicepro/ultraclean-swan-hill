@@ -2,7 +2,7 @@
 // Static site generator for Ultraclean Swan Hill. Run: node build/build.js
 const fs = require('fs');
 const path = require('path');
-const { SITE, IMG, SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ } = require('./data');
+const { SITE, IMG, RESULTS, SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ } = require('./data');
 const { POSTS } = require('./blog');
 
 const ROOT = path.join(__dirname, '..');
@@ -33,9 +33,9 @@ const MARK = (size = 40) => `<svg width="${size}" height="${size}" viewBox="0 0 
   <path d="M32 44c0-6 5-9 5-13 0-3-2.2-5-5-5s-5 2-5 5c0 4 5 7 5 13Z" fill="#f6f4ef"/>
   <path d="M48 12l1.4 3.6L53 17l-3.6 1.4L48 22l-1.4-3.6L43 17l3.6-1.4Z" fill="#f6f4ef"/>
 </svg>`;
-const LOGO = () => `<a class="logo" href="/" aria-label="${SITE.name} home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="1000" height="${LOGO_NAV_H}" decoding="async"></a>`;
+const LOGO = () => `<a class="logo" href="/" aria-label="${SITE.name} home"><img src="/assets/img/logo-nav.png" alt="Ultra Clean Swan Hill" width="400" height="${LOGO_NAV_H}" decoding="async"></a>`;
 
-const LOGO_NAV_H = 650; // approx intrinsic height of logo-nav.png at 1000 wide (overridden by CSS)
+const LOGO_NAV_H = 261; // intrinsic height of logo-nav.png at 400 wide (display size set in CSS)
 const ICON = {
   arr: '<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
   arrNE: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>',
@@ -254,7 +254,7 @@ function home() {
     <div>
       <span class="label fadeup d1">A higher standard of clean · Swan Hill &amp; the Murray</span>
       <h1 class="fadeup d2">Professional Carpet Cleaning in Swan Hill <span class="em">&amp;</span> All Surrounding Areas</h1>
-      <p class="lede bright fadeup d3">Local, reliable cleaning backed by over 10 years experience in the Swan Hill &amp; surrounding area. From carpets &amp; upholstery to tile &amp; grout, windows, bond cleans, commercial cleaning &amp; flood restoration – professional results you can rely on.</p>
+      <p class="lede bright fadeup d3">Local, reliable cleaning backed by over 10 years experience in the Swan Hill &amp; surrounding area. From carpets &amp; upholstery to tile &amp; grout, windows, bond cleans, commercial cleaning – professional results you can rely on.</p>
       <div class="hero-ctas fadeup d4">
         <a class="btn" href="#quote" data-open-quote>Get a free quote ${ICON.arr}</a>
         <a class="hero-phone" href="tel:${SITE.phoneTel}">${ICON.phone}<span>${SITE.phoneDisplay}</span></a>
@@ -311,7 +311,7 @@ function home() {
       <span class="label">About Ultraclean</span>
       <h2>A new name on the van, the same local hands doing the work.</h2>
       <p>Ultraclean Swan Hill is run from Lake Boga, ten minutes down the Murray Valley Highway from Swan Hill, with over 10 years of experience in the cleaning industry locally. When you call, you talk to the person who will be cleaning your carpets, and who has probably already been to your street.</p>
-      <p>We invest in the equipment that makes the difference: truck-mounted hot-water extraction, high-pressure tile turbo tools, commercial air movers and dehumidifiers for water damage, and water-fed poles for windows. The products we use are safe for kids, pets and septic systems, which matters out here.</p>
+      <p>We invest in the equipment that makes the difference: truck-mounted hot-water extraction, high-pressure tile turbo tools, commercial air movers for faster drying, and water-fed poles for windows. The products we use are safe for kids, pets and septic systems, which matters out here.</p>
       <div class="facts">
         <div><b>Lake Boga</b><span>Home base, VIC 3584</span></div>
         <div><b>20 towns</b><span>VIC and NSW sides of the Murray</span></div>
@@ -338,17 +338,25 @@ function home() {
   </div>
 </section>
 
-<section class="section" style="padding-top:0">
+<section class="section results" id="results" style="padding-top:0">
   <div class="wrap">
     <div class="section-head">
-      <div class="reveal"><span class="label">On the job</span><h2>What a proper clean <span class="em">looks like.</span></h2></div>
+      <div class="reveal"><span class="label">Our results</span><h2>Real jobs, <span class="em">before and after.</span></h2></div>
+      <p class="reveal" data-d="1">Every photo here is from an Ultraclean job in Swan Hill and the surrounding towns. No stock images, no filters.</p>
     </div>
-    <div class="ba reveal">
-      <figure><img src="${IMG.carpetBefore}" alt="Before - soiled bedroom carpet in a Swan Hill rental before Ultraclean steam cleaning" loading="lazy"><figcaption>Before</figcaption></figure>
-      <figure><img src="${IMG.carpetAfter}" alt="After - the same Swan Hill bedroom carpet after Ultraclean steam cleaning" loading="lazy"><figcaption class="after">After</figcaption></figure>
-      <p>Same room, same afternoon. A three-bedroom vacate clean in Swan Hill — carpets steam cleaned, receipt supplied, bond returned in full.</p>
+    <div class="results-pairs">
+      ${RESULTS.pairs.map((r, i) => `<article class="pair-card reveal" data-d="${i}">
+        <div class="pair">
+          <figure><img src="${IMG[r.before]}" alt="Before - ${esc(r.alt)} before Ultraclean cleaning" loading="lazy"><figcaption>Before</figcaption></figure>
+          <figure><img src="${IMG[r.after]}" alt="After - ${esc(r.alt)} after Ultraclean cleaning" loading="lazy"><figcaption class="after">After</figcaption></figure>
+        </div>
+        <h3>${esc(r.title)}</h3>
+      </article>`).join('')}
     </div>
-    <div class="mosaic" style="margin-top:14px">
+    <div class="results-grid">
+      ${RESULTS.shots.map((r, i) => `<figure class="reveal" data-d="${i % 4}"><img src="${IMG[r.img]}" alt="${esc(r.alt)}" loading="lazy"><figcaption>${esc(r.caption)}</figcaption></figure>`).join('')}
+    </div>
+    <div class="mosaic" style="margin-top:44px">
       <figure class="m1 contain reveal"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded van" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.tile}" alt="Tile and grout cleaning Swan Hill - rotary turbo tool on porcelain tiles" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.upholstery}" alt="Upholstery cleaning Swan Hill - lounge half cleaned showing the difference" loading="lazy"><figcaption>Upholstery</figcaption></figure>
@@ -668,7 +676,7 @@ function contactPage() {
       <ul>
         <li>${ICON.tick}<span>The property address or town, so we can schedule you on the right run</span></li>
         <li>${ICON.tick}<span>Number of rooms or the areas to be cleaned, with rough sizes</span></li>
-        <li>${ICON.tick}<span>Any stains, pet issues, water damage or problem areas</span></li>
+        <li>${ICON.tick}<span>Any stains, pet issues or problem areas</span></li>
         <li>${ICON.tick}<span>Deadlines — an inspection date, settlement or handover</span></li>
         <li>${ICON.tick}<span>Preferred days or times, including after hours for commercial premises</span></li>
       </ul>
