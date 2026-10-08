@@ -599,7 +599,7 @@ function aboutPage() {
   <div class="wrap">
     <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels in the van: the truck-mount extraction unit, rotary tile tool and air movers. One visit covers the whole job.</p></div>
     <div class="mosaic">
-      <figure class="m1 reveal"><img src="${IMG.vanJob}" alt="Ultraclean van on a carpet cleaning job with the rear doors open and hoses run into the house" loading="lazy"><figcaption>On the job</figcaption></figure>
+      <figure class="m1 reveal"><img src="${IMG.carpetScrub}" alt="Ultraclean rotary machine deep scrubbing a patterned carpet in a Swan Hill home" loading="lazy"><figcaption>Deep carpet scrub</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>The van, set up</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.rotary}" alt="Ultraclean rotary tile and carpet cleaning machine" loading="lazy"><figcaption>Rotary tile tool</figcaption></figure>
       <figure class="m4 reveal" data-d="1"><img src="${IMG.upholsteryTool}" alt="Ultraclean upholstery cleaning tool on a fabric couch" loading="lazy"><figcaption>Upholstery tool</figcaption></figure>

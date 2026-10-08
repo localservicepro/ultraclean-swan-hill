@@ -28,6 +28,7 @@ const IMG = {
   leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',       // Lee with hard-floor wand (builders/commercial)
   vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png',       // real van, rear open, branded
   upholsteryTool: '/assets/photos/fb-img-1662597792576.jpg', // real: upholstery tool on a fabric couch
+  carpetScrub: '/assets/photos/fb-img-1606372845324.jpg', // real: rotary scrub on a patterned carpet
   vanJob: '/assets/photos/20200512-162539.jpg',      // real: van parked on a job, rear doors open, hoses run in
   rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_c77d9d36-b0f4-4fb9-b324-e85a14a1e48f.png',        // rotary machine with stickers
   vanHero: '/assets/brand/van-logo.png',       // generated: branded van on a Swan Hill street
