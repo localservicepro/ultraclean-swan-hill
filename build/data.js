@@ -27,11 +27,10 @@ const IMG = {
   leeBench: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_76f4e6b5-2cf3-4c26-8ac1-cd714600b727.png',      // Lee wiping a kitchen bench (bond clean)
   leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',       // Lee with hard-floor wand (builders/commercial)
   vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png',       // real van, rear open, branded
-  vanInterior: '/assets/photos/fb-img-1599429371383.jpg', // real photo of the truck-mount unit
-  vanInteriorOld: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_768c9afa-da91-49cf-9933-99273e28e672.png',   // truck-mount unit inside the van, stickers
+  upholsteryTool: '/assets/photos/fb-img-1662597792576.jpg', // real: upholstery tool on a fabric couch
+  vanJob: '/assets/photos/20200512-162539.jpg',      // real: van parked on a job, rear doors open, hoses run in
   rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_c77d9d36-b0f4-4fb9-b324-e85a14a1e48f.png',        // rotary machine with stickers
   vanHero: '/assets/brand/van-logo.png',       // generated: branded van on a Swan Hill street
-  truck: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_cf2a00ad-4fff-427f-a71b-897cf768e4b2.png',         // generated: branded truck at Lake Boga
   equipment: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png',     // generated: equipment with stickers
   // Real client photos (self-hosted in /assets/photos/)
   carpet: '/assets/photos/20211008-161620.jpg',        // fresh wand lines on carpet

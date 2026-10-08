@@ -352,7 +352,7 @@ function home() {
       <figure class="m1 contain reveal"><img src="${IMG.vanHero}" alt="Ultraclean Swan Hill branded van" loading="lazy"><figcaption>The Ultraclean van</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.tile}" alt="Tile and grout cleaning Swan Hill - rotary turbo tool on porcelain tiles" loading="lazy"><figcaption>Tile &amp; grout</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.upholstery}" alt="Upholstery cleaning Swan Hill - lounge half cleaned showing the difference" loading="lazy"><figcaption>Upholstery</figcaption></figure>
-      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Truck-mounted carpet cleaning unit inside the Ultraclean van" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanJob}" alt="Ultraclean van on a carpet cleaning job with the rear doors open and hoses run into the house" loading="lazy"><figcaption>On the job</figcaption></figure>
       <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean carpet cleaning wand, air mover and dehumidifier" loading="lazy"><figcaption>The gear</figcaption></figure>
     </div>
   </div>
@@ -599,10 +599,10 @@ function aboutPage() {
   <div class="wrap">
     <div class="section-head"><div class="reveal"><span class="label">The fleet &amp; the gear</span><h2>Truck-mounted, sign-written, <span class="em">ready to go.</span></h2></div><p class="reveal" data-d="1">Everything travels on the van: the truck-mount extraction unit, rotary tile tool and air movers. One visit covers the whole job.</p></div>
     <div class="mosaic">
-      <figure class="m1 reveal"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" loading="lazy"><figcaption>Lake Boga base</figcaption></figure>
+      <figure class="m1 reveal"><img src="${IMG.vanJob}" alt="Ultraclean van on a carpet cleaning job with the rear doors open and hoses run into the house" loading="lazy"><figcaption>On the job</figcaption></figure>
       <figure class="m2 reveal" data-d="1"><img src="${IMG.vanRear}" alt="Ultraclean van with rear doors open showing the truck-mount unit" loading="lazy"><figcaption>Truck-mount van</figcaption></figure>
       <figure class="m3 reveal" data-d="2"><img src="${IMG.rotary}" alt="Ultraclean rotary tile and carpet cleaning machine" loading="lazy"><figcaption>Rotary tile tool</figcaption></figure>
-      <figure class="m4 reveal" data-d="1"><img src="${IMG.vanInterior}" alt="Inside the Ultraclean van - truck-mounted extraction unit" loading="lazy"><figcaption>Truck-mount unit</figcaption></figure>
+      <figure class="m4 reveal" data-d="1"><img src="${IMG.upholsteryTool}" alt="Ultraclean upholstery cleaning tool on a fabric couch" loading="lazy"><figcaption>Upholstery tool</figcaption></figure>
       <figure class="m5 reveal" data-d="2"><img src="${IMG.equipment}" alt="Ultraclean wand, air mover and dehumidifier" loading="lazy"><figcaption>Drying gear</figcaption></figure>
     </div>
   </div>
@@ -707,7 +707,7 @@ function areasPage() {
   return head({ title: 'Service Areas | Cleaners Swan Hill & Surrounds | Ultraclean', meta: 'Ultraclean services Swan Hill and 19 surrounding towns from Lake Boga: Kerang, Cohuna, Barham, Balranald, Nyah, Tooleybuc, Sea Lake and more. See every town we cover.', canonical: '/areas/', ogImage: IMG.carpet, schema }) + nav('areas') + `
 <main>
 <section class="page-hero">
-  <div class="hero-media"><img src="${IMG.truck}" alt="Ultraclean Swan Hill truck-mount vehicle at Lake Boga" fetchpriority="high"></div>
+  <div class="hero-media"><img src="${IMG.vanJob}" alt="Ultraclean Swan Hill van on a job, rear doors open with cleaning hoses run inside" fetchpriority="high"></div>
   <div class="hero-scrim"></div>
   <div class="wrap hero-in">
     <div>
