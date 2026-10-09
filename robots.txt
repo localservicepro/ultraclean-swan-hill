@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you/
+
+Sitemap: https://ultracleanswanhill.com.au/sitemap.xml

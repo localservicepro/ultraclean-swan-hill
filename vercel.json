@@ -1,0 +1,43 @@
+{
+  "images": {
+    "sizes": [
+      480,
+      768,
+      1080,
+      1600
+    ],
+    "domains": [
+      "d8j0ntlcm91z4.cloudfront.net"
+    ],
+    "formats": [
+      "image/avif",
+      "image/webp"
+    ],
+    "minimumCacheTTL": 2592000
+  },
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/services/flood-water-damage/",
+      "destination": "/services/carpet-cleaning/",
+      "permanent": false
+    },
+    {
+      "source": "/blog/flooded-carpet-what-to-do-murray-river/",
+      "destination": "/blog/",
+      "permanent": false
+    }
+  ]
+}

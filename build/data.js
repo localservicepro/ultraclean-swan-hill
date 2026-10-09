@@ -1,0 +1,407 @@
+// All business facts, copy and image URLs live here. Edit and re-run `node build/build.js`.
+const SITE = {
+  name: 'Ultraclean Swan Hill',
+  experience: 'over 10 years',
+  tagline: 'A higher standard of clean.',
+  shortName: 'Ultraclean',
+  // TODO: replace with the real domain once registered (used for canonical, OG and sitemap URLs)
+  domain: 'https://ultracleanswanhill.com.au',
+  phoneDisplay: '0417 327 173',
+  phoneTel: '+61417327173',
+  email: 'Ultracleanswanhill@gmail.com',
+  address: { street: '529 Lakeside Drive', locality: 'Lake Boga', region: 'VIC', postcode: '3584', country: 'AU' },
+  geo: { lat: -35.4605, lng: 143.4635 },
+  hours: 'Mon–Sat 7:00am – 6:00pm',
+  trackingId: 'tk_f348309a624d4909a1804129527150dd',
+  areasVic: ['Swan Hill', 'Lake Boga', 'Kerang', 'Nyah', 'Piangil', 'Wood Wood', 'Beverford', 'Sea Lake', 'Lalbert', 'Ultima', 'Quambatook', 'Cohuna', 'Manangatang'],
+  areasNsw: ['Murray Downs', 'Koraleigh', 'Tooleybuc', 'Moulamein', 'Balranald', 'Barham', 'Kyalite'],
+};
+SITE.areasAll = [...SITE.areasVic, ...SITE.areasNsw];
+
+// Higgsfield-generated imagery (hosted). See README for regeneration notes.
+const IMG = {
+  // Rebranded client photos (Higgsfield edits of the real Drive photos: navy Ultraclean uniform / van livery)
+  hero: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_339e45ae-278a-4980-bbe6-b69b9c4ff9f6.png',          // Lee steam cleaning a lounge carpet
+  heroVideo: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004558_6dec0c77-408b-4430-92e2-b3f97f7a3d52.mp4',
+  leePortrait: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png',   // Lee in front of the branded van
+  leeBench: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_76f4e6b5-2cf3-4c26-8ac1-cd714600b727.png',      // Lee wiping a kitchen bench (bond clean)
+  leeWand: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',       // Lee with hard-floor wand (builders/commercial)
+  vanRear: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_ccb63a7c-72d4-4e78-b68f-5cbec0608e4c.png',       // real van, rear open, branded
+  upholsteryTool: '/assets/photos/fb-img-1662597792576.jpg', // real: upholstery tool on a fabric couch
+  carpetScrub: '/assets/photos/fb-img-1606372845324.jpg', // real: rotary scrub on a patterned carpet
+  vanJob: '/assets/photos/20200512-162539.jpg',      // real: van parked on a job, rear doors open, hoses run in
+  rotary: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004509_c77d9d36-b0f4-4fb9-b324-e85a14a1e48f.png',        // rotary machine with stickers
+  vanHero: '/assets/brand/van-logo.png',       // generated: branded van on a Swan Hill street
+  equipment: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_fb173d3f-e959-4cbd-9eba-8746bbf05811.png',     // generated: equipment with stickers
+  // Real client photos (self-hosted in /assets/photos/)
+  carpet: '/assets/photos/20211008-161620.jpg',        // fresh wand lines on carpet
+  carpetBefore: '/assets/photos/20221208-115447.jpg',
+  carpetAfter: '/assets/photos/20221208-123630.jpg',
+  carpetLounge: '/assets/photos/20230710-095357.jpg',  // air mover drying clean carpet
+  upholstery: '/assets/photos/20251106-141857.jpg',    // lounge half cleaned
+  sofa: '/assets/photos/20251219-142205.jpg',
+  sofaBefore: '/assets/photos/20251219-134706.jpg',
+  sofaAfter: '/assets/photos/20251219-142205.jpg',
+  ottoman: '/assets/photos/20210127-105911.jpg',
+  tile: '/assets/photos/092a8627.jpg',                 // rotary tool on porcelain tiles
+  tileShower: '/assets/photos/20230621-091541.jpg',
+  // client-supplied tile job photos (Drive > Client Images)
+  // Our Results gallery (real job photos from Drive)
+  heaterBefore: '/assets/photos/20230110-082736.jpg',
+  heaterAfter: '/assets/photos/20230110-095220.jpg',
+  carpetHalf: '/assets/photos/20251023-093332.jpg',
+  ottomanHalf: '/assets/photos/20210127-105911.jpg',
+  cushionHalf: '/assets/photos/20250710-102810.jpg',
+  carpetTestPatch: '/assets/photos/20200826-100158.jpg',
+  carpetMidClean: '/assets/photos/20210401-155853.jpg',
+  hardFloorTurbo: '/assets/photos/20220720-113426.jpg',
+  tileHalf: '/assets/photos/tile-grout-cleaning-swan-hill-half-cleaned-floor.jpg',   // 1920x1080, floor half cleaned
+  tileTurbo: '/assets/photos/tile-floor-cleaning-swan-hill-turbo-tool.jpg',          // 480x639, turbo tool mid-pass
+  tileCollage: '/assets/photos/tile-grout-cleaning-before-after-collage.jpg',        // 689x380, three-panel collage
+  hardFloor: '/assets/photos/20220720-113426.jpg',
+  rug: '/assets/photos/20211104-125538.jpg',
+  office: '/assets/photos/20170503-045844.jpg',
+  commercialCarpet: '/assets/photos/fb-img-1606372845324.jpg',
+  rangehood: '/assets/photos/20180817-160802.jpg',
+  wetCarpet: '/assets/photos/20230110-082736.jpg',
+  bond: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_76f4e6b5-2cf3-4c26-8ac1-cd714600b727.png',
+  builders: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_490c36b5-392f-487c-96e2-cdcf49c632cf.png',
+  flood: '/assets/photos/20230710-095357.jpg',
+  // Generated stock kept where no client photo exists
+  window: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_75360fb2-0874-4e16-af03-b848ab3f2488.png',
+  macro: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260928_034340_a8f3326b-1447-4649-8cd7-738443a3abf2.png',
+  van: '/assets/brand/van-logo.png',
+  steps: 'https://d8j0ntlcm91z4.cloudfront.net/user_3EWpoiN6nlg900Jz4gzZzRlxgtK/hf_20260930_004510_b01a587d-0ece-48e6-ab15-aa97be1eb1cc.png',
+};
+
+const c = (s) => s; // copy helper for readability
+
+const SERVICES = [
+  {
+    slug: 'carpet-cleaning',
+    nav: 'Carpet Cleaning',
+    short: 'Carpet steam cleaning',
+    blurb: 'Hot-water extraction that lifts dirt, pet odour and traffic lanes out of the fibre — not just the surface.',
+    h1: 'Carpet Steam Cleaning in Swan Hill & Surrounds',
+    title: 'Carpet Cleaning Swan Hill & Kerang | Ultraclean',
+    meta: 'Carpet cleaning Swan Hill and surrounds, including Kerang and the Murray towns. Truck-mounted steam cleaning for homes, rentals and offices. Dry in hours. Free quotes from Ultraclean.',
+    keyword: 'Carpet Cleaning Kerang',
+    img: 'carpet',
+    alt: 'Carpet cleaning Swan Hill - fresh Ultraclean steam cleaning lines across a bedroom carpet in a Murray region home',
+    lede: 'Truck-mounted hot-water extraction for homes, rentals and workplaces in Swan Hill and surrounds. Deep clean, fast dry, no residue left behind.',
+    towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Nyah', 'Cohuna', 'Barham'],
+    beforeAfter: ['carpetBefore', 'carpetAfter'],
+    pricing: { from: '$55–60', unit: 'per standard-sized bedroom', note: 'Upwards for really dirty carpet, pet smells or stains. Living areas, hallways and stairs are quoted on size.' },
+    audience: 'Homeowners, renters and landlords',
+    body: [
+      ['h2', 'Carpet cleaning Swan Hill and surrounds locals actually notice'],
+      ['p', 'Carpet cleaning in Swan Hill and surrounds is mostly about two things: the red Mallee dust that walks in every day, and the traffic lanes that build up in hallways and lounge rooms. Ultraclean uses hot-water extraction (steam cleaning) to flush soil out of the fibre and pull it back into the machine, rather than pushing it around with a shampoo that leaves a sticky residue. Carpets come up brighter, feel softer underfoot, and stay cleaner for longer.'],
+      ['p', 'We service every kind of carpet job across the Murray — a single lounge room in Swan Hill, a whole four-bedroom home in Kerang, a rental between tenants in Cohuna, or the carpet tiles in a Barham office after hours.'],
+      ['h2', 'What is included'],
+      ['ul', ['Pre-vacuum and inspection of every room, with problem spots pointed out before we start', 'Pre-spray to break down oils, food, pet and general soiling', 'CRB (counter-rotating brush) agitation to work the pre-spray deep into the fibres and lift stubborn, ground-in dirt', 'Hot-water extraction with a professional wand, edges and corners included', 'Spot and stain treatment for the marks that need extra attention', 'Deodorising and optional fibre protector', 'Grooming and fast-dry airflow so carpets are walkable in hours']],
+      ['h2', 'Why we agitate with a counter-rotating brush'],
+      ['p', 'Once the pre-spray goes down, Ultraclean runs a CRB (counter-rotating brush) machine over the carpet. Its two brushes spin in opposite directions, working the pre-spray deeper into the fibres so it can break down the soiling right at the base of the pile, not just on the tips. The same action lifts stubborn dirt and grit that has been trodden deep into the carpet and loosens matted traffic lanes, so the hot-water extraction that follows can rinse it all out. Skipping agitation is the most common reason a cheap carpet clean looks fine on the day and grey again a few weeks later.'],
+      ['h2', 'How long do carpets take to dry?'],
+      ['p', 'Most carpets in the Swan Hill area are dry to walk on within 4 to 8 hours. In summer it is often quicker; on a cold frosty morning we can leave air movers running (they are optional) and suggest a heater or open windows. Keep foot traffic light and leave furniture on the foam blocks or foil tabs we place until everything is fully dry.'],
+      ['h2', 'Carpet cleaning for rentals and end of lease'],
+      ['p', 'Property managers in Swan Hill and surrounds usually ask for a professional carpet clean receipt at the end of a tenancy. We provide one on every job, and we can combine the carpet clean with a full <a href="/services/end-of-lease-cleaning/">bond clean</a> so you only book once.'],
+      ['h2', 'Where we clean carpets'],
+      ['p', 'Ultraclean is based in Lake Boga and travels for carpet cleaning across Swan Hill, Lake Boga, Kerang, Cohuna, Barham, Nyah, Piangil, Tooleybuc, Murray Downs, Sea Lake, Quambatook and every town in between — Victorian and NSW sides of the river.'],
+    ],
+    faq: [
+      ['How much does carpet cleaning cost in Swan Hill and surrounds?', 'Guide pricing is $55–60 per standard-sized bedroom, upwards for really dirty carpet, pet smells or stains. Send us the rooms and rough sizes through the quote form and we will come back with a fixed price — no surprises on the day.'],
+      ['Do you clean carpets in Cohuna and Barham as well?', 'Yes. Swan Hill and the surrounding towns, including Cohuna, Barham and Kerang, are all inside our service area. Where travel applies to the further towns it is shown in your quote up front.'],
+      ['What is a CRB and why does it matter?', 'A CRB is a counter-rotating brush machine. After the pre-spray goes down, its brushes agitate the solution deep into the fibres and lift dirt that is stuck down at the base of the carpet, so the extraction rinse removes far more soil than spraying and extracting alone.'],
+      ['Can you get pet urine out of carpet?', 'Usually, yes. We treat the affected area with an enzyme product and extract it thoroughly. Old or repeated accidents can leave permanent staining, and we will tell you honestly before we start.'],
+      ['Should I move furniture before you arrive?', 'Move the small and breakable things if you can. We will shift lounges and light furniture and clean underneath, then put everything back on protective tabs.'],
+    ],
+    related: ['upholstery-rug-cleaning', 'end-of-lease-cleaning', 'tile-grout-cleaning'],
+  },
+  {
+    slug: 'upholstery-rug-cleaning',
+    nav: 'Upholstery & Rug Cleaning',
+    short: 'Upholstery & rug cleaning',
+    blurb: 'Lounges, dining chairs, mattresses and anything else upholstered, natural or synthetic, cleaned in place or picked up and delivered.',
+    h1: 'Upholstery & Rug Cleaning in Swan Hill',
+    title: 'Upholstery & Rug Cleaning Swan Hill | Ultraclean',
+    meta: 'Upholstery cleaning Swan Hill — lounges, dining chairs, mattresses and rugs steam cleaned by Ultraclean. Fabric-safe methods, pet and stain treatment. Free quotes.',
+    keyword: 'Upholstery Cleaning Swan Hill',
+    img: 'upholstery',
+    alt: 'Upholstery cleaning Swan Hill - fabric lounge half cleaned by Ultraclean showing the difference',
+    lede: 'Lounges, dining chairs, mattresses and anything else upholstery, be it natural or synthetic, cleaned in place or picked up and delivered.',
+    towns: ['Swan Hill', 'Lake Boga', 'Murray Downs', 'Kerang', 'Nyah', 'Beverford'],
+    beforeAfter: ['sofaBefore', 'sofaAfter'],
+    pricing: { from: '$50–55', unit: 'per seating position', note: 'Depends on the condition of the upholstery, whether the cushions are double-sided, and the level and nature of the soiling. A photo gets you the most accurate price.' },
+    audience: 'Families and pet owners',
+    body: [
+      ['h2', 'Upholstery cleaning Swan Hill families rely on'],
+      ['p', 'A lounge collects more than you would think: skin oils, food, sunscreen, dog hair and the dust that blows through in a Swan Hill summer. Ultraclean upholstery cleaning uses a low-moisture hot-water extraction tool designed for fabric, so the sofa is cleaned right through without over-wetting the foam. We check the fabric care code first and use the right method for cotton, linen, microfibre, velvet and leather.'],
+      ['h2', 'What we clean'],
+      ['ul', ['Fabric lounges, modulars and recliners', 'Dining chairs, ottomans and bar stools', 'Mattresses — dust-mite treatment and stain removal', 'Wool, synthetic and cotton rugs', 'Caravan and boat upholstery', 'Office chairs and waiting-room seating']],
+      ['h2', 'Rug cleaning — in place or picked up'],
+      ['p', 'Rugs are cleaned in your home where practical, or picked up, cleaned flat, rinsed properly, dried in a controlled space and delivered back to your door. We check dye stability before any wet cleaning so colours do not run.'],
+      ['h2', 'Drying times'],
+      ['p', 'Fabric lounges are usually dry in 2 to 4 hours. Mattresses take a little longer, so we suggest booking them in the morning. Rugs cleaned off site come back completely dry.'],
+      ['h2', 'Combine with a carpet clean'],
+      ['p', 'Most people book upholstery alongside a <a href="/services/carpet-cleaning/">carpet clean</a> — we are already set up in the house, so it is the cheapest way to do the whole room at once.'],
+    ],
+    faq: [
+      ['Can you clean leather lounges?', 'Yes. Leather is cleaned with a pH-neutral cleaner and conditioned afterwards rather than steam cleaned.'],
+      ['Will steam cleaning shrink or watermark my sofa?', 'Not when it is done properly. We check the care code, test an inconspicuous spot and use a low-moisture method for delicate fabrics.'],
+      ['How do I get a quote for a lounge or rug?', 'Tell us the number of seating positions and the rough size — or better, send a photo. Guide pricing is $50–55 per seating position, depending on the condition of the fabric, whether cushions are double-sided and the level of soiling.'],
+      ['Can you remove the dog smell from the couch?', 'In most cases, yes. We treat the fabric and the cushion foam with an enzyme deodoriser that breaks the odour down rather than masking it.'],
+    ],
+    related: ['carpet-cleaning', 'tile-grout-cleaning', 'end-of-lease-cleaning'],
+  },
+  {
+    slug: 'tile-grout-cleaning',
+    nav: 'Tile & Grout Cleaning',
+    short: 'Tile & grout cleaning',
+    blurb: 'High-pressure turbo cleaning that brings grout lines back to their original colour, then seals them.',
+    h1: 'Tile and Grout Cleaning in Swan Hill & Lake Boga',
+    title: 'Tile and Grout Cleaning Swan Hill | Ultraclean',
+    meta: 'Tile and grout cleaning Swan Hill and Lake Boga. Pressure-cleaned grout lines, sealed to stay clean. Kitchens, bathrooms, outdoor areas. Free quotes from Ultraclean.',
+    keyword: 'Tile and Grout Cleaning Swan Hill',
+    img: 'tile',
+    alt: 'Tile and grout cleaning Swan Hill - Ultraclean rotary turbo tool on a porcelain tiled floor',
+    jobPhoto: 'tileHalf',
+    jobCaption: 'Half done: before & after',
+    jobAlt: 'Tile and grout cleaning in progress - half of the tiled floor cleaned with a high-pressure turbo tool, the other half still grey',
+    gallery: {
+      title: 'Recent tile & grout jobs',
+      items: [
+        { img: 'tileTurbo', ratio: 480 / 639, alt: 'Tile floor cleaning Swan Hill - high-pressure turbo tool lifting dirt from large format tiles, clean tiles on the right', caption: 'Turbo tool mid-pass' },
+        { img: 'tileCollage', ratio: 689 / 380, alt: 'Tile and grout cleaning before and after - grout lines restored on ceramic floor tiles', caption: 'Grout lines back to their original colour' },
+      ],
+    },
+    lede: 'Grout goes grey long before the tiles do. We pressure-clean it back to its original colour and seal it so it stays that way.',
+    towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Cohuna', 'Sea Lake'],
+    audience: 'Homeowners and new buyers',
+    body: [
+      ['h2', 'Tile and grout cleaning Swan Hill homes have been putting off'],
+      ['p', 'Grout is porous. Mopping pushes dirty water into it, and over a few years the lines in a Swan Hill kitchen or bathroom go from white to grey to brown. Ultraclean tile and grout cleaning starts by testing a small area to find the best pH cleaner for the surface — a safe acid or alkaline product depending on the tile and the soiling — then applies the pre-treatment to loosen it, followed by a high-pressure, high-temperature turbo tool that blasts the grout clean and vacuums the water away at the same time — no flooding, no splashing up the walls.'],
+      ['h2', 'Surfaces we clean'],
+      ['ul', ['Porcelain and ceramic floor tiles', 'Kitchen and bathroom walls, shower recesses', 'Slate, travertine and natural stone (with stone-safe products)', 'Outdoor patios, alfresco areas and pool surrounds', 'Commercial floors in shops, cafés and clinics']],
+      ['h2', 'Grout sealing'],
+      ['p', 'Once the grout is clean and dry we recommend a penetrating sealer. It soaks into the grout and stops spills and mop water from getting in, so the floor stays clean with normal mopping. Sealing usually lasts three to five years in a family home.'],
+      ['h2', 'Before you sell or move in'],
+      ['p', 'A tile and grout clean is one of the highest-impact, lowest-cost jobs you can do before an open home in Swan Hill, and buyers moving into an older home in Lake Boga or Kerang often book it before the furniture arrives. Book it with a <a href="/services/carpet-cleaning/">carpet clean</a> and a <a href="/services/end-of-lease-cleaning/">bond clean</a> for a full refresh.'],
+    ],
+    faq: [
+      ['Will the cleaning damage my tiles or grout?', 'No. The pressure is controlled and contained inside the tool head, and we choose products to suit the surface — stone gets a stone-safe cleaner.'],
+      ['How long does it take?', 'A typical kitchen, meals and hallway takes two to three hours including drying time before sealing.'],
+      ['Can you change the colour of my grout?', 'Yes. If the grout is stained beyond cleaning, a colour seal can bring it back to a uniform colour and seal it in one step.'],
+      ['Do you clean outdoor tiles in Lake Boga?', 'We do — patios, verandahs and pool areas are a regular job, especially before summer.'],
+    ],
+    related: ['carpet-cleaning', 'end-of-lease-cleaning', 'window-cleaning'],
+  },
+  {
+    slug: 'window-cleaning',
+    nav: 'Window Cleaning',
+    short: 'Window cleaning',
+    blurb: 'Streak-free inside and out for homes, shopfronts and offices — frames, tracks and screens included.',
+    h1: 'Window Cleaning in Swan Hill for Homes & Shopfronts',
+    title: 'Window Cleaning Swan Hill | Ultraclean Swan Hill',
+    meta: 'Window cleaning Swan Hill for homes, shopfronts and offices. Inside and out, tracks and screens included, streak-free finish. One-off or regular. Free quotes.',
+    keyword: 'Window Cleaning Swan Hill',
+    img: 'window',
+    alt: 'Window cleaning Swan Hill - Ultraclean cleaner squeegeeing a shopfront window on a country town main street',
+    lede: 'Inside and out, frames, tracks and flyscreens — for homes across Swan Hill and the shopfronts along Campbell Street.',
+    towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Barham', 'Balranald'],
+    audience: 'Homeowners and retail',
+    body: [
+      ['h2', 'Window cleaning Swan Hill homes and businesses'],
+      ['p', 'Dust storms, irrigation spray and hard bore water leave a film on glass that ordinary cleaning just smears around. Ultraclean window cleaning in Swan Hill uses purified water and professional squeegees for a streak-free finish.'],
+      ['h2', 'Second-storey windows, done safely'],
+      ['p', 'Ultraclean cleans second-storey and high windows on homes and businesses across Swan Hill. Depending on the building and the glass, we work safely from ladders for a hands-on detailed clean of frames, sills and tracks, or use a water-fed pole from the ground. The pole pumps purified water through a soft brush and reaches most second-storey glass without ladders on your garden beds or roof. We pick the safest method for each window and let you know which we will use when we quote.'],
+      ['h2', 'What is included'],
+      ['ul', ['Inside and outside of every pane', 'Frames and sills wiped down', 'Tracks vacuumed and cleaned', 'Flyscreens removed, washed and refitted', 'Second-storey and high windows, by ladder or water-fed pole', 'Skylights, glass doors and pool fencing on request', 'Cobwebs cleared from around the windows']],
+      ['h2', 'Shopfronts and commercial glass'],
+      ['p', 'A clean shopfront is the first thing a customer notices. We look after retail glass, café windows, real estate offices and clinics in Swan Hill, Kerang and Barham on a fortnightly or monthly schedule, before opening hours so there is no disruption. Ask about bundling with <a href="/services/commercial-cleaning/">regular commercial cleaning</a>.'],
+      ['h2', 'Before an inspection or open home'],
+      ['p', 'Clean windows make every room look brighter in photos and at an open home. Many customers book windows alongside a <a href="/services/end-of-lease-cleaning/">bond clean</a> or a <a href="/services/carpet-cleaning/">carpet clean</a>.'],
+    ],
+    faq: [
+      ['Do you clean second-storey windows?', 'Yes. We clean second-storey windows safely, either from ladders or with a water-fed pole from the ground, depending on the building and the glass. We will tell you which method suits your home when we quote.'],
+      ['How often should shop windows be cleaned?', 'Most Swan Hill shopfronts look their best on a fortnightly clean; quieter side-street offices are fine monthly.'],
+      ['Do you remove hard water spots?', 'Light mineral spotting comes off with the standard clean. Heavily etched glass may need a restoration treatment, which we can quote separately.'],
+      ['Do you travel to Balranald and Barham for window cleaning?', 'We do — both are within our service area.'],
+    ],
+    related: ['commercial-cleaning', 'end-of-lease-cleaning', 'tile-grout-cleaning'],
+  },
+  {
+    slug: 'end-of-lease-cleaning',
+    nav: 'Bond / End of Lease Cleaning',
+    short: 'Bond & end of lease cleans',
+    blurb: 'Full vacate clean to your agent\'s checklist, with carpets included, so your bond comes back in full.',
+    h1: 'End of Lease Cleaning in Swan Hill — Bond Clean Ready',
+    title: 'End of Lease Cleaning Swan Hill | Ultraclean',
+    meta: 'End of lease cleaning Swan Hill. Full bond clean to your real estate agent\'s checklist with carpet steam cleaning included. Receipt supplied. Free quotes from Ultraclean.',
+    keyword: 'End of Lease Cleaning Swan Hill',
+    img: 'bond',
+    alt: 'End of lease cleaning Swan Hill - Ultraclean owner Lee wiping down a kitchen bench during a bond clean',
+    lede: 'A full vacate clean to your property manager\'s checklist — oven, windows, walls and carpets — with the receipt agents in Swan Hill ask for.',
+    towns: ['Swan Hill', 'Kerang', 'Murray Downs', 'Lake Boga', 'Cohuna', 'Balranald'],
+    audience: 'Tenants and property managers',
+    body: [
+      ['h2', 'End of lease cleaning Swan Hill agents sign off on'],
+      ['p', 'Getting a bond back comes down to one thing: the property has to pass the outgoing inspection. Ultraclean end of lease cleaning in Swan Hill follows the same checklist local property managers use, so the oven, rangehood, window tracks, skirting boards and light fittings are done — not just the obvious surfaces. We also do <a href="/services/carpet-cleaning/">carpet steam cleaning</a> on the same visit and supply the receipt.'],
+      ['h2', 'The bond clean checklist'],
+      ['ul', ['Kitchen: oven, rangehood, stovetop, cupboards inside and out, benches, sink and splashback', 'Bathrooms and laundry: shower screens, grout, tiles, toilets, vanities, mirrors, exhaust fans', 'Bedrooms and living: walls spot cleaned, skirting boards, doors, light switches, wardrobes inside', 'Windows inside (outside on request), tracks, blinds and flyscreens', 'Floors vacuumed and mopped; carpets steam cleaned', 'Garage swept, cobwebs removed, bins wiped']],
+      ['h2', 'For property managers and landlords'],
+      ['p', 'We work directly with Swan Hill and surrounds property managers on vacate cleans between tenancies, including keys collected from and returned to the office. If an inspection picks up anything we missed, we come back and fix it at no charge.'],
+      ['h2', 'Moving out of a rental in the Murray region'],
+      ['p', 'We cover rentals in Swan Hill, Murray Downs, Lake Boga, Kerang, Cohuna, Barham and Balranald. Book a few days before the final inspection so there is time for the carpets to dry and for us to return if the agent requests anything.'],
+    ],
+    faq: [
+      ['Will your end of lease clean meet Swan Hill real estate agent checklists?', 'Yes. Our checklist is built from the vacate lists used by local agencies, and we guarantee to return and re-clean any item picked up at the inspection.'],
+      ['Is carpet cleaning included in the bond clean?', 'It can be — most tenants add it because agents usually require a professional carpet cleaning receipt. We do both on the same visit.'],
+      ['How long does a bond clean take?', 'A two-bedroom unit takes around three to four hours; a four-bedroom house is usually a full day with carpets.'],
+      ['Does the house need to be empty?', 'Ideally, yes. An empty property lets us reach inside cupboards and behind where furniture was.'],
+    ],
+    related: ['carpet-cleaning', 'window-cleaning', 'tile-grout-cleaning'],
+  },
+  {
+    slug: 'commercial-cleaning',
+    nav: 'Commercial & Builders Cleaning',
+    short: 'Commercial & builders cleans',
+    blurb: 'Regular contract cleaning for offices, shops and clinics, plus post-construction builders cleans.',
+    h1: 'Commercial & Builders Cleaning in Swan Hill',
+    title: 'Commercial Cleaning Swan Hill | Ultraclean',
+    meta: 'Commercial cleaning Swan Hill — regular office, retail and clinic cleaning contracts, plus builders cleans for new homes and fit-outs. Insured, reliable. Free quotes.',
+    keyword: 'Commercial Cleaning Swan Hill',
+    img: 'builders',
+    alt: 'Commercial cleaning Swan Hill - Ultraclean owner Lee cleaning the hard floors of a new build',
+    lede: 'Reliable regular cleaning for offices, shops and clinics across Swan Hill, and thorough builders cleans that get new homes handover-ready.',
+    towns: ['Swan Hill', 'Kerang', 'Murray Downs', 'Lake Boga', 'Barham', 'Cohuna'],
+    audience: 'Offices, retail and builders',
+    body: [
+      ['h2', 'Commercial cleaning Swan Hill businesses can set and forget'],
+      ['p', 'Regular commercial cleaning in Swan Hill should be something you stop thinking about. Ultraclean sets up a schedule — daily, a few nights a week, weekly or fortnightly — and turns up on the same nights every time, after hours, with our own equipment and products. Offices, retail shops, medical and allied health clinics, real estate agencies, gyms and community buildings in Swan Hill, Kerang and Barham are all on our regular run.'],
+      ['h2', 'What a regular clean covers'],
+      ['ul', ['Vacuuming and mopping of all floors, including carpet tiles', 'Desks, counters and touch points wiped and sanitised', 'Kitchens and staff rooms cleaned, dishwasher run', 'Toilets and bathrooms cleaned and restocked', 'Bins emptied and liners replaced', 'Glass doors and internal glass cleaned', 'Periodic carpet steam cleaning and window cleaning built into the contract']],
+      ['h2', 'Builders cleans'],
+      ['p', 'A builders clean is the last trade on a new home or fit-out before handover. We remove plaster dust from every surface, clean paint and silicone marks from glass, detail the kitchen and bathrooms, polish tapware and leave the site looking like the display photos. We work with builders and owner-builders across Swan Hill, Lake Boga and Kerang and can do a rough clean at lock-up and a final detail clean at completion.'],
+      ['h2', 'Insured and accountable'],
+      ['p', 'Ultraclean is fully insured and Lee holds a White Card, so builders cleans on active sites are covered. You deal with the same local person every time, and if anything is not right you call us and it is fixed on the next visit — no head office, no call centre.'],
+    ],
+    faq: [
+      ['Do you offer regular commercial cleaning contracts in Swan Hill?', 'Yes. We set up weekly, fortnightly or multi-night schedules for offices, shops and clinics in Swan Hill and the surrounding towns, all cleaned after hours.'],
+      ['Do you supply your own equipment and products?', 'Always. We bring commercial vacuums, mops, cloths and chemicals, and we can supply consumables like hand towel and toilet paper if you want.'],
+      ['What does a builders clean include?', 'Removal of construction dust from every surface, window and track cleaning, paint and silicone spot removal, full kitchen and bathroom detail, and floors vacuumed and mopped ready for handover.'],
+      ['Can you do a one-off deep clean of our office?', 'Yes — a one-off spring clean including carpets and windows is a common starting point before moving to a regular schedule.'],
+    ],
+    related: ['window-cleaning', 'carpet-cleaning', 'tile-grout-cleaning'],
+  },
+  {
+    hidden: true, // client: hold until the water-damage course is complete
+    slug: 'flood-water-damage',
+    nav: 'Flood & Water Damage',
+    short: 'Flood & water damage drying',
+    blurb: 'Fast water extraction, carpet drying and sanitising after floods, burst pipes and overflows.',
+    h1: 'Flood & Water Damage Carpet Drying in Swan Hill',
+    title: 'Flood & Water Damage Carpet Drying Swan Hill | Ultraclean',
+    meta: 'Flooded carpet in Swan Hill or Lake Boga? Ultraclean extracts water, dries carpet and underlay with air movers and dehumidifiers, and sanitises. Call 0417 327 173.',
+    keyword: 'Flood Carpet Drying Swan Hill',
+    img: 'flood',
+    alt: 'Flood carpet drying Swan Hill - Ultraclean air mover drying a lounge room carpet',
+    lede: 'Burst pipe, overflowing washing machine, storm or river water — the sooner carpet is extracted and dried, the more you save. Call us first.',
+    towns: ['Swan Hill', 'Lake Boga', 'Kerang', 'Murray Downs', 'Barham', 'Moulamein'],
+    audience: 'Homeowners, insurers and landlords',
+    body: [
+      ['h2', 'Flood carpet drying Swan Hill — what to do in the first 48 hours'],
+      ['p', 'Wet carpet does not dry on its own in a closed house. Within 48 hours the underlay starts to smell, and within a few days mould can take hold in the carpet, the underlay and the bottom of the plasterboard. Ultraclean flood and water damage drying in Swan Hill starts with extracting as much water as possible with a truck-mounted machine, then lifting the carpet to dry the underlay directly with air movers and a dehumidifier. Most rooms are dry within two to three days, and the carpet is relaid, cleaned and sanitised.'],
+      ['h2', 'What we do'],
+      ['ul', ['Emergency water extraction from carpet, underlay and hard floors', 'Carpet lifted and underlay dried or replaced', 'Commercial air movers and dehumidifiers installed and monitored', 'Moisture readings taken in carpet, subfloor and walls before we sign off', 'Antimicrobial treatment to stop mould and odour', 'Carpet relaid, steam cleaned and deodorised', 'Photos and a drying report for your insurer']],
+      ['h2', 'Insurance claims'],
+      ['p', 'If the water came from a burst pipe, hot water service, appliance or storm, your home or landlord insurance will usually cover the drying and cleaning. We document the moisture readings, the equipment used and the drying time so your claim goes through without back-and-forth. You can call us before the assessor has been — starting the drying early is what the insurer wants too.'],
+      ['h2', 'River flooding along the Murray'],
+      ['p', 'When the Murray or the Little Murray rises, homes in Swan Hill, Murray Downs, Lake Boga, Nyah and Tooleybuc can take water through the floor. River water is category 3 (contaminated), which means the carpet and underlay generally need to be removed and the subfloor sanitised rather than dried in place. We can help with the strip-out and the sanitising clean so the house is safe before the rebuild starts.'],
+    ],
+    faq: [
+      ['Do you clean windows as well as carpets?', 'Yes. Ultraclean cleans windows inside and out for homes and shopfronts in Swan Hill and surrounds, including frames, tracks and flyscreens, and can bundle them with a carpet or bond clean on the same visit.'],
+      ['How fast can you get here?', 'Call 0417 327 173. For water damage in Swan Hill, Lake Boga and Kerang we aim to be on site the same day, because every hour counts.'],
+      ['Can the carpet be saved?', 'Clean water from a pipe or appliance — usually yes, if we get to it within a day or two. River or sewage water — the carpet and underlay normally have to go.'],
+      ['Do you work with insurance companies?', 'We do. We provide moisture readings, photos and a drying report and can talk directly with your assessor.'],
+    ],
+    related: ['carpet-cleaning', 'upholstery-rug-cleaning', 'commercial-cleaning'],
+  },
+];
+
+const HOME_FAQ = [
+  ['How much does carpet cleaning cost in Swan Hill?', 'It depends on how many rooms you have, how soiled the carpet is and whether you need stain treatment. Fill in the quote form with the rooms and rough sizes and Ultraclean will send back a fixed price for carpet cleaning in Swan Hill — no surprises on the day.'],
+  ['Do you travel to Cohuna, Barham and the other towns around Swan Hill?', 'Yes. Swan Hill and surrounds is our service area — Lake Boga, Kerang, Nyah, Tooleybuc, Balranald, Sea Lake, Cohuna, Barham and the other towns listed on this site. Travel to the further towns is shown in your fixed quote up front.'],
+  ['Will your end of lease clean meet Swan Hill real estate agent checklists?', 'Yes. Our bond clean follows the vacate checklists local Swan Hill agencies use, includes carpet steam cleaning and a receipt, and if the inspection picks up anything we return and fix it free.'],
+  ['How long do carpets take to dry after cleaning in Swan Hill?', 'Usually 4 to 8 hours. We use hot-water extraction with strong vacuum recovery and leave air movers running, so carpets are walkable the same day.'],
+  ['Do you clean windows as well as carpets?', 'Yes. Ultraclean cleans windows inside and out for homes and shopfronts in Swan Hill and surrounds, including frames, tracks and flyscreens, and can bundle them with a carpet or bond clean on the same visit.'],
+  ['Do you offer regular commercial cleaning contracts in Swan Hill?', 'We do. Offices, shops, clinics and community buildings in Swan Hill and surrounds are cleaned after hours on a weekly, fortnightly or multi-night schedule with periodic carpet and window cleaning built in.'],
+];
+
+
+// Service-area towns with plain, quotable facts for the /areas/ page (GEO/AEO).
+const AREAS = [
+  { name: 'Lake Boga', state: 'VIC', km: 0, note: 'Our home base. Same-day availability is most common here and in Swan Hill.' },
+  { name: 'Swan Hill', state: 'VIC', km: 17, note: 'The regional centre and our busiest area — homes, rentals, shops on Campbell Street and offices are all on the daily run.' },
+  { name: 'Beverford', state: 'VIC', km: 25, note: 'Just north of Swan Hill on the Murray Valley Highway; farmhouses and lifestyle blocks with carpet and tile work.' },
+  { name: 'Ultima', state: 'VIC', km: 30, note: 'Mallee town west of Lake Boga; carpets, windows and bond cleans booked with nearby Lalbert and Sea Lake runs.' },
+  { name: 'Nyah', state: 'VIC', km: 40, note: 'River town north of Swan Hill; a regular stop for carpet cleaning and bond cleans.' },
+  { name: 'Lalbert', state: 'VIC', km: 40, note: 'Small farming community; usually booked together with Quambatook and Ultima to keep travel efficient.' },
+  { name: 'Wood Wood', state: 'VIC', km: 45, note: 'On the Murray between Nyah and Piangil; holiday homes and rentals needing end-of-lease and carpet cleans.' },
+  { name: 'Piangil', state: 'VIC', km: 50, note: 'Northern edge of the Swan Hill district; carpets, upholstery and tile cleaning, often paired with Tooleybuc across the river.' },
+  { name: 'Quambatook', state: 'VIC', km: 55, note: 'Gannawarra Shire farming town; carpets, windows and commercial cleaning for local businesses.' },
+  { name: 'Kerang', state: 'VIC', km: 60, note: 'Second-largest town we serve — carpet cleaning Kerang is a standing weekly run alongside bond cleans and commercial contracts.' },
+  { name: 'Sea Lake', state: 'VIC', km: 70, note: 'Mallee town near Lake Tyrrell; carpet, tile and window cleaning for homes and accommodation providers.' },
+  { name: 'Manangatang', state: 'VIC', km: 75, note: 'North-west Mallee; carpets and bond cleans, typically scheduled on a fortnightly loop.' },
+  { name: 'Cohuna', state: 'VIC', km: 85, note: 'Gannawarra Shire town on Gunbower Creek; homes, rentals and clinics, paired with Kerang and Barham runs.' },
+  { name: 'Murray Downs', state: 'NSW', km: 20, note: 'Directly across the river from Swan Hill; golf resort accommodation, new estates and rentals needing carpets and bond cleans.' },
+  { name: 'Koraleigh', state: 'NSW', km: 35, note: 'NSW side north of Murray Downs; farmhouses and rentals, usually booked with Nyah or Tooleybuc.' },
+  { name: 'Tooleybuc', state: 'NSW', km: 55, note: 'River town opposite Piangil; holiday homes, the hotel and caravan park accommodation.' },
+  { name: 'Kyalite', state: 'NSW', km: 70, note: 'On the Wakool River; remote properties served on scheduled runs with Tooleybuc and Balranald.' },
+  { name: 'Moulamein', state: 'NSW', km: 80, note: 'Edward River township; carpets, windows and commercial cleaning for local businesses and council buildings.' },
+  { name: 'Barham', state: 'NSW', km: 110, note: 'Twin town with Koondrook; carpet cleaning Barham and commercial cleaning are booked with the Cohuna and Kerang run.' },
+  { name: 'Balranald', state: 'NSW', km: 110, note: 'Far north-west on the Sturt Highway; carpets, bond cleans and windows on a scheduled run — no local operator ranks here.' },
+];
+
+const ABOUT_FAQ = [
+  ['How long has Ultraclean been cleaning in Swan Hill?', 'Lee has over 10 years of experience in the cleaning industry in Swan Hill and the surrounding towns. Ultraclean Swan Hill is owner-operated: the person who quotes your job is the person who does it.'],
+  ['Are you insured?', 'Yes. Ultraclean carries public liability insurance, our operators are police checked, and Lee holds a White Card for work on building sites. Certificates are available on request for property managers and commercial clients.'],
+  ['What equipment do you use?', 'Truck-mounted hot-water extraction for carpets and upholstery, a CRB (counter-rotating brush) to agitate pre-spray deep into carpet fibres, high-pressure turbo tools for tile and grout, water-fed poles for windows, and commercial air movers for faster drying.'],
+  ['Are your products safe for kids, pets and septic systems?', 'Yes. We use low-residue, biodegradable cleaning products chosen to be safe around children and pets and suitable for the septic systems common on rural properties around Swan Hill.'],
+  ['Do you clean on weekends or after hours?', 'Saturdays are a normal working day. If you need a job done on a Sunday, there is no harm in asking: call 0417 327 173 and we will see if it can be fitted in. Commercial cleaning is done after hours by arrangement.'],
+];
+
+const CONTACT_FAQ = [
+  ['How quickly will I get a quote?', 'Most quotes go back the same business day, often within a couple of hours. Include the rooms, rough sizes and any stains or problem areas in the job notes to get an accurate fixed price straight away.'],
+  ['Do you need to visit before quoting?', 'Usually not for residential jobs — a description or a few photos is enough. For commercial contracts and builders cleans we do a quick site visit so the quote is accurate.'],
+  ['Can I book a time that suits me?', 'Yes. Tell us your preferred days in the job notes. We confirm a time slot and send a text when we are on the way.'],
+  ['Where are you located?', 'Ultraclean Swan Hill operates from Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to 20+ towns across the region, and further on request.'],
+  ['What if I need help urgently?', 'Call 0417 327 173. For an inspection tomorrow or an urgent job in Swan Hill and surrounds we will fit you in wherever we can.'],
+];
+
+const AREAS_FAQ = [
+  ['Which towns does Ultraclean Swan Hill service?', 'Swan Hill, Lake Boga, Kerang, Nyah, Koraleigh, Tooleybuc, Piangil, Wood Wood, Beverford, Murray Downs, Moulamein, Balranald, Sea Lake, Lalbert, Ultima, Quambatook, Barham, Cohuna, Manangatang and Kyalite — 13 towns in Victoria and 7 in New South Wales.'],
+  ['Is there a travel charge for towns outside Swan Hill?', 'Swan Hill and the towns close to it are our standard area. For the further towns a travel component is added and shown in your fixed quote before we book, so there are no surprises on the day.'],
+  ['Do you cross the border into New South Wales?', 'Yes. Murray Downs, Koraleigh, Tooleybuc, Kyalite, Moulamein, Barham and Balranald are all serviced regularly.'],
+  ['My town is not on the list — can you still come?', 'Probably. Send the address through the quote form and we will confirm whether we can fit you into a scheduled run.'],
+  ['How far is Lake Boga from Swan Hill?', 'About 17 km, roughly a 15-minute drive south along the Murray Valley Highway.'],
+];
+
+const RESULTS = {
+  pairs: [
+    { before: 'carpetBefore', after: 'carpetAfter', title: 'Vacate clean, Swan Hill rental', alt: 'bedroom carpet in a Swan Hill rental' },
+    { before: 'heaterBefore', after: 'heaterAfter', title: 'Traffic lane by the wood heater', alt: 'lounge room carpet with a heavy traffic lane beside a wood heater' },
+    { before: 'sofaBefore', after: 'sofaAfter', title: 'Fabric corner lounge', alt: 'grey fabric corner lounge' },
+  ],
+  shots: [
+    { img: 'carpetHalf', caption: 'Carpet, half done', alt: 'Carpet cleaning Swan Hill - lounge room carpet half cleaned showing the difference' },
+    { img: 'tileHalf', caption: 'Tile, half done', alt: 'Tile and grout cleaning Swan Hill - floor half cleaned with a turbo tool' },
+    { img: 'ottomanHalf', caption: 'Ottoman, half done', alt: 'Upholstery cleaning - fabric ottoman half cleaned' },
+    { img: 'cushionHalf', caption: 'Cushion, half done', alt: 'Upholstery cleaning - fabric cushion half cleaned showing the soiling removed' },
+    { img: 'carpetTestPatch', caption: 'Test patch', alt: 'Carpet cleaning test patch on a sunroom carpet showing the difference' },
+    { img: 'carpetMidClean', caption: 'Mid-clean', alt: 'Carpet cleaning in progress - traffic lane lifting mid-clean' },
+    { img: 'carpet', caption: 'Fresh carpet lines', alt: 'Freshly steam cleaned bedroom carpet with clean lines' },
+    { img: 'hardFloorTurbo', caption: 'Hard floor clean', alt: 'Hard floor cleaning with a turbo tool on a timber-look tiled floor' },
+  ],
+};
+
+module.exports = { SITE, IMG, RESULTS, SERVICES: SERVICES.filter((x) => !x.hidden), SERVICES_ALL: SERVICES, HOME_FAQ, AREAS, ABOUT_FAQ, CONTACT_FAQ, AREAS_FAQ };
