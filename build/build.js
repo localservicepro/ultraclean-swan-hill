@@ -272,17 +272,32 @@ function home() {
 
 <section class="intro">
   <div class="wrap intro-grid">
-    <p class="statement reveal">Specialty services, all areas, <span class="em">one local number.</span></p>
+    <div class="intro-left">
+      <p class="statement reveal">Specialty services, all areas, <span class="em">one local number.</span></p>
+      <figure class="wipe reveal" data-d="1">
+        <img class="wipe-after" src="${IMG.heaterAfter}" alt="After - lounge room carpet by a wood heater after Ultraclean steam cleaning" loading="lazy">
+        <img class="wipe-before" src="${IMG.heaterBefore}" alt="Before - the same carpet with a heavy traffic lane before cleaning" loading="lazy">
+        <span class="wipe-line" aria-hidden="true"><span class="wipe-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></span></span>
+        <span class="wipe-tag before" aria-hidden="true">Before</span><span class="wipe-tag after" aria-hidden="true">After</span>
+        <figcaption>Real Ultraclean job: traffic lane by the wood heater</figcaption>
+      </figure>
+    </div>
     <div class="intro-copy reveal" data-d="1">
       <p>Over 10 years of cleaning experience in Swan Hill &amp; the Murray. Local experience. Professional equipment. Quality work. Whether it's in home, rental or workplace, we'll get it sorted for you.</p>
       <p><strong>Ultraclean Swan Hill</strong> is locally owned and based at Lake Boga, covering Swan Hill and the surrounding towns on both sides of the river: carpet steam cleaning, upholstery and rugs, tile and grout, windows, builders cleans, bond cleans and regular commercial contracts.</p>
       <ul class="points">
-        <li>${ICON.tick}<span>Fixed quotes before we start — the price you are told is the price you pay</span></li>
-        <li>${ICON.tick}<span>Professional truck-mounted equipment and safe, low-residue products</span></li>
-        <li>${ICON.tick}<span>Fully insured, police checked, White Card holder, and happy to work around tenants and trading hours</span></li>
-        <li>${ICON.tick}<span>Clear quotes up front — any travel to outlying towns is shown in the price</span></li>
+        <li class="reveal" data-d="1">${ICON.tick}<span>Fixed quotes before we start — the price you are told is the price you pay</span></li>
+        <li class="reveal" data-d="2">${ICON.tick}<span>Professional truck-mounted equipment and safe, low-residue products</span></li>
+        <li class="reveal" data-d="3">${ICON.tick}<span>Fully insured, police checked, White Card holder, and happy to work around tenants and trading hours</span></li>
+        <li class="reveal" data-d="4">${ICON.tick}<span>Clear quotes up front — any travel to outlying towns is shown in the price</span></li>
       </ul>
     </div>
+      <div class="counters reveal" data-d="1">
+        <div><b data-count="10" data-suffix="+">10+</b><span>years local experience</span></div>
+        <div><b data-count="20" data-suffix="+">20+</b><span>towns serviced</span></div>
+        <div><b data-count="${SERVICES.length}">${SERVICES.length}</b><span>specialty services</span></div>
+        <div><b data-count="1">1</b><span>local number to call</span></div>
+      </div>
   </div>
 </section>
 

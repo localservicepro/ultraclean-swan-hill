@@ -76,6 +76,32 @@
     if (d.open) $$('.faq details').forEach((o) => { if (o !== d) o.open = false; });
   }));
 
+  /* intro before/after wipe: auto-sweeps; follows the pointer on hover or drag */
+  $$('.wipe').forEach((w) => {
+    const set = (clientX) => { const r = w.getBoundingClientRect(); const x = Math.min(97, Math.max(3, ((clientX - r.left) / r.width) * 100)); w.style.setProperty('--x', x + '%'); };
+    w.addEventListener('pointermove', (e) => { if (e.pointerType === 'mouse' || w.classList.contains('drag')) { w.classList.add('manual'); set(e.clientX); } });
+    w.addEventListener('pointerdown', (e) => { w.classList.add('manual', 'drag'); set(e.clientX); });
+    ['pointerup', 'pointercancel'].forEach((t) => w.addEventListener(t, () => w.classList.remove('drag')));
+    w.addEventListener('pointerleave', () => { w.classList.remove('drag'); if (!w.dataset.keep) w.classList.remove('manual'); });
+  });
+
+  /* count-up numbers (final values are in the HTML for no-JS and SEO) */
+  const counters = $$('.counters');
+  if (counters.length && 'IntersectionObserver' in window) {
+    const run = (box) => {
+      box.classList.add('in');
+      $$('b[data-count]', box).forEach((b) => {
+        const end = +b.dataset.count, suf = b.dataset.suffix || '';
+        if (reduce || end <= 1) { b.textContent = end + suf; return; }
+        const t0 = performance.now(), dur = 1400;
+        const tick = (t) => { const k = Math.min(1, (t - t0) / dur); b.textContent = Math.round(end * (1 - Math.pow(1 - k, 3))) + suf; if (k < 1) requestAnimationFrame(tick); };
+        b.textContent = '0' + suf; requestAnimationFrame(tick);
+      });
+    };
+    const cio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { run(e.target); cio.unobserve(e.target); } }), { threshold: 0.4 });
+    counters.forEach((c) => cio.observe(c));
+  }
+
   /* hero video: only fetched on desktop, after load, and never on data-saver or reduced-motion */
   const vid = $('.hero-media video[data-src]');
   const saveData = navigator.connection && navigator.connection.saveData;

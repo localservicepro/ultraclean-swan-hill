@@ -624,6 +624,29 @@ h1, h2, h3, p, li, a { overflow-wrap: anywhere; }
 }
 .results-grid figcaption { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 @media (max-width: 600px) { .results-grid figcaption, .pair figcaption { font-size: 11px; letter-spacing: .04em; padding: 5px 8px; left: 8px; } .results-grid figcaption { bottom: 8px; max-width: calc(100% - 16px); } }
+.intro-left { display: grid; gap: 26px; align-content: start; }
+.wipe { position: relative; margin: 0; aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: var(--ink-3); border: 1px solid var(--line-2); box-shadow: 0 30px 60px -30px rgba(0,0,0,.7); --x: 50%; cursor: ew-resize; touch-action: pan-y; user-select: none; }
+.wipe img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+.wipe-before { clip-path: inset(0 calc(100% - var(--x)) 0 0); animation: wipe-clip 7s var(--ease) infinite alternate; }
+.wipe-line { position: absolute; top: 0; bottom: 0; left: var(--x); width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 18px rgba(8,159,236,.9); animation: wipe-left 7s var(--ease) infinite alternate; }
+.wipe-knob { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; box-shadow: 0 0 0 6px rgba(8,159,236,.25), 0 8px 20px rgba(0,0,0,.45); }
+.wipe-knob svg { width: 20px; height: 20px; }
+.wipe-tag { position: absolute; top: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 999px; background: rgba(4,20,36,.8); color: #fff; }
+.wipe-tag.before { left: 14px; } .wipe-tag.after { right: 14px; background: var(--accent); color: var(--accent-ink); }
+.wipe figcaption { position: absolute; left: 14px; right: 14px; bottom: 14px; font-size: .85rem; color: #fff; text-shadow: 0 1px 8px rgba(0,0,0,.8); }
+@keyframes wipe-clip { from { clip-path: inset(0 15% 0 0); } to { clip-path: inset(0 85% 0 0); } }
+@keyframes wipe-left { from { left: 85%; } to { left: 15%; } }
+.wipe.manual .wipe-before, .wipe.manual .wipe-line { animation: none; }
+.wipe.manual .wipe-before { clip-path: inset(0 calc(100% - var(--x)) 0 0); }
+.wipe.manual .wipe-line { left: var(--x); }
+.counters { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.counters > div { padding: 20px 18px; border-radius: 14px; background: var(--ink-2); border: 1px solid var(--line); position: relative; overflow: hidden; }
+.counters > div::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: linear-gradient(90deg, var(--accent), transparent); transform: scaleX(0); transform-origin: left; transition: transform 1.4s var(--ease) .3s; }
+.counters.in > div::after { transform: scaleX(1); }
+.counters b { display: block; font-family: var(--display); font-weight: 800; font-size: clamp(1.7rem, 2.6vw, 2.4rem); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.counters span { display: block; margin-top: 8px; font-size: .82rem; line-height: 1.3; color: var(--text-2); }
+@media (max-width: 600px) { .counters { grid-template-columns: repeat(2, minmax(0, 1fr)); } .wipe-knob { width: 36px; height: 36px; margin: -18px 0 0 -18px; } }
+@media (prefers-reduced-motion: reduce) { .wipe-before, .wipe-line { animation: none; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Thank you","isPartOf":{"@id":"https://ultracleanswanhill.com.au/#business"}}</script>
 <!-- GHL / LeadConnector form-submission tracking -->
