@@ -283,7 +283,7 @@ const SERVICES = [
       ['h2', 'Builders cleans'],
       ['p', 'A builders clean is the last trade on a new home or fit-out before handover. We remove plaster dust from every surface, clean paint and silicone marks from glass, detail the kitchen and bathrooms, polish tapware and leave the site looking like the display photos. We work with builders and owner-builders across Swan Hill, Lake Boga and Kerang and can do a rough clean at lock-up and a final detail clean at completion.'],
       ['h2', 'Insured and accountable'],
-      ['p', 'Ultraclean is fully insured. You deal with the same local person every time, and if anything is not right you call us and it is fixed on the next visit — no head office, no call centre.'],
+      ['p', 'Ultraclean is fully insured and Lee holds a White Card, so builders cleans on active sites are covered. You deal with the same local person every time, and if anything is not right you call us and it is fixed on the next visit — no head office, no call centre.'],
     ],
     faq: [
       ['Do you offer regular commercial cleaning contracts in Swan Hill?', 'Yes. We set up weekly, fortnightly or multi-night schedules for offices, shops and clinics in Swan Hill and the surrounding towns, all cleaned after hours.'],
@@ -364,17 +364,17 @@ const AREAS = [
 
 const ABOUT_FAQ = [
   ['How long has Ultraclean been cleaning in Swan Hill?', 'Lee has over 10 years of experience in the cleaning industry in Swan Hill and the surrounding towns. Ultraclean Swan Hill is owner-operated: the person who quotes your job is the person who does it.'],
-  ['Are you insured?', 'Yes. Ultraclean carries public liability insurance and our operators are police checked. Certificates are available on request for property managers and commercial clients.'],
+  ['Are you insured?', 'Yes. Ultraclean carries public liability insurance, our operators are police checked, and Lee holds a White Card for work on building sites. Certificates are available on request for property managers and commercial clients.'],
   ['What equipment do you use?', 'Truck-mounted hot-water extraction for carpets and upholstery, a CRB (counter-rotating brush) to agitate pre-spray deep into carpet fibres, high-pressure turbo tools for tile and grout, water-fed poles for windows, and commercial air movers for faster drying.'],
   ['Are your products safe for kids, pets and septic systems?', 'Yes. We use low-residue, biodegradable cleaning products chosen to be safe around children and pets and suitable for the septic systems common on rural properties around Swan Hill.'],
-  ['Do you clean on weekends or after hours?', 'Saturdays are a normal working day, and commercial cleaning is done after hours by arrangement.'],
+  ['Do you clean on weekends or after hours?', 'Saturdays are a normal working day. If you need a job done on a Sunday, there is no harm in asking: call 0417 327 173 and we will see if it can be fitted in. Commercial cleaning is done after hours by arrangement.'],
 ];
 
 const CONTACT_FAQ = [
   ['How quickly will I get a quote?', 'Most quotes go back the same business day, often within a couple of hours. Include the rooms, rough sizes and any stains or problem areas in the job notes to get an accurate fixed price straight away.'],
   ['Do you need to visit before quoting?', 'Usually not for residential jobs — a description or a few photos is enough. For commercial contracts and builders cleans we do a quick site visit so the quote is accurate.'],
   ['Can I book a time that suits me?', 'Yes. Tell us your preferred days in the job notes. We confirm a time slot and send a text when we are on the way.'],
-  ['Where are you located?', 'Ultraclean Swan Hill operates from Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to all 20 towns in the service area.'],
+  ['Where are you located?', 'Ultraclean Swan Hill operates from Lake Boga VIC 3584, about 17 km south of Swan Hill, and travels to 20+ towns across the region, and further on request.'],
   ['What if I need help urgently?', 'Call 0417 327 173. For an inspection tomorrow or an urgent job in Swan Hill and surrounds we will fit you in wherever we can.'],
 ];
 
