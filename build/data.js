@@ -5,7 +5,7 @@ const SITE = {
   tagline: 'A higher standard of clean.',
   shortName: 'Ultraclean',
   // TODO: replace with the real domain once registered (used for canonical, OG and sitemap URLs)
-  domain: 'https://ultracleanswanhill.com.au',
+  domain: 'https://www.ultracleanswanhill.com.au', // live domain; the bare domain redirects here
   phoneDisplay: '0417 327 173',
   phoneTel: '+61417327173',
   email: 'Ultracleanswanhill@gmail.com',

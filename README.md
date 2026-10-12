@@ -17,7 +17,7 @@ Built for Vercel: `vercel.json` turns on Vercel Image Optimization, and the buil
 Performance notes: CSS is inlined at build time, fonts are self-hosted woff2 in `assets/fonts/` (Exo 2 for headings to match the logo, Hanken Grotesk body, JetBrains Mono details), the GHL tracking script is `defer`red, and the hero video is only fetched on desktop after page load (mobile gets the optimized poster image).
 
 ## Before launch
-1. Set the real domain in `build/data.js` (`SITE.domain`) and rebuild — canonical, OG and sitemap URLs use it.
+1. ~~Set the real domain~~ Done: `SITE.domain` is `https://www.ultracleanswanhill.com.au` (the bare domain redirects to www). Canonical, OG, schema and sitemap URLs use it.
 2. Client job photos live in `assets/photos/` (from the Drive folder "Photos / Initial Web Images"). The uniform/van shots were rebranded from AustClean to the official Ultra Clean logo (`assets/brand/`) with Higgsfield and, like the hero video, are hosted on Higgsfield's CDN — download and self-host those before go-live.
 3. Confirm opening hours (`SITE.hours`) — currently a placeholder of Mon–Sat 7am–6pm.
 4. Test a live form submission end-to-end in GHL: the LeadConnector `external-tracking.js` script captures the submit; the form has no other endpoint.

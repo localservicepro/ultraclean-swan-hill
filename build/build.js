@@ -48,6 +48,7 @@ const ICON = {
 };
 
 /* ---------- layout ---------- */
+const abs = (u) => (u && u.startsWith('/') ? SITE.domain + u : u); // absolute URL for OG/schema
 function head({ title, meta, canonical, ogImage, schema, extra = '', preload = '' }) {
   return `<!DOCTYPE html>
 <html lang="en-AU">
@@ -64,7 +65,7 @@ function head({ title, meta, canonical, ogImage, schema, extra = '', preload = '
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(meta)}">
 <meta property="og:url" content="${SITE.domain}${canonical}">
-<meta property="og:image" content="${ogImage}">
+<meta property="og:image" content="${abs(ogImage)}">
 <meta property="og:locale" content="en_AU">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="64x64">
@@ -217,7 +218,7 @@ const faqSchema = (items) => ({ '@type': 'FAQPage', mainEntity: items.map(([q, a
 
 const localBusiness = () => ({
   '@type': 'LocalBusiness', '@id': SITE.domain + '/#business', name: SITE.name, url: SITE.domain, telephone: SITE.phoneTel, email: SITE.email,
-  image: IMG.hero, logo: SITE.domain + '/assets/img/logo.png', priceRange: '$$',
+  image: abs(IMG.hero), logo: SITE.domain + '/assets/img/logo.png', priceRange: '$$',
   address: { '@type': 'PostalAddress', streetAddress: SITE.address.street, addressLocality: SITE.address.locality, addressRegion: SITE.address.region, postalCode: SITE.address.postcode, addressCountry: SITE.address.country },
   geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng },
   openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '07:00', closes: '18:00' }],
@@ -458,7 +459,7 @@ function servicePage(s) {
   }).join('\n');
   const related = s.related.map((r) => `<li><a href="/services/${r}/">${esc(bySlug[r].nav)} ${ICON.arrNE}</a></li>`).join('');
   const schema = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'Service', '@id': `${SITE.domain}/services/${s.slug}/#service`, name: s.nav, serviceType: s.nav, description: s.meta, url: `${SITE.domain}/services/${s.slug}/`, image: IMG[s.img], provider: { '@id': SITE.domain + '/#business' }, areaServed: SITE.areasAll.map((t) => ({ '@type': 'City', name: t })) },
+    { '@type': 'Service', '@id': `${SITE.domain}/services/${s.slug}/#service`, name: s.nav, serviceType: s.nav, description: s.meta, url: `${SITE.domain}/services/${s.slug}/`, image: abs(IMG[s.img]), provider: { '@id': SITE.domain + '/#business' }, areaServed: SITE.areasAll.map((t) => ({ '@type': 'City', name: t })) },
     localBusiness(),
     { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE.domain + '/' }, { '@type': 'ListItem', position: 2, name: 'Services', item: SITE.domain + '/#services' }, { '@type': 'ListItem', position: 3, name: s.nav, item: `${SITE.domain}/services/${s.slug}/` }] },
     faqSchema(s.faq),
@@ -800,7 +801,7 @@ function postCard(p, d = 0) {
 function blogIndex() {
   const schema = { '@context': 'https://schema.org', '@graph': [
     { '@type': 'Blog', '@id': SITE.domain + '/blog/#blog', url: SITE.domain + '/blog/', name: 'Ultraclean Swan Hill guides', publisher: { '@id': SITE.domain + '/#business' },
-      blogPost: POSTS.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.domain}/blog/${p.slug}/`, datePublished: p.date, image: IMG[p.img] })) },
+      blogPost: POSTS.map((p) => ({ '@type': 'BlogPosting', headline: p.title, url: `${SITE.domain}/blog/${p.slug}/`, datePublished: p.date, image: abs(IMG[p.img]) })) },
     localBusiness(), breadcrumbSchema([['Blog', '/blog/', '/blog/']]),
   ] };
   return head({ title: 'Cleaning Guides for Swan Hill Homes & Renters | Ultraclean Blog', meta: 'Plain-English guides from Ultraclean Swan Hill: carpet cleaning costs and the end of lease checklist local agents use.', canonical: '/blog/', ogImage: IMG.carpet, schema }) + nav('blog') + `
@@ -835,7 +836,7 @@ function blogPost(p) {
   }).join('\n');
   const related = p.related.map((r) => postBySlug[r]).filter(Boolean);
   const schema = { '@context': 'https://schema.org', '@graph': [
-    { '@type': 'BlogPosting', '@id': `${SITE.domain}/blog/${p.slug}/#post`, headline: p.title, description: p.meta, image: IMG[p.img], datePublished: p.date, dateModified: p.date,
+    { '@type': 'BlogPosting', '@id': `${SITE.domain}/blog/${p.slug}/#post`, headline: p.title, description: p.meta, image: abs(IMG[p.img]), datePublished: p.date, dateModified: p.date,
       author: { '@type': 'Organization', name: SITE.name, url: SITE.domain }, publisher: { '@id': SITE.domain + '/#business' },
       mainEntityOfPage: `${SITE.domain}/blog/${p.slug}/`, keywords: p.keyword, wordCount: wordCount(p), inLanguage: 'en-AU',
       about: { '@type': 'Place', name: 'Swan Hill, Victoria, Australia' } },
