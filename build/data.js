@@ -8,7 +8,7 @@ const SITE = {
   domain: 'https://www.ultracleanswanhill.com.au', // live domain; the bare domain redirects here
   phoneDisplay: '0417 327 173',
   phoneTel: '+61417327173',
-  email: 'Ultracleanswanhill@gmail.com',
+  email: 'info@ultracleanswanhill.com.au',
   address: { street: '529 Lakeside Drive', locality: 'Lake Boga', region: 'VIC', postcode: '3584', country: 'AU' },
   geo: { lat: -35.4605, lng: 143.4635 },
   hours: 'Mon–Sat 7:00am – 6:00pm',
